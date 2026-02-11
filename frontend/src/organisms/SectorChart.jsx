@@ -11,7 +11,6 @@ import {
   ReferenceLine,
 } from "recharts";
 import { ChartTooltip } from "../molecules/index.js";
-import { getCellColor } from "../atoms/tokens/semantic.js";
 import { theme } from "../atoms/tokens/theme.js";
 
 const BASE_DATE = "2026-02-03";
@@ -153,36 +152,6 @@ export default function SectorChart({ columns, rows, baselineDate, ltmHighData, 
           </ResponsiveContainer>
         </div>
       )}
-      <div style={{ marginTop: 16, paddingTop: 12, borderTop: `1px solid ${theme.border}` }}>
-        <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: theme.textMuted, marginBottom: 8 }}>LTM High (Last Twelve Months)</div>
-        <div style={{ fontSize: 8, color: theme.textTertiary, marginBottom: 6 }}>
-          Peak % above Feb 3 baseline. Run <code style={{ fontSize: 8 }}>npm run fetch:ltm</code> for real data.
-        </div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px" }}>
-          {sectors.map((sectorId) => {
-            const meta = SECTOR_META[sectorId];
-            const val = ltmHigh[sectorId];
-            const peakDate = ltmHighDates[sectorId];
-            const c = getCellColor(val, "category");
-            return (
-              <span
-                key={sectorId}
-                style={{
-                  fontSize: 10,
-                  padding: "2px 6px",
-                  borderRadius: 3,
-                  background: c.bg,
-                  color: c.text,
-                  fontWeight: 600,
-                }}
-              >
-                {meta.icon} {meta.name}: {val != null ? `${val > 0 ? "+" : ""}${val.toFixed(1)}%` : "—"}
-                {peakDate && <span style={{ opacity: 0.85, marginLeft: 4 }}>({peakDate})</span>}
-              </span>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }

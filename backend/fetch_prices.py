@@ -19,6 +19,7 @@ from yf_fallback import get_quote as yf_get_quote, get_historical_eod as yf_get_
 
 # Tickers on international exchanges: Yahoo often has better coverage than FMP
 YAHOO_FIRST_TICKERS = frozenset({"XRO.AX", "SGE.L", "TOTS3.SA", "4478.T", "SDR.AX"})
+YAHOO_EXCLUDED = frozenset({"SMAR"})  # FMP only — Yahoo has no/incorrect data
 MAX_RETRIES = 2
 RETRY_DELAY_SEC = 2
 
@@ -42,6 +43,7 @@ def _is_valid_quote(q) -> bool:
 def _fetch_quote_with_fallback(ticker: str, fetcher) -> tuple[dict | None, bool]:
     """Fetch quote: Yahoo-first for international tickers, else FMP then Yahoo. Returns (quote, used_yahoo)."""
     use_yahoo_first = ticker in YAHOO_FIRST_TICKERS
+    yahoo_excluded = ticker in YAHOO_EXCLUDED
     for attempt in range(MAX_RETRIES + 1):
         q = None
         if use_yahoo_first:
@@ -63,9 +65,10 @@ def _fetch_quote_with_fallback(ticker: str, fetcher) -> tuple[dict | None, bool]
                     pass
             if _is_valid_quote(q):
                 return (q, False)
-            q = yf_get_quote(ticker)
-            if _is_valid_quote(q):
-                return (q, True)
+            if not yahoo_excluded:
+                q = yf_get_quote(ticker)
+                if _is_valid_quote(q):
+                    return (q, True)
         if attempt < MAX_RETRIES:
             time.sleep(RETRY_DELAY_SEC)
     return (None, False)
@@ -74,6 +77,7 @@ def _fetch_quote_with_fallback(ticker: str, fetcher) -> tuple[dict | None, bool]
 def _fetch_historical_with_fallback(ticker: str, from_date: str, to_date: str, fetcher) -> tuple[list | None, bool]:
     """Fetch historical EOD: Yahoo-first for international tickers, else FMP then Yahoo. Returns (rows, used_yahoo)."""
     use_yahoo_first = ticker in YAHOO_FIRST_TICKERS
+    yahoo_excluded = ticker in YAHOO_EXCLUDED
     for attempt in range(MAX_RETRIES + 1):
         rows = None
         if use_yahoo_first:
@@ -95,9 +99,10 @@ def _fetch_historical_with_fallback(ticker: str, from_date: str, to_date: str, f
                     pass
             if _is_valid_historical(rows):
                 return (rows, False)
-            rows = yf_get_historical_eod(ticker, from_date, to_date)
-            if _is_valid_historical(rows):
-                return (rows, True)
+            if not yahoo_excluded:
+                rows = yf_get_historical_eod(ticker, from_date, to_date)
+                if _is_valid_historical(rows):
+                    return (rows, True)
         if attempt < MAX_RETRIES:
             time.sleep(RETRY_DELAY_SEC)
     return (None, False)
@@ -520,7 +525,61 @@ def backfill(start_date="2026-02-03"):
 
         print(f"  ✅ {date_str}: {len(snapshot['tickers'])} tickers")
 
+    _patch_daily_missing_tickers()
     print(f"\nBackfill complete.")
+
+
+def _patch_daily_missing_tickers():
+    """Merge missing tickers into existing daily files (e.g. SMAR added after initial backfill)."""
+    daily_files = sorted(DATA_DIR.glob("2026-*.json"))
+    if not daily_files:
+        return
+    all_tickers = set(TICKERS.keys())
+    fetcher = _get_fetcher()
+    fetch_start = (datetime.strptime("2026-02-01", "%Y-%m-%d") - timedelta(days=5)).strftime("%Y-%m-%d")
+    end_date = datetime.now().strftime("%Y-%m-%d")
+    patched_count = 0
+    for ticker in all_tickers:
+        rows, _ = _fetch_historical_with_fallback(ticker, fetch_start, end_date, fetcher)
+        if not rows:
+            continue
+        sorted_rows = sorted(rows, key=lambda r: r.get("date", ""))
+        by_date = {r.get("date", "")[:10]: r for r in sorted_rows if r.get("close") is not None}
+        for daily_path in daily_files:
+            date_str = daily_path.name.replace(".json", "")
+            if date_str not in by_date:
+                continue
+            daily = json.loads(daily_path.read_text())
+            tickers_data = daily.get("tickers", {})
+            if ticker in tickers_data:
+                continue
+            curr = by_date[date_str]
+            idx = next((i for i, r in enumerate(sorted_rows) if r.get("date", "")[:10] == date_str), -1)
+            prev_close = float(sorted_rows[idx - 1].get("close", 0)) if idx > 0 else float(curr.get("close", 0))
+            current = float(curr.get("close", 0))
+            daily_change = ((current - prev_close) / prev_close) * 100 if prev_close else 0
+            tickers_data[ticker] = {
+                "name": TICKERS[ticker]["name"],
+                "sector": TICKERS[ticker]["sector"],
+                "close": round(current, 2),
+                "prev_close": round(prev_close, 2),
+                "daily_pct": round(daily_change, 2),
+            }
+            for sector_id, sector_info in SECTORS.items():
+                changes = [tickers_data[t]["daily_pct"] for t in sector_info["tickers"] if t in tickers_data]
+                if changes:
+                    daily["sectors"][sector_id] = {
+                        "name": sector_info["name"],
+                        "avg_daily_pct": round(sum(changes) / len(changes), 2),
+                        "tickers_tracked": len(changes),
+                        "tickers_total": len(sector_info["tickers"]),
+                    }
+            with open(daily_path, "w") as f:
+                json.dump(daily, f, indent=2)
+            patched_count += 1
+            print(f"  📋 Patched {ticker} into {daily_path.name}")
+    if patched_count:
+        print(f"  ✅ Patched {patched_count} missing ticker entries into daily files")
 
 
 def fetch_ltm_high(zero_date="2026-02-03"):

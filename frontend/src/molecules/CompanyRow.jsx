@@ -29,7 +29,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
           padding: "4px 10px 4px 28px",
           fontSize: 10,
           color: theme.textMuted,
-          background: theme.surface,
+          background: theme.surfaceAlt,
           borderBottom: `1px solid ${theme.borderLight}`,
           position: "sticky",
           left: 0,
@@ -61,7 +61,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
         );
       })}
       {(() => {
-        const c = cumVal != null ? getCellColor(cumVal, "member") : { bg: theme.surface, text: theme.textTertiary };
+        const c = cumVal != null ? getCellColor(cumVal, "member") : { bg: theme.surfaceAlt, text: theme.textTertiary };
         return (
           <td
             key="cum"
@@ -88,7 +88,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
           const ltmHighIndex = 100 * (1 + ltmPct / 100);
           deltaLtm = Math.round(((currentIndex - ltmHighIndex) / ltmHighIndex) * 1000) / 10;
         }
-        const c = deltaLtm != null ? getCellColor(deltaLtm, "member") : { bg: theme.surface, text: theme.textTertiary };
+        const c = deltaLtm != null ? getCellColor(deltaLtm, "member") : { bg: theme.surfaceAlt, text: theme.textTertiary };
         return (
           <td
             key="ltm"
@@ -107,7 +107,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
           </td>
         );
       })()}
-      <td style={{ padding: "4px 8px", textAlign: "center", fontSize: 10, color: theme.textTertiary, background: theme.surface, borderBottom: `1px solid ${theme.borderLight}` }}>—</td>
+      <td style={{ padding: "4px 8px", textAlign: "center", fontSize: 10, color: theme.textTertiary, background: theme.surfaceAlt, borderBottom: `1px solid ${theme.borderLight}` }}>—</td>
     </tr>
   );
 }

@@ -460,7 +460,7 @@ export default function Tracker() {
                       style={{
                         padding: "8px 10px",
                         fontWeight: 700,
-                        background: theme.white,
+                        background: isExpanded ? theme.surfaceAlt : theme.surface,
                         borderBottom: isExpanded ? "none" : `1px solid ${theme.borderLight}`,
                         position: "sticky",
                         left: 0,
@@ -482,7 +482,7 @@ export default function Tracker() {
                           style={{
                             padding: "6px 8px",
                             textAlign: "center",
-                            background: c.bg,
+                            background: isExpanded ? c.bg : theme.surface,
                             color: c.text,
                             fontWeight: 700,
                             borderBottom: isExpanded ? "none" : `1px solid ${theme.borderLight}`,
@@ -502,7 +502,7 @@ export default function Tracker() {
                           style={{
                             padding: "6px 8px",
                             textAlign: "center",
-                            background: c.bg,
+                            background: isExpanded ? c.bg : theme.surface,
                             color: c.text,
                             fontWeight: 700,
                             borderBottom: isExpanded ? "none" : `1px solid ${theme.borderLight}`,
@@ -529,7 +529,7 @@ export default function Tracker() {
                           style={{
                             padding: "6px 8px",
                             textAlign: "center",
-                            background: c.bg,
+                            background: isExpanded ? c.bg : theme.surface,
                             color: c.text,
                             fontWeight: 700,
                             borderBottom: isExpanded ? "none" : `1px solid ${theme.borderLight}`,
@@ -561,6 +561,39 @@ export default function Tracker() {
             })}
           </tbody>
         </table>
+      </div>
+
+      {/* LTM High dates per sector — right after table, before line graphs */}
+      <div style={{ marginTop: 16, padding: "12px 16px", borderRadius: 8, border: `1px solid ${theme.border}`, background: theme.surface }}>
+        <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: theme.textMuted, marginBottom: 8 }}>LTM High (Last Twelve Months)</div>
+        <div style={{ fontSize: 8, color: theme.textTertiary, marginBottom: 6 }}>
+          Peak % above Feb 3 baseline. Run <code style={{ fontSize: 8 }}>npm run fetch:ltm</code> for real data.
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px" }}>
+          {sectorOrder.map((sectorId) => {
+            const meta = SECTOR_META[sectorId];
+            const val = ltmHighData?.sectors?.[sectorId]?.ltm_high_pct ?? null;
+            const highDate = ltmHighData?.sectors?.[sectorId]?.high_date;
+            const peakDate = highDate ? new Date(highDate + "T12:00:00").toLocaleDateString("en-US", { month: "short", year: "numeric" }) : null;
+            const c = val != null ? getCellColor(val, "category") : { bg: theme.surface, text: theme.textMuted };
+            return (
+              <span
+                key={sectorId}
+                style={{
+                  fontSize: 10,
+                  padding: "2px 6px",
+                  borderRadius: 3,
+                  background: c.bg,
+                  color: c.text,
+                  fontWeight: 600,
+                }}
+              >
+                {meta.icon} {meta.name}: {val != null ? `${val > 0 ? "+" : ""}${val.toFixed(1)}%` : "—"}
+                {peakDate && <span style={{ opacity: 0.85, marginLeft: 4 }}>({peakDate})</span>}
+              </span>
+            );
+          })}
+        </div>
       </div>
 
       <SectorChart columns={columns} rows={cumulativeRows} baselineDate={baselineDate} ltmHighData={ltmHighData} sectors={sectorOrder} SECTOR_META={SECTOR_META} />
