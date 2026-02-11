@@ -437,7 +437,21 @@ export default function Tracker() {
               const isExpanded = expandedSector === sectorId;
               const sectorData = rows[sectorId] || [];
               const sectorDef = SECTORS.find((s) => s.id === sectorId);
-              const publicTickers = sectorDef?.companies.filter((c) => c.status === "public") || [];
+              const publicTickersRaw = sectorDef?.companies.filter((c) => c.status === "public") || [];
+              const lastCol = columns[columns.length - 1];
+              const lastDay = lastCol?.data?.[lastCol.data.length - 1];
+              const base = baseline || {};
+              const publicTickers = [...publicTickersRaw].sort((a, b) => {
+                const baseA = base[a.ticker];
+                const closeA = lastDay?.tickers?.[a.ticker]?.close;
+                const cumA = baseA != null && closeA != null && baseA > 0 ? ((closeA - baseA) / baseA) * 100 : null;
+                const baseB = base[b.ticker];
+                const closeB = lastDay?.tickers?.[b.ticker]?.close;
+                const cumB = baseB != null && closeB != null && baseB > 0 ? ((closeB - baseB) / baseB) * 100 : null;
+                const absA = cumA != null ? Math.abs(cumA) : 0;
+                const absB = cumB != null ? Math.abs(cumB) : 0;
+                return absB - absA;
+              });
 
               return (
                 <React.Fragment key={sectorId}>
