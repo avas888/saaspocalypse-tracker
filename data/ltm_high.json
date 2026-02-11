@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-11T12:15:07.176336",
+  "fetched_at": "2026-02-11T15:05:28.300433",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {
@@ -50,14 +50,6 @@
       "high_date": "2025-07-30",
       "zero_price": 434.09,
       "ltm_high_pct": 86.0
-    },
-    "XRO.AX": {
-      "name": "Xero",
-      "sector": "accounting",
-      "high_price": 194.21,
-      "high_date": "2025-06-25",
-      "zero_price": 96.1,
-      "ltm_high_pct": 102.09
     },
     "SGE.L": {
       "name": "Sage Group",
@@ -227,69 +219,29 @@
       "zero_price": 3.1,
       "ltm_high_pct": 118.06
     },
-    "SMAR": {
-      "name": "Smartsheet",
-      "sector": "project",
-      "high_price": 56.47,
-      "high_date": "2026-02-11",
-      "zero_price": 56.47,
-      "ltm_high_pct": 0.0
-    },
-    "SQSP": {
-      "name": "Squarespace",
-      "sector": "ecommerce",
-      "high_price": 46.57,
-      "high_date": "2026-02-11",
-      "zero_price": 46.57,
-      "ltm_high_pct": 0.0
-    },
     "CSU.TO": {
       "name": "Constellation Software",
       "sector": "consolidators",
-      "high_price": 2327.36,
-      "high_date": "2026-02-11",
-      "zero_price": 2327.36,
-      "ltm_high_pct": 0.0
-    },
-    "OTEX": {
-      "name": "OpenText",
-      "sector": "consolidators",
-      "high_price": 24.24,
-      "high_date": "2026-02-11",
-      "zero_price": 24.24,
-      "ltm_high_pct": 0.0
+      "high_price": 5176.69,
+      "high_date": "2025-05-08",
+      "zero_price": 2288.91,
+      "ltm_high_pct": 126.16
     },
     "ASUR": {
       "name": "Asure Software",
       "sector": "consolidators",
-      "high_price": 8.0,
-      "high_date": "2026-02-11",
-      "zero_price": 8.0,
-      "ltm_high_pct": 0.0
-    },
-    "TYL": {
-      "name": "Tyler Technologies",
-      "sector": "consolidators",
-      "high_price": 341.63,
-      "high_date": "2026-02-11",
-      "zero_price": 341.63,
-      "ltm_high_pct": 0.0
-    },
-    "DSG.TO": {
-      "name": "Descartes Systems",
-      "sector": "consolidators",
-      "high_price": 88.57,
-      "high_date": "2026-02-11",
-      "zero_price": 88.57,
-      "ltm_high_pct": 0.0
+      "high_price": 11.95,
+      "high_date": "2025-02-04",
+      "zero_price": 9.49,
+      "ltm_high_pct": 25.92
     },
     "UPLD": {
       "name": "Upland Software",
       "sector": "consolidators",
-      "high_price": 1.08,
-      "high_date": "2026-02-11",
-      "zero_price": 1.08,
-      "ltm_high_pct": 0.0
+      "high_price": 4.71,
+      "high_date": "2025-02-18",
+      "zero_price": 1.31,
+      "ltm_high_pct": 259.54
     }
   },
   "sectors": {
@@ -302,16 +254,16 @@
     },
     "project": {
       "name": "Project Management",
-      "ltm_high_pct": 128.3,
+      "ltm_high_pct": 192.45,
       "high_date": "2025-02-11",
-      "tickers_tracked": 3,
+      "tickers_tracked": 2,
       "tickers_total": 3
     },
     "accounting": {
       "name": "SMB Accounting",
-      "ltm_high_pct": 63.11,
-      "high_date": "2025-06-25",
-      "tickers_tracked": 5,
+      "ltm_high_pct": 53.37,
+      "high_date": "2025-07-30",
+      "tickers_tracked": 4,
       "tickers_total": 5
     },
     "payroll": {
@@ -344,17 +296,17 @@
     },
     "ecommerce": {
       "name": "E-Commerce & Retail SaaS",
-      "ltm_high_pct": 84.11,
+      "ltm_high_pct": 105.14,
       "high_date": "2025-02-12",
-      "tickers_tracked": 5,
+      "tickers_tracked": 4,
       "tickers_total": 5
     },
     "consolidators": {
       "name": "SaaS Software Consolidators",
-      "ltm_high_pct": 0.0,
-      "high_date": "2026-02-11",
-      "tickers_tracked": 6,
-      "tickers_total": 6
+      "ltm_high_pct": 137.21,
+      "high_date": "2025-02-18",
+      "tickers_tracked": 3,
+      "tickers_total": 3
     }
   }
 }

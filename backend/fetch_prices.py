@@ -624,11 +624,14 @@ def fetch_ltm_high(zero_date="2026-02-03"):
         if not closes:
             continue
 
-        high_price = max(c for _, c in closes)
-        high_date = next(d for d, c in closes if c == high_price)
+        # LTM high = peak in period on or before zero_date (pre-SaaSpocalypse only)
         on_or_before = [(d, c) for d, c in closes if d <= zero_date]
         on_or_before_sorted = sorted(on_or_before, key=lambda x: x[0], reverse=True)
         zero_price = on_or_before_sorted[0][1] if on_or_before_sorted else closes[0][1]
+        if not on_or_before:
+            continue
+        high_price = max(c for _, c in on_or_before)
+        high_date = next(d for d, c in on_or_before if c == high_price)
 
         ltm_pct = ((high_price - zero_price) / zero_price) * 100 if zero_price else 0
 
