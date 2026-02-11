@@ -18,7 +18,7 @@ from fmp_fetcher import FMPFetcher
 from yf_fallback import get_quote as yf_get_quote, get_historical_eod as yf_get_historical_eod
 
 # Tickers on international exchanges: Yahoo often has better coverage than FMP
-YAHOO_FIRST_TICKERS = frozenset({"XRO.AX", "SGE.L", "TOTS3.SA", "4478.T", "SDR.AX", "CSU.TO", "DSG.TO"})
+YAHOO_FIRST_TICKERS = frozenset({"XRO.AX", "SGE.L", "TOTS3.SA", "4478.T", "SDR.AX", "CSU.TO"})
 YAHOO_EXCLUDED = frozenset({"SMAR"})  # FMP only — Yahoo has no/incorrect data
 MAX_RETRIES = 2
 RETRY_DELAY_SEC = 2
@@ -157,9 +157,6 @@ TICKERS = {
     "VTEX":     {"name": "VTEX",             "sector": "ecommerce"},
     # SaaS Software Consolidators
     "CSU.TO":   {"name": "Constellation Software", "sector": "consolidators"},
-    "DSG.TO":   {"name": "Descartes Systems",      "sector": "consolidators"},
-    "TYL":      {"name": "Tyler Technologies",    "sector": "consolidators"},
-    "OTEX":     {"name": "OpenText",              "sector": "consolidators"},
     "ASUR":     {"name": "Asure Software",        "sector": "consolidators"},
     "UPLD":     {"name": "Upland Software",       "sector": "consolidators"},
 }
@@ -174,7 +171,7 @@ SECTORS = {
     "hotel":      {"name": "Hotel PMS",               "tickers": ["AGYS", "SABR", "SDR.AX"]},
     "document":   {"name": "Document & E-Sign",       "tickers": ["DOCU", "DBX"]},
     "ecommerce":  {"name": "E-Commerce & Retail SaaS", "tickers": ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"]},
-    "consolidators": {"name": "SaaS Software Consolidators", "tickers": ["CSU.TO", "DSG.TO", "TYL", "OTEX", "ASUR", "UPLD"]},
+    "consolidators": {"name": "SaaS Software Consolidators", "tickers": ["CSU.TO", "ASUR", "UPLD"]},
 }
 
 DATA_DIR = Path(__file__).parent.parent / "data"

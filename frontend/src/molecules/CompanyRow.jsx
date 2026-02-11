@@ -1,7 +1,7 @@
 import { getCellColor } from "../atoms/tokens/semantic.js";
 import { theme } from "../atoms/tokens/theme.js";
 
-export default function CompanyRow({ company, columns, baseline, ltmHighData }) {
+export default function CompanyRow({ company, columns, baseline, ltmHighData, onClick, isClickable }) {
   const base = baseline[company.ticker];
   const vals = columns.map((col, colIdx) => {
     const lastDay = col.data[col.data.length - 1];
@@ -23,7 +23,10 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
   })();
 
   return (
-    <tr>
+    <tr
+      onClick={isClickable ? onClick : undefined}
+      style={isClickable ? { cursor: "pointer" } : undefined}
+    >
       <td
         style={{
           padding: "4px 10px 4px 28px",
@@ -39,6 +42,11 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
         }}
       >
         {company.name} <span style={{ color: theme.textTertiary }}>{company.ticker}</span>
+        {isClickable && (
+          <span style={{ fontSize: 8, padding: "1px 5px", borderRadius: 3, background: theme.surface, color: theme.textTertiary, fontWeight: 700, fontFamily: "monospace", marginLeft: 6 }}>
+            Learn more →
+          </span>
+        )}
       </td>
       {vals.map((val, ci) => {
         const c = getCellColor(val, "member");

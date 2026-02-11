@@ -95,8 +95,5 @@ The API lists `.json` files in `data/` and serves individual files. Baseline is 
 | SQSP | Squarespace | E-Commerce | NYSE |
 | VTEX | VTEX | E-Commerce | NYSE |
 | CSU.TO | Constellation Software | Consolidators | TSX |
-| DSG.TO | Descartes Systems | Consolidators | TSX |
-| TYL | Tyler Technologies | Consolidators | NYSE |
-| OTEX | OpenText | Consolidators | NASDAQ |
 | ASUR | Asure Software | Consolidators | NASDAQ |
 | UPLD | Upland Software | Consolidators | NASDAQ |

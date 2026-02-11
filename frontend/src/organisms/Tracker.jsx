@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SECTORS } from "../sectors.js";
 import { CompanyRow } from "../molecules/index.js";
 import SectorChart from "./SectorChart.jsx";
+import ConsolidatorDetailModal from "./ConsolidatorDetailModal.jsx";
 import { getCellColor } from "../atoms/tokens/semantic.js";
 import { theme } from "../atoms/tokens/theme.js";
 
@@ -20,7 +21,7 @@ const SECTOR_TICKERS = {
   hotel: ["AGYS", "SABR", "SDR.AX"],
   document: ["DOCU", "DBX"],
   ecommerce: ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"],
-  consolidators: ["CSU.TO", "DSG.TO", "TYL", "OTEX", "ASUR", "UPLD"],
+  consolidators: ["CSU.TO", "ASUR", "UPLD"],
 };
 
 const BASE_DATE = "2026-02-03";
@@ -188,6 +189,7 @@ export default function Tracker() {
   const [error, setError] = useState(null);
   const [expandedSector, setExpandedSector] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState(new Set());
+  const [selectedConsolidator, setSelectedConsolidator] = useState(null);
 
   useEffect(() => {
     loadData();
@@ -556,7 +558,18 @@ export default function Tracker() {
                       {variability[sectorId] != null ? `±${variability[sectorId].toFixed(1)}%` : "—"}
                     </td>
                   </tr>
-                  {isExpanded && publicTickers.map((company) => <CompanyRow key={company.ticker} company={company} columns={columns} baseline={baseline || {}} ltmHighData={ltmHighData} />)}
+                  {isExpanded &&
+                    publicTickers.map((company) => (
+                      <CompanyRow
+                        key={company.ticker}
+                        company={company}
+                        columns={columns}
+                        baseline={baseline || {}}
+                        ltmHighData={ltmHighData}
+                        isClickable={sectorId === "consolidators" && !!company.consolidatorDetail}
+                        onClick={sectorId === "consolidators" ? () => setSelectedConsolidator(company) : undefined}
+                      />
+                    ))}
                 </React.Fragment>
               );
             })}
@@ -598,6 +611,14 @@ export default function Tracker() {
       </div>
 
       <SectorChart columns={columns} rows={cumulativeRows} baselineDate={baselineDate} ltmHighData={ltmHighData} sectors={sectorOrder} SECTOR_META={SECTOR_META} />
+
+      {selectedConsolidator?.consolidatorDetail && (
+        <ConsolidatorDetailModal
+          company={selectedConsolidator}
+          sectorColor={SECTOR_META.consolidators?.color ?? theme.text}
+          onClose={() => setSelectedConsolidator(null)}
+        />
+      )}
 
       <div style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
         <span style={{ fontSize: 9, color: theme.textTertiary, fontWeight: 700 }}>SCALE:</span>

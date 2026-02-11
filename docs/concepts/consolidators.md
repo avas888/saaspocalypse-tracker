@@ -23,9 +23,6 @@ Acquirers of vertical-market software. Not per-seat SaaS vendors — they buy an
 | Ticker | Company | Exchange | Notes |
 |--------|---------|----------|-------|
 | CSU.TO | Constellation Software | TSX | Canada's largest; ~$100B+ market cap. Volaris, Harris, Topicus operating groups. Archetype of the software consolidator model. |
-| DSG.TO | Descartes Systems | TSX | Canada. Logistics/supply chain software consolidator. |
-| TYL | Tyler Technologies | NYSE | US. Government/education vertical software. |
-| OTEX | OpenText | NASDAQ | Enterprise information management. Acquisitive. |
 | ASUR | Asure Software | NASDAQ | Workforce management. HR/payroll vertical. |
 | UPLD | Upland Software | NASDAQ | Productivity/workflow software roll-up. |
 

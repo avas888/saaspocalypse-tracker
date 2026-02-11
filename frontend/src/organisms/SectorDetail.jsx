@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Badge, Bar } from "../atoms/index.js";
 import PayrollCallout from "./PayrollCallout.jsx";
+import ConsolidatorDetailModal from "./ConsolidatorDetailModal.jsx";
 import { BAR_COLORS, SENTIMENT_COLORS } from "../atoms/tokens/semantic.js";
 import { theme } from "../atoms/tokens/theme.js";
 
@@ -36,6 +37,7 @@ function barColorForShield(val) {
 
 export default function SectorDetail({ sector, onBack }) {
   const [expandedCo, setExpandedCo] = useState(null);
+  const [selectedConsolidator, setSelectedConsolidator] = useState(null);
 
   return (
     <div>
@@ -85,12 +87,17 @@ export default function SectorDetail({ sector, onBack }) {
       <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: theme.textMuted, marginBottom: 8 }}>Companies ({sector.companies.length})</div>
       {sector.companies.map((c, i) => {
         const hasDetail = !!c.analystDetail;
+        const hasConsolidatorDetail = !!c.consolidatorDetail;
         const isExpanded = expandedCo === `${sector.id}-${i}`;
         const semaphoreColor = getSemaphoreColor(c.analystDetail);
+        const isClickable = hasDetail || hasConsolidatorDetail;
         return (
           <div key={i} style={{ marginBottom: 4 }}>
             <div
-              onClick={() => hasDetail && setExpandedCo(isExpanded ? null : `${sector.id}-${i}`)}
+              onClick={() => {
+                if (hasConsolidatorDetail) setSelectedConsolidator(c);
+                else if (hasDetail) setExpandedCo(isExpanded ? null : `${sector.id}-${i}`);
+              }}
               style={{
                 display: "flex",
                 gap: 10,
@@ -99,7 +106,7 @@ export default function SectorDetail({ sector, onBack }) {
                 border: `1px solid ${isExpanded ? sector.color : theme.border}`,
                 borderRadius: isExpanded ? "6px 6px 0 0" : 6,
                 alignItems: "flex-start",
-                cursor: hasDetail ? "pointer" : "default",
+                cursor: isClickable ? "pointer" : "default",
                 transition: "border-color 0.15s",
               }}
             >
@@ -117,7 +124,13 @@ export default function SectorDetail({ sector, onBack }) {
                 </div>
                 <div style={{ fontSize: 11, color: theme.textSecondary, marginTop: 2, lineHeight: 1.4 }}>{c.note}</div>
               </div>
-              {hasDetail && (
+              {hasConsolidatorDetail && (
+                <div style={{ flexShrink: 0, fontSize: 10, color: theme.textTertiary, display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
+                  <span style={{ fontSize: 8, padding: "1px 5px", borderRadius: 3, background: theme.surfaceAlt, color: theme.textMuted, fontWeight: 700, fontFamily: "monospace" }}>LEARN MORE</span>
+                  <span>→</span>
+                </div>
+              )}
+              {hasDetail && !hasConsolidatorDetail && (
                 <div style={{ flexShrink: 0, fontSize: 10, color: theme.textTertiary, display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: semaphoreColor, flexShrink: 0 }} title="Overall sentiment" />
                   <span style={{ fontSize: 8, padding: "1px 5px", borderRadius: 3, background: theme.surfaceAlt, color: theme.textMuted, fontWeight: 700, fontFamily: "monospace" }}>DEEP DIVE</span>
@@ -182,6 +195,14 @@ export default function SectorDetail({ sector, onBack }) {
           </div>
         );
       })}
+
+      {selectedConsolidator?.consolidatorDetail && (
+        <ConsolidatorDetailModal
+          company={selectedConsolidator}
+          sectorColor={sector.color}
+          onClose={() => setSelectedConsolidator(null)}
+        />
+      )}
 
       <div
         style={{

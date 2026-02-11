@@ -26,7 +26,7 @@ const SECTOR_TICKERS = {
   hotel: ["AGYS", "SABR", "SDR.AX"],
   document: ["DOCU", "DBX"],
   ecommerce: ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"],
-  consolidators: ["CSU.TO", "DSG.TO", "TYL", "OTEX", "ASUR", "UPLD"],
+  consolidators: ["CSU.TO", "ASUR", "UPLD"],
 };
 
 /**
