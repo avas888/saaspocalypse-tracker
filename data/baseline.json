@@ -1,6 +1,6 @@
 {
   "date": "2026-02-03",
-  "fetched_at": "2026-02-11T12:07:30.291897",
+  "fetched_at": "2026-02-11T12:14:05.628006",
   "description": "SaaSpocalypse baseline \u2014 prices as of market close Feb 3, 2026",
   "tickers": {
     "HUBS": {
@@ -132,6 +132,26 @@
       "name": "VTEX",
       "sector": "ecommerce",
       "price": 3.1
+    },
+    "BIGC": {
+      "name": "BigCommerce",
+      "sector": "ecommerce",
+      "price": 4.78
+    },
+    "SMAR": {
+      "name": "Smartsheet",
+      "sector": "project",
+      "price": 56.47
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "price": 46.57
+    },
+    "FI": {
+      "name": "Fiserv (Clover)",
+      "sector": "pos",
+      "price": 63.8
     }
   }
 }
