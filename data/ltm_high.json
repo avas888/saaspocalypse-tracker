@@ -242,6 +242,30 @@
       "high_date": "2025-02-18",
       "zero_price": 1.31,
       "ltm_high_pct": 259.54
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "high_price": 46.57,
+      "high_date": "2026-02-11",
+      "zero_price": 46.57,
+      "ltm_high_pct": 0.0
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "high_price": 96.1,
+      "high_date": "2026-02-03",
+      "zero_price": 96.1,
+      "ltm_high_pct": 0.0
+    },
+    "SMAR": {
+      "name": "Smartsheet",
+      "sector": "project",
+      "high_price": 56.47,
+      "high_date": "2026-02-11",
+      "zero_price": 56.47,
+      "ltm_high_pct": 0.0
     }
   },
   "sectors": {
@@ -254,16 +278,16 @@
     },
     "project": {
       "name": "Project Management",
-      "ltm_high_pct": 192.45,
+      "ltm_high_pct": 128.3,
       "high_date": "2025-02-11",
-      "tickers_tracked": 2,
+      "tickers_tracked": 3,
       "tickers_total": 3
     },
     "accounting": {
       "name": "SMB Accounting",
-      "ltm_high_pct": 53.37,
+      "ltm_high_pct": 42.69,
       "high_date": "2025-07-30",
-      "tickers_tracked": 4,
+      "tickers_tracked": 5,
       "tickers_total": 5
     },
     "payroll": {
@@ -296,9 +320,9 @@
     },
     "ecommerce": {
       "name": "E-Commerce & Retail SaaS",
-      "ltm_high_pct": 105.14,
+      "ltm_high_pct": 84.11,
       "high_date": "2025-02-12",
-      "tickers_tracked": 4,
+      "tickers_tracked": 5,
       "tickers_total": 5
     },
     "consolidators": {
