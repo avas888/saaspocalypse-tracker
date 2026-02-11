@@ -23,6 +23,8 @@ Hospitality's "mission control." Managing reservations, check-ins, housekeeping,
 | Ticker | Company | Exchange | Notes |
 |--------|---------|----------|-------|
 | AGYS | Agilysys | NASDAQ | Only major public PMS pure-play. $150M spa acquisition. Mostly enterprise but SMB push. |
+| SABR | Sabre | NASDAQ | SynXis Property Hub — cloud-native hotel PMS. Travel distribution + hospitality tech. |
+| SDR.AX | SiteMinder | ASX | Hotel distribution + Little Hotelier PMS for small properties. |
 
 ### Private (mentioned, not price-tracked)
 

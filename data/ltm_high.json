@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-11T11:18:11.694537",
+  "fetched_at": "2026-02-11T11:50:04.947460",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {
@@ -163,6 +163,22 @@
       "zero_price": 83.87,
       "ltm_high_pct": 68.26
     },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "high_price": 4.52,
+      "high_date": "2025-02-21",
+      "zero_price": 1.24,
+      "ltm_high_pct": 264.52
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "high_price": 7.72,
+      "high_date": "2025-10-03",
+      "zero_price": 4.91,
+      "ltm_high_pct": 57.23
+    },
     "DOCU": {
       "name": "DocuSign",
       "sector": "document",
@@ -250,10 +266,10 @@
     },
     "hotel": {
       "name": "Hotel PMS",
-      "ltm_high_pct": 68.26,
-      "high_date": "2025-10-28",
-      "tickers_tracked": 1,
-      "tickers_total": 1
+      "ltm_high_pct": 130.0,
+      "high_date": "2025-02-21",
+      "tickers_tracked": 3,
+      "tickers_total": 3
     },
     "document": {
       "name": "Document & E-Sign",

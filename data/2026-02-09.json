@@ -1,6 +1,6 @@
 {
   "date": "2026-02-09",
-  "fetched_at": "2026-02-11T10:46:31.915099",
+  "fetched_at": "2026-02-11T11:50:02.351427",
   "tickers": {
     "HUBS": {
       "name": "HubSpot",
@@ -135,6 +135,20 @@
       "prev_close": 86.01,
       "daily_pct": 0.03
     },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "close": 1.14,
+      "prev_close": 1.19,
+      "daily_pct": -4.2
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "close": 4.34,
+      "prev_close": 4.06,
+      "daily_pct": 6.9
+    },
     "DOCU": {
       "name": "DocuSign",
       "sector": "document",
@@ -204,9 +218,9 @@
     },
     "hotel": {
       "name": "Hotel PMS",
-      "avg_daily_pct": 0.03,
-      "tickers_tracked": 1,
-      "tickers_total": 1
+      "avg_daily_pct": 0.91,
+      "tickers_tracked": 3,
+      "tickers_total": 3
     },
     "document": {
       "name": "Document & E-Sign",

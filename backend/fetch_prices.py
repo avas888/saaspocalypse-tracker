@@ -44,6 +44,8 @@ TICKERS = {
     "DASH":     {"name": "DoorDash (Otter)",  "sector": "pos"},
     # Hotel PMS
     "AGYS":     {"name": "Agilysys",          "sector": "hotel"},
+    "SABR":     {"name": "Sabre",             "sector": "hotel"},
+    "SDR.AX":   {"name": "SiteMinder",         "sector": "hotel"},
     # Document & E-Sign
     "DOCU":     {"name": "DocuSign",          "sector": "document"},
     "DBX":      {"name": "Dropbox",           "sector": "document"},
@@ -62,7 +64,7 @@ SECTORS = {
     "accounting": {"name": "SMB Accounting",          "tickers": ["INTU", "XRO.AX", "SGE.L", "TOTS3.SA", "4478.T"]},
     "payroll":    {"name": "SMB Payroll & HR",        "tickers": ["ADP", "PAYX", "PAYC", "PCTY", "XYZ"]},
     "pos":        {"name": "Restaurant POS",          "tickers": ["TOST", "XYZ", "LSPD", "FI", "DASH"]},
-    "hotel":      {"name": "Hotel PMS",               "tickers": ["AGYS"]},
+    "hotel":      {"name": "Hotel PMS",               "tickers": ["AGYS", "SABR", "SDR.AX"]},
     "document":   {"name": "Document & E-Sign",       "tickers": ["DOCU", "DBX"]},
     "ecommerce":  {"name": "E-Commerce & Retail SaaS", "tickers": ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"]},
 }

@@ -235,6 +235,8 @@ const SECTORS_RAW = [
         verdict: "MOSTLY HYPE — The -10% is broad tech selloff, not AI-specific. Hotel PMS is one of the most defensible SaaS categories. Agilysys's enterprise contracts and vertical specialization make it nearly immune to vibe-coding displacement.",
         sentiment: "green"
       }},
+      { name: "Sabre", ticker: "SABR", drop: null, status: "public", note: "SynXis Property Hub — cloud-native hotel PMS. Travel distribution + hospitality tech." },
+      { name: "SiteMinder", ticker: "SDR.AX", drop: null, status: "public", note: "Hotel distribution + Little Hotelier PMS for small properties. ASX-listed." },
     ],
     keyInsight: "Hotel PMS is arguably the SAFEST sector in this analysis. Nearly all players are private (immune to public panic). The sector just saw its largest-ever funding round (Mews at $2.5B). AI is being adopted as a feature, not a threat — Mews's 'agentic AI' vision has agents adjusting pricing, reallocating housekeeping, and personalizing guest communications WITHIN the PMS. The physical operations link (key cards, kiosks, housekeeping coordination) makes replacement by generic AI implausible. The market is growing at 7% CAGR to $2.4B by 2031."
   },

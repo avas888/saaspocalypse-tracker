@@ -98,7 +98,7 @@ npm start
 
 Serves at http://localhost:3000. For Railway deployment, see [docs/deployment.md](docs/deployment.md).
 
-## Tracked Tickers (28)
+## Tracked Tickers (30)
 
 For sector-level rationale and companies per category (including private), see [docs/concepts/](docs/concepts/README.md).
 
@@ -109,7 +109,7 @@ For sector-level rationale and companies per category (including private), see [
 | SMB Accounting | INTU, XRO.AX, SGE.L, TOTS3.SA, 4478.T |
 | SMB Payroll | ADP, PAYX, PAYC, PCTY, XYZ |
 | Restaurant POS | TOST, XYZ, LSPD, FI, DASH |
-| Hotel PMS | AGYS |
+| Hotel PMS | AGYS, SABR, SDR.AX |
 | Document & E-Sign | DOCU, DBX |
 | E-Commerce | SHOP, BIGC, WIX, SQSP, VTEX |
 

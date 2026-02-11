@@ -17,7 +17,7 @@ const SECTOR_TICKERS = {
   accounting: ["INTU", "XRO.AX", "SGE.L", "TOTS3.SA", "4478.T"],
   payroll: ["ADP", "PAYX", "PAYC", "PCTY", "XYZ"],
   pos: ["TOST", "XYZ", "LSPD", "FI", "DASH"],
-  hotel: ["AGYS"],
+  hotel: ["AGYS", "SABR", "SDR.AX"],
   document: ["DOCU", "DBX"],
   ecommerce: ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"],
 };

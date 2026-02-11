@@ -60,7 +60,7 @@ The API lists `.json` files in `data/` and serves individual files. Baseline is 
 
 ## Tracked Tickers
 
-28 public tickers across 8 sectors. For sector-level rationale and companies per category (including private), see [docs/concepts/](concepts/README.md).
+30 public tickers across 8 sectors. For sector-level rationale and companies per category (including private), see [docs/concepts/](concepts/README.md).
 
 | Ticker | Company | Sector(s) | Exchange |
 |--------|---------|-----------|----------|
@@ -85,6 +85,8 @@ The API lists `.json` files in `data/` and serves individual files. Baseline is 
 | FI | Fiserv (Clover) | POS | NYSE |
 | DASH | DoorDash (Otter) | POS | NASDAQ |
 | AGYS | Agilysys | Hotel PMS | NASDAQ |
+| SABR | Sabre | Hotel PMS | NASDAQ |
+| SDR.AX | SiteMinder | Hotel PMS | ASX |
 | DOCU | DocuSign | Document | NASDAQ |
 | DBX | Dropbox | Document | NASDAQ |
 | SHOP | Shopify | E-Commerce | NYSE |

@@ -1,6 +1,6 @@
 {
   "date": "2026-02-03",
-  "fetched_at": "2026-02-11T10:33:08.482555",
+  "fetched_at": "2026-02-11T11:49:33.244013",
   "description": "SaaSpocalypse baseline \u2014 prices as of market close Feb 3, 2026",
   "tickers": {
     "HUBS": {
@@ -97,6 +97,16 @@
       "name": "Agilysys",
       "sector": "hotel",
       "price": 83.87
+    },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "price": 1.24
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "price": 4.91
     },
     "DOCU": {
       "name": "DocuSign",
