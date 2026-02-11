@@ -8,7 +8,7 @@ Interactive analysis of the 2026 SaaS stock crash across 8 SMB verticals, 60+ co
 # 1. Install frontend dependencies
 npm install
 
-# 2. Install Python dependencies and set up FMP API key
+# 2. Install Python dependencies and set up FMP API key (optional — yfinance fallback works without it)
 pip install -r requirements.txt
 cp .env.example .env
 # Edit .env and add your FMP_API_KEY (get one at financialmodelingprep.com)

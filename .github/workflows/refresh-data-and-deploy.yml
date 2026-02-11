@@ -1,0 +1,67 @@
+# Refresh price data and deploy — ensures EVERY deploy has fresh code + data
+# Trigger: push to main, daily schedule, or manual
+name: Refresh Data & Deploy
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # 6pm ET weekdays (after US market close)
+    - cron: "0 22 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install -r requirements.txt
+
+      - name: Refresh price data
+        env:
+          # Add FMP_API_KEY as repo secret for best results; yfinance fallback works without it
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: npm run fetch:refresh
+
+      - name: Verify data has Hotel PMS tickers
+        run: |
+          node -e "
+            const fs = require('fs');
+            const bl = JSON.parse(fs.readFileSync('data/baseline.json'));
+            const hotel = ['AGYS','SABR','SDR.AX'].filter(t => bl.tickers?.[t]).length;
+            if (hotel < 2) throw new Error('Baseline should have at least 2 Hotel PMS tickers, got ' + hotel);
+            console.log('OK: Baseline has', hotel, 'Hotel PMS tickers (AGYS,SABR,SDR.AX)');
+          "
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "chore: refresh price data [skip ci]"
+            git push
+          fi

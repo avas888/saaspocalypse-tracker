@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-11T11:50:04.947460",
+  "fetched_at": "2026-02-11T12:08:07.689088",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {

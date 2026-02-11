@@ -11,7 +11,8 @@
     "fetch": "cd backend && python3 fetch_prices.py",
     "fetch:backfill": "cd backend && python3 fetch_prices.py --backfill",
     "fetch:ltm": "cd backend && python3 fetch_prices.py --ltm",
-    "fetch:force": "cd backend && python3 fetch_prices.py --force"
+    "fetch:force": "cd backend && python3 fetch_prices.py --force",
+    "fetch:refresh": "mkdir -p data && rm -f data/baseline.json data/ltm_high.json data/2026-*.json && npm run fetch:backfill && npm run fetch:ltm"
   },
   "dependencies": {
     "express": "^4.21.0",

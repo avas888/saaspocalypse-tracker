@@ -6,6 +6,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
+# Cache bust: invalidates layer when commit changes (Railway injects RAILWAY_GIT_COMMIT_SHA)
+ARG RAILWAY_GIT_COMMIT_SHA=unknown
+ENV RAILWAY_GIT_COMMIT_SHA=${RAILWAY_GIT_COMMIT_SHA}
+
 COPY . .
 RUN npm run build
 
@@ -21,6 +25,7 @@ COPY --from=build /app/package*.json ./
 COPY --from=build /app/server.js ./
 RUN npm ci --omit=dev
 COPY --from=build /app/backend ./backend
+# Data from repo — do NOT mount a volume at /app/data (would serve stale data)
 COPY --from=build /app/data ./data
 COPY requirements.txt ./
 

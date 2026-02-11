@@ -14,6 +14,29 @@ from pathlib import Path
 from fmp_fetcher import FMPFetcher
 from yf_fallback import get_quote as yf_get_quote, get_historical_eod as yf_get_historical_eod
 
+
+def _get_fetcher():
+    """Return FMP fetcher if API key is set, else None (use yfinance only)."""
+    try:
+        return FMPFetcher()
+    except ValueError:
+        return None
+
+
+def _is_valid_quote(q) -> bool:
+    """Check if quote has usable price data."""
+    if not q or not isinstance(q, dict):
+        return False
+    price = q.get("price") or q.get("close")
+    return price is not None and float(price) > 0
+
+
+def _is_valid_historical(rows) -> bool:
+    """Check if historical rows have usable close data."""
+    if not rows or not isinstance(rows, list):
+        return False
+    return any(r.get("close") is not None for r in rows)
+
 # All public tickers mapped to sector + company name
 TICKERS = {
     # CRM & Sales
@@ -89,17 +112,19 @@ def fetch_daily_snapshot(date_str=None):
     print(f"Tracking {len(TICKERS)} tickers across {len(SECTORS)} sectors\n")
 
     all_tickers = list(TICKERS.keys())
-    fetcher = FMPFetcher()
+    fetcher = _get_fetcher()
 
     quotes = []
     for ticker in all_tickers:
         q = None
         used_fallback = False
-        try:
-            q = fetcher.get_quote(ticker)
-        except (requests.exceptions.HTTPError, Exception):
-            pass
-        if not q:
+        if fetcher:
+            try:
+                q = fetcher.get_quote(ticker)
+            except (requests.exceptions.HTTPError, Exception):
+                pass
+        # Always try yfinance when FMP has no data or invalid data (e.g. ticker not in FMP)
+        if not _is_valid_quote(q):
             q = yf_get_quote(ticker)
             used_fallback = q is not None
 
@@ -186,7 +211,7 @@ def fetch_baseline(start_date="2026-02-03"):
     print(f"Fetching baseline prices for {start_date}...")
 
     all_tickers = list(TICKERS.keys())
-    fetcher = FMPFetcher()
+    fetcher = _get_fetcher()
     end_date = (datetime.strptime(start_date, "%Y-%m-%d") + timedelta(days=5)).strftime("%Y-%m-%d")
 
     baseline = {
@@ -199,11 +224,13 @@ def fetch_baseline(start_date="2026-02-03"):
     for ticker in all_tickers:
         rows = None
         used_fallback = False
-        try:
-            rows = fetcher.get_historical_eod(ticker, start_date, end_date)
-        except (requests.exceptions.HTTPError, Exception):
-            pass
-        if not rows:
+        if fetcher:
+            try:
+                rows = fetcher.get_historical_eod(ticker, start_date, end_date)
+            except (requests.exceptions.HTTPError, Exception):
+                pass
+        # Always try yfinance when FMP has no data or invalid data
+        if not _is_valid_historical(rows):
             rows = yf_get_historical_eod(ticker, start_date, end_date)
             used_fallback = bool(rows)
         if not rows:
@@ -248,7 +275,7 @@ def backfill(start_date="2026-02-03"):
     DATA_DIR.mkdir(exist_ok=True)
     all_tickers = list(TICKERS.keys())
     end_date = datetime.now().strftime("%Y-%m-%d")
-    fetcher = FMPFetcher()
+    fetcher = _get_fetcher()
 
     # Fetch from 5 days before start to get prev_close for first day
     fetch_start = (datetime.strptime(start_date, "%Y-%m-%d") - timedelta(days=5)).strftime("%Y-%m-%d")
@@ -258,11 +285,13 @@ def backfill(start_date="2026-02-03"):
 
     for ticker in all_tickers:
         rows = None
-        try:
-            rows = fetcher.get_historical_eod(ticker, fetch_start, end_date)
-        except (requests.exceptions.HTTPError, Exception):
-            pass
-        if not rows:
+        if fetcher:
+            try:
+                rows = fetcher.get_historical_eod(ticker, fetch_start, end_date)
+            except (requests.exceptions.HTTPError, Exception):
+                pass
+        # Always try yfinance when FMP has no data or invalid data
+        if not _is_valid_historical(rows):
             rows = yf_get_historical_eod(ticker, fetch_start, end_date)
         if not rows:
             continue
@@ -361,7 +390,7 @@ def fetch_ltm_high(zero_date="2026-02-03"):
     print(f"Period: {start_date} to {zero_date}\n")
 
     all_tickers = list(TICKERS.keys())
-    fetcher = FMPFetcher()
+    fetcher = _get_fetcher()
 
     result = {
         "fetched_at": datetime.now().isoformat(),
@@ -374,11 +403,13 @@ def fetch_ltm_high(zero_date="2026-02-03"):
     for ticker in all_tickers:
         rows = None
         used_fallback = False
-        try:
-            rows = fetcher.get_historical_eod(ticker, start_date, end_date)
-        except (requests.exceptions.HTTPError, Exception):
-            pass
-        if not rows:
+        if fetcher:
+            try:
+                rows = fetcher.get_historical_eod(ticker, start_date, end_date)
+            except (requests.exceptions.HTTPError, Exception):
+                pass
+        # Always try yfinance when FMP has no data or invalid data
+        if not _is_valid_historical(rows):
             rows = yf_get_historical_eod(ticker, start_date, end_date)
             used_fallback = bool(rows)
         if not rows:
