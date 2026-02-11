@@ -152,6 +152,36 @@
       "name": "Fiserv (Clover)",
       "sector": "pos",
       "price": 63.8
+    },
+    "CSU.TO": {
+      "name": "Constellation Software",
+      "sector": "consolidators",
+      "price": 2327.36
+    },
+    "OTEX": {
+      "name": "OpenText",
+      "sector": "consolidators",
+      "price": 24.24
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "price": 8.0
+    },
+    "TYL": {
+      "name": "Tyler Technologies",
+      "sector": "consolidators",
+      "price": 341.63
+    },
+    "DSG.TO": {
+      "name": "Descartes Systems",
+      "sector": "consolidators",
+      "price": 88.57
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "price": 1.08
     }
   }
 }

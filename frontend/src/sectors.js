@@ -310,6 +310,26 @@ const SECTORS_RAW = [
       { name: "VTEX", ticker: "VTEX", drop: -15, status: "public", note: "LatAm e-commerce platform. Regional focus provides some protection." },
     ],
     keyInsight: "Shopify is the standout because it's become a full operating system for merchants — not just a storefront but payments, shipping, POS hardware, lending, and fulfillment. That ecosystem creates genuine lock-in. But the lighter website builders (Wix, Squarespace) face real pressure from 'vibe coding' — if an AI can create a professional storefront from a text prompt, a $30/month subscription for drag-and-drop templates loses its value proposition."
+  },
+  {
+    id: "consolidators",
+    name: "SaaS Software Consolidators",
+    icon: "🏢",
+    severity: "low",
+    avgDrop: -12,
+    thesis: "Acquirers of vertical-market software. Not per-seat SaaS vendors — they buy and operate businesses for cash flow. Their portfolio companies may face SaaSpocalypse risk, but the consolidator model itself is different. Constellation Software (Canada) is the archetype. AI disruption affects targets, but as acquirers they may benefit from cheaper acquisition multiples during a selloff.",
+    moat: "High",
+    seatExposure: "Low",
+    regulatoryShield: "Medium",
+    companies: [
+      { name: "Constellation Software", ticker: "CSU.TO", drop: null, status: "public", note: "Canada's largest; ~$100B+ market cap. Volaris, Harris, Topicus operating groups. Archetype of the software consolidator model." },
+      { name: "Descartes Systems", ticker: "DSG.TO", drop: null, status: "public", note: "Canada. Logistics/supply chain software consolidator." },
+      { name: "Tyler Technologies", ticker: "TYL", drop: null, status: "public", note: "US. Government/education vertical software." },
+      { name: "OpenText", ticker: "OTEX", drop: null, status: "public", note: "Enterprise information management. Acquisitive." },
+      { name: "Asure Software", ticker: "ASUR", drop: null, status: "public", note: "Workforce management. HR/payroll vertical." },
+      { name: "Upland Software", ticker: "UPLD", drop: null, status: "public", note: "Productivity/workflow software roll-up." },
+    ],
+    keyInsight: "Software consolidators acquire vertical-market software businesses and operate them for cash flow. They are not direct per-seat SaaS vendors; their portfolio companies may face SaaSpocalypse risk, but the consolidator model itself is different. Constellation Software (Canada) is the archetype. AI disruption affects their targets, but as acquirers they may benefit from cheaper acquisition multiples during a selloff."
   }
 ];
 

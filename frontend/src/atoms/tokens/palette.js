@@ -11,4 +11,5 @@ export const SECTOR_COLORS = {
   hotel: "#AA3377",     // magenta
   document: "#FF7F00",  // orange
   ecommerce: "#7C3AED", // purple
+  consolidators: "#0066B3", // blue
 };

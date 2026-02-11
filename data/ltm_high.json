@@ -242,6 +242,54 @@
       "high_date": "2026-02-11",
       "zero_price": 46.57,
       "ltm_high_pct": 0.0
+    },
+    "CSU.TO": {
+      "name": "Constellation Software",
+      "sector": "consolidators",
+      "high_price": 2327.36,
+      "high_date": "2026-02-11",
+      "zero_price": 2327.36,
+      "ltm_high_pct": 0.0
+    },
+    "OTEX": {
+      "name": "OpenText",
+      "sector": "consolidators",
+      "high_price": 24.24,
+      "high_date": "2026-02-11",
+      "zero_price": 24.24,
+      "ltm_high_pct": 0.0
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "high_price": 8.0,
+      "high_date": "2026-02-11",
+      "zero_price": 8.0,
+      "ltm_high_pct": 0.0
+    },
+    "TYL": {
+      "name": "Tyler Technologies",
+      "sector": "consolidators",
+      "high_price": 341.63,
+      "high_date": "2026-02-11",
+      "zero_price": 341.63,
+      "ltm_high_pct": 0.0
+    },
+    "DSG.TO": {
+      "name": "Descartes Systems",
+      "sector": "consolidators",
+      "high_price": 88.57,
+      "high_date": "2026-02-11",
+      "zero_price": 88.57,
+      "ltm_high_pct": 0.0
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "high_price": 1.08,
+      "high_date": "2026-02-11",
+      "zero_price": 1.08,
+      "ltm_high_pct": 0.0
     }
   },
   "sectors": {
@@ -300,6 +348,13 @@
       "high_date": "2025-02-12",
       "tickers_tracked": 5,
       "tickers_total": 5
+    },
+    "consolidators": {
+      "name": "SaaS Software Consolidators",
+      "ltm_high_pct": 0.0,
+      "high_date": "2026-02-11",
+      "tickers_tracked": 6,
+      "tickers_total": 6
     }
   }
 }

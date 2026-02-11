@@ -60,7 +60,7 @@ The API lists `.json` files in `data/` and serves individual files. Baseline is 
 
 ## Tracked Tickers
 
-30 public tickers across 8 sectors. For sector-level rationale and companies per category (including private), see [docs/concepts/](concepts/README.md).
+36 public tickers across 9 sectors. For sector-level rationale and companies per category (including private), see [docs/concepts/](concepts/README.md).
 
 | Ticker | Company | Sector(s) | Exchange |
 |--------|---------|-----------|----------|
@@ -94,3 +94,9 @@ The API lists `.json` files in `data/` and serves individual files. Baseline is 
 | WIX | Wix | E-Commerce | NASDAQ |
 | SQSP | Squarespace | E-Commerce | NYSE |
 | VTEX | VTEX | E-Commerce | NYSE |
+| CSU.TO | Constellation Software | Consolidators | TSX |
+| DSG.TO | Descartes Systems | Consolidators | TSX |
+| TYL | Tyler Technologies | Consolidators | NYSE |
+| OTEX | OpenText | Consolidators | NASDAQ |
+| ASUR | Asure Software | Consolidators | NASDAQ |
+| UPLD | Upland Software | Consolidators | NASDAQ |

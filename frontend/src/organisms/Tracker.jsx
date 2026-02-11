@@ -5,7 +5,7 @@ import SectorChart from "./SectorChart.jsx";
 import { getCellColor } from "../atoms/tokens/semantic.js";
 import { theme } from "../atoms/tokens/theme.js";
 
-const SECTOR_ORDER = ["crm", "project", "document", "payroll", "accounting", "ecommerce", "pos", "hotel"];
+const SECTOR_ORDER = ["crm", "project", "document", "payroll", "accounting", "ecommerce", "pos", "hotel", "consolidators"];
 const SECTOR_META = {};
 SECTORS.forEach((s) => {
   SECTOR_META[s.id] = { name: s.name, icon: s.icon, color: s.color };
@@ -20,6 +20,7 @@ const SECTOR_TICKERS = {
   hotel: ["AGYS", "SABR", "SDR.AX"],
   document: ["DOCU", "DBX"],
   ecommerce: ["SHOP", "BIGC", "WIX", "SQSP", "VTEX"],
+  consolidators: ["CSU.TO", "DSG.TO", "TYL", "OTEX", "ASUR", "UPLD"],
 };
 
 const BASE_DATE = "2026-02-03";

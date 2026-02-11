@@ -14,6 +14,7 @@ Conceptual documentation for each SMB vertical tracked in the SaaSpocalypse Trac
 | [Hotel PMS](hotel.md) | hotel | Low | AGYS, SABR, SDR.AX | Safest sector; mostly private |
 | [Document & E-Sign](document.md) | document | Severe | DOCU, DBX | Thin wrapper; AI subsumes workflow |
 | [E-Commerce & Retail SaaS](ecommerce.md) | ecommerce | Moderate | SHOP, BIGC, WIX, SQSP, VTEX | Mixed: Shopify defensive, builders vulnerable |
+| [SaaS Software Consolidators](consolidators.md) | consolidators | Low | CSU.TO, DSG.TO, TYL, OTEX, ASUR, UPLD | Acquirers of vertical software; different exposure |
 
 ## Cross-references
 
