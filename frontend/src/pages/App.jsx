@@ -1,0 +1,54 @@
+import { useState } from "react";
+import { SECTORS } from "../sectors.js";
+import MainLayout from "../templates/MainLayout.jsx";
+import {
+  SectorList,
+  SectorDetail,
+  Tracker,
+  CompaniesList,
+  PrivateCompaniesList,
+  FrameworkSection,
+} from "../organisms/index.js";
+
+const severity_order = { catastrophic: 0, severe: 1, moderate: 2, low: 3 };
+
+export default function App() {
+  const [selected, setSelected] = useState(null);
+  const [tab, setTab] = useState("tracker");
+
+  const sorted = [...SECTORS].sort((a, b) => severity_order[a.severity] - severity_order[b.severity] || a.avgDrop - b.avgDrop);
+  const sector = selected ? SECTORS.find((s) => s.id === selected) : null;
+
+  const allCos = SECTORS.flatMap((s) =>
+    s.companies
+      .filter((c) => c.drop !== null)
+      .map((c) => ({ ...c, sectorName: s.name, sectorColor: s.color, sectorIcon: s.icon }))
+  ).sort((a, b) => a.drop - b.drop);
+
+  const publicCos = allCos.filter((c) => c.status === "public");
+  const privateCos = SECTORS.flatMap((s) =>
+    s.companies.filter((c) => c.status === "private").map((c) => ({ ...c, sectorName: s.name, sectorIcon: s.icon }))
+  );
+
+  function handleTabChange(tabId) {
+    setTab(tabId);
+    setSelected(null);
+  }
+
+  let content = null;
+  if (tab === "tracker") {
+    content = <Tracker />;
+  } else if (tab === "sectors" && !sector) {
+    content = <SectorList onSelectSector={(id) => setSelected(id)} sorted={sorted} />;
+  } else if (tab === "sectors" && sector) {
+    content = <SectorDetail sector={sector} onBack={() => setSelected(null)} />;
+  } else if (tab === "companies") {
+    content = <CompaniesList publicCos={publicCos} />;
+  } else if (tab === "private") {
+    content = <PrivateCompaniesList privateCos={privateCos} />;
+  } else if (tab === "framework") {
+    content = <FrameworkSection />;
+  }
+
+  return <MainLayout tab={tab} onTabChange={handleTabChange}>{content}</MainLayout>;
+}

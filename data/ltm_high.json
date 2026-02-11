@@ -1,0 +1,273 @@
+{
+  "fetched_at": "2026-02-11T11:18:11.694537",
+  "zero_date": "2026-02-03",
+  "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
+  "tickers": {
+    "HUBS": {
+      "name": "HubSpot",
+      "sector": "crm",
+      "high_price": 819.71,
+      "high_date": "2025-02-13",
+      "zero_price": 245.16,
+      "ltm_high_pct": 234.36
+    },
+    "MNDY": {
+      "name": "monday.com",
+      "sector": "crm",
+      "high_price": 327.92,
+      "high_date": "2025-02-11",
+      "zero_price": 101.71,
+      "ltm_high_pct": 222.41
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "sector": "crm",
+      "high_price": 347.93,
+      "high_date": "2025-02-05",
+      "zero_price": 196.38,
+      "ltm_high_pct": 77.17
+    },
+    "FRSH": {
+      "name": "Freshworks",
+      "sector": "crm",
+      "high_price": 18.5,
+      "high_date": "2025-02-05",
+      "zero_price": 9.53,
+      "ltm_high_pct": 94.12
+    },
+    "ASAN": {
+      "name": "Asana",
+      "sector": "project",
+      "high_price": 24.28,
+      "high_date": "2025-02-13",
+      "zero_price": 9.25,
+      "ltm_high_pct": 162.49
+    },
+    "INTU": {
+      "name": "Intuit",
+      "sector": "accounting",
+      "high_price": 807.39,
+      "high_date": "2025-07-30",
+      "zero_price": 434.09,
+      "ltm_high_pct": 86.0
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "high_price": 194.21,
+      "high_date": "2025-06-25",
+      "zero_price": 96.1,
+      "ltm_high_pct": 102.09
+    },
+    "SGE.L": {
+      "name": "Sage Group",
+      "sector": "accounting",
+      "high_price": 1340.24,
+      "high_date": "2025-02-04",
+      "zero_price": 871.0,
+      "ltm_high_pct": 53.87
+    },
+    "TOTS3.SA": {
+      "name": "TOTVS",
+      "sector": "accounting",
+      "high_price": 47.96,
+      "high_date": "2025-11-14",
+      "zero_price": 43.6,
+      "ltm_high_pct": 10.01
+    },
+    "4478.T": {
+      "name": "freee",
+      "sector": "accounting",
+      "high_price": 4255.0,
+      "high_date": "2025-08-05",
+      "zero_price": 2601.0,
+      "ltm_high_pct": 63.59
+    },
+    "ADP": {
+      "name": "ADP",
+      "sector": "payroll",
+      "high_price": 326.81,
+      "high_date": "2025-06-06",
+      "zero_price": 235.08,
+      "ltm_high_pct": 39.02
+    },
+    "PAYX": {
+      "name": "Paychex",
+      "sector": "payroll",
+      "high_price": 159.78,
+      "high_date": "2025-06-06",
+      "zero_price": 97.15,
+      "ltm_high_pct": 64.47
+    },
+    "PAYC": {
+      "name": "Paycom",
+      "sector": "payroll",
+      "high_price": 265.71,
+      "high_date": "2025-06-06",
+      "zero_price": 124.33,
+      "ltm_high_pct": 113.71
+    },
+    "PCTY": {
+      "name": "Paylocity",
+      "sector": "payroll",
+      "high_price": 217.86,
+      "high_date": "2025-02-18",
+      "zero_price": 127.26,
+      "ltm_high_pct": 71.19
+    },
+    "XYZ": {
+      "name": "Block (Square)",
+      "sector": "payroll",
+      "high_price": 90.2,
+      "high_date": "2025-02-03",
+      "zero_price": 56.79,
+      "ltm_high_pct": 58.83
+    },
+    "TOST": {
+      "name": "Toast",
+      "sector": "pos",
+      "high_price": 49.3,
+      "high_date": "2025-08-04",
+      "zero_price": 28.25,
+      "ltm_high_pct": 74.51
+    },
+    "LSPD": {
+      "name": "Lightspeed",
+      "sector": "pos",
+      "high_price": 14.5,
+      "high_date": "2025-02-05",
+      "zero_price": 9.85,
+      "ltm_high_pct": 47.21
+    },
+    "FI": {
+      "name": "Fiserv (Clover)",
+      "sector": "pos",
+      "high_price": 237.79,
+      "high_date": "2025-03-03",
+      "zero_price": 65.73,
+      "ltm_high_pct": 261.77
+    },
+    "DASH": {
+      "name": "DoorDash (Otter)",
+      "sector": "pos",
+      "high_price": 281.74,
+      "high_date": "2025-10-06",
+      "zero_price": 202.0,
+      "ltm_high_pct": 39.48
+    },
+    "AGYS": {
+      "name": "Agilysys",
+      "sector": "hotel",
+      "high_price": 141.12,
+      "high_date": "2025-10-28",
+      "zero_price": 83.87,
+      "ltm_high_pct": 68.26
+    },
+    "DOCU": {
+      "name": "DocuSign",
+      "sector": "document",
+      "high_price": 96.89,
+      "high_date": "2025-02-05",
+      "zero_price": 46.07,
+      "ltm_high_pct": 110.31
+    },
+    "DBX": {
+      "name": "Dropbox",
+      "sector": "document",
+      "high_price": 33.27,
+      "high_date": "2025-02-18",
+      "zero_price": 25.11,
+      "ltm_high_pct": 32.5
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "sector": "ecommerce",
+      "high_price": 179.01,
+      "high_date": "2025-10-29",
+      "zero_price": 119.29,
+      "ltm_high_pct": 50.06
+    },
+    "BIGC": {
+      "name": "BigCommerce",
+      "sector": "ecommerce",
+      "high_price": 7.09,
+      "high_date": "2025-02-27",
+      "zero_price": 4.59,
+      "ltm_high_pct": 54.47
+    },
+    "WIX": {
+      "name": "Wix",
+      "sector": "ecommerce",
+      "high_price": 230.78,
+      "high_date": "2025-02-12",
+      "zero_price": 77.45,
+      "ltm_high_pct": 197.97
+    },
+    "VTEX": {
+      "name": "VTEX",
+      "sector": "ecommerce",
+      "high_price": 6.76,
+      "high_date": "2025-07-17",
+      "zero_price": 3.1,
+      "ltm_high_pct": 118.06
+    }
+  },
+  "sectors": {
+    "crm": {
+      "name": "CRM & Sales",
+      "ltm_high_pct": 157.02,
+      "high_date": "2025-02-13",
+      "tickers_tracked": 4,
+      "tickers_total": 4
+    },
+    "project": {
+      "name": "Project Management",
+      "ltm_high_pct": 192.45,
+      "high_date": "2025-02-11",
+      "tickers_tracked": 2,
+      "tickers_total": 3
+    },
+    "accounting": {
+      "name": "SMB Accounting",
+      "ltm_high_pct": 63.11,
+      "high_date": "2025-06-25",
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "payroll": {
+      "name": "SMB Payroll & HR",
+      "ltm_high_pct": 69.44,
+      "high_date": "2025-06-06",
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "pos": {
+      "name": "Restaurant POS",
+      "ltm_high_pct": 96.36,
+      "high_date": "2025-03-03",
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "hotel": {
+      "name": "Hotel PMS",
+      "ltm_high_pct": 68.26,
+      "high_date": "2025-10-28",
+      "tickers_tracked": 1,
+      "tickers_total": 1
+    },
+    "document": {
+      "name": "Document & E-Sign",
+      "ltm_high_pct": 71.41,
+      "high_date": "2025-02-05",
+      "tickers_tracked": 2,
+      "tickers_total": 2
+    },
+    "ecommerce": {
+      "name": "E-Commerce & Retail SaaS",
+      "ltm_high_pct": 105.14,
+      "high_date": "2025-02-12",
+      "tickers_tracked": 4,
+      "tickers_total": 5
+    }
+  }
+}

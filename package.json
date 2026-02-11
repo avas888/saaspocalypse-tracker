@@ -1,0 +1,26 @@
+{
+  "name": "saaspocalypse-tracker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js",
+    "fetch": "cd backend && python3 fetch_prices.py",
+    "fetch:backfill": "cd backend && python3 fetch_prices.py --backfill",
+    "fetch:ltm": "cd backend && python3 fetch_prices.py --ltm",
+    "fetch:force": "cd backend && python3 fetch_prices.py --force"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^3.7.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.4.0"
+  }
+}

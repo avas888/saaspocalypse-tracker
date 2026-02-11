@@ -1,0 +1,10 @@
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+*.log
+
+# Uncomment if you don't want price data in git:
+# data/*.json

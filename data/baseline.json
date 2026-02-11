@@ -1,0 +1,127 @@
+{
+  "date": "2026-02-03",
+  "fetched_at": "2026-02-11T10:33:08.482555",
+  "description": "SaaSpocalypse baseline \u2014 prices as of market close Feb 3, 2026",
+  "tickers": {
+    "HUBS": {
+      "name": "HubSpot",
+      "sector": "crm",
+      "price": 245.16
+    },
+    "MNDY": {
+      "name": "monday.com",
+      "sector": "crm",
+      "price": 101.71
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "sector": "crm",
+      "price": 196.38
+    },
+    "FRSH": {
+      "name": "Freshworks",
+      "sector": "crm",
+      "price": 9.53
+    },
+    "ASAN": {
+      "name": "Asana",
+      "sector": "project",
+      "price": 9.25
+    },
+    "INTU": {
+      "name": "Intuit",
+      "sector": "accounting",
+      "price": 434.09
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "price": 96.1
+    },
+    "SGE.L": {
+      "name": "Sage Group",
+      "sector": "accounting",
+      "price": 871.0
+    },
+    "TOTS3.SA": {
+      "name": "TOTVS",
+      "sector": "accounting",
+      "price": 43.6
+    },
+    "4478.T": {
+      "name": "freee",
+      "sector": "accounting",
+      "price": 2601.0
+    },
+    "ADP": {
+      "name": "ADP",
+      "sector": "payroll",
+      "price": 235.08
+    },
+    "PAYX": {
+      "name": "Paychex",
+      "sector": "payroll",
+      "price": 97.15
+    },
+    "PAYC": {
+      "name": "Paycom",
+      "sector": "payroll",
+      "price": 124.33
+    },
+    "PCTY": {
+      "name": "Paylocity",
+      "sector": "payroll",
+      "price": 127.26
+    },
+    "XYZ": {
+      "name": "Block (Square)",
+      "sector": "payroll",
+      "price": 56.79
+    },
+    "TOST": {
+      "name": "Toast",
+      "sector": "pos",
+      "price": 28.25
+    },
+    "LSPD": {
+      "name": "Lightspeed",
+      "sector": "pos",
+      "price": 9.85
+    },
+    "DASH": {
+      "name": "DoorDash (Otter)",
+      "sector": "pos",
+      "price": 202.0
+    },
+    "AGYS": {
+      "name": "Agilysys",
+      "sector": "hotel",
+      "price": 83.87
+    },
+    "DOCU": {
+      "name": "DocuSign",
+      "sector": "document",
+      "price": 46.07
+    },
+    "DBX": {
+      "name": "Dropbox",
+      "sector": "document",
+      "price": 25.11
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "sector": "ecommerce",
+      "price": 119.29
+    },
+    "WIX": {
+      "name": "Wix",
+      "sector": "ecommerce",
+      "price": 77.45
+    },
+    "VTEX": {
+      "name": "VTEX",
+      "sector": "ecommerce",
+      "price": 3.1
+    }
+  }
+}
