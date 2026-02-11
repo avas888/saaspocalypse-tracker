@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-11T12:08:07.689088",
+  "fetched_at": "2026-02-11T17:09:10.858349",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {
@@ -22,10 +22,10 @@
     "CRM": {
       "name": "Salesforce",
       "sector": "crm",
-      "high_price": 347.93,
+      "high_price": 345.67,
       "high_date": "2025-02-05",
       "zero_price": 196.38,
-      "ltm_high_pct": 77.17
+      "ltm_high_pct": 76.02
     },
     "FRSH": {
       "name": "Freshworks",
@@ -46,10 +46,10 @@
     "INTU": {
       "name": "Intuit",
       "sector": "accounting",
-      "high_price": 807.39,
+      "high_price": 804.44,
       "high_date": "2025-07-30",
       "zero_price": 434.09,
-      "ltm_high_pct": 86.0
+      "ltm_high_pct": 85.32
     },
     "XRO.AX": {
       "name": "Xero",
@@ -86,26 +86,26 @@
     "ADP": {
       "name": "ADP",
       "sector": "payroll",
-      "high_price": 326.81,
+      "high_price": 321.43,
       "high_date": "2025-06-06",
       "zero_price": 235.08,
-      "ltm_high_pct": 39.02
+      "ltm_high_pct": 36.73
     },
     "PAYX": {
       "name": "Paychex",
       "sector": "payroll",
-      "high_price": 159.78,
+      "high_price": 155.44,
       "high_date": "2025-06-06",
       "zero_price": 97.15,
-      "ltm_high_pct": 64.47
+      "ltm_high_pct": 60.0
     },
     "PAYC": {
       "name": "Paycom",
       "sector": "payroll",
-      "high_price": 265.71,
+      "high_price": 264.67,
       "high_date": "2025-06-06",
       "zero_price": 124.33,
-      "ltm_high_pct": 113.71
+      "ltm_high_pct": 112.88
     },
     "PCTY": {
       "name": "Paylocity",
@@ -138,14 +138,6 @@
       "high_date": "2025-02-05",
       "zero_price": 9.85,
       "ltm_high_pct": 47.21
-    },
-    "FI": {
-      "name": "Fiserv (Clover)",
-      "sector": "pos",
-      "high_price": 237.79,
-      "high_date": "2025-03-03",
-      "zero_price": 65.73,
-      "ltm_high_pct": 261.77
     },
     "DASH": {
       "name": "DoorDash (Otter)",
@@ -203,14 +195,6 @@
       "zero_price": 119.29,
       "ltm_high_pct": 50.06
     },
-    "BIGC": {
-      "name": "BigCommerce",
-      "sector": "ecommerce",
-      "high_price": 7.09,
-      "high_date": "2025-02-27",
-      "zero_price": 4.59,
-      "ltm_high_pct": 54.47
-    },
     "WIX": {
       "name": "Wix",
       "sector": "ecommerce",
@@ -231,7 +215,7 @@
   "sectors": {
     "crm": {
       "name": "CRM & Sales",
-      "ltm_high_pct": 157.02,
+      "ltm_high_pct": 156.73,
       "high_date": "2025-02-13",
       "tickers_tracked": 4,
       "tickers_total": 4
@@ -245,23 +229,23 @@
     },
     "accounting": {
       "name": "SMB Accounting",
-      "ltm_high_pct": 63.11,
+      "ltm_high_pct": 62.98,
       "high_date": "2025-06-25",
       "tickers_tracked": 5,
       "tickers_total": 5
     },
     "payroll": {
       "name": "SMB Payroll & HR",
-      "ltm_high_pct": 69.44,
+      "ltm_high_pct": 67.93,
       "high_date": "2025-06-06",
       "tickers_tracked": 5,
       "tickers_total": 5
     },
     "pos": {
       "name": "Restaurant POS",
-      "ltm_high_pct": 96.36,
-      "high_date": "2025-03-03",
-      "tickers_tracked": 5,
+      "ltm_high_pct": 55.01,
+      "high_date": "2025-08-04",
+      "tickers_tracked": 4,
       "tickers_total": 5
     },
     "hotel": {
@@ -280,9 +264,9 @@
     },
     "ecommerce": {
       "name": "E-Commerce & Retail SaaS",
-      "ltm_high_pct": 105.14,
+      "ltm_high_pct": 122.03,
       "high_date": "2025-02-12",
-      "tickers_tracked": 4,
+      "tickers_tracked": 3,
       "tickers_total": 5
     }
   }

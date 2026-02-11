@@ -1,6 +1,6 @@
 {
   "date": "2026-02-06",
-  "fetched_at": "2026-02-11T12:07:59.015634",
+  "fetched_at": "2026-02-11T17:09:10.229458",
   "tickers": {
     "HUBS": {
       "name": "HubSpot",
@@ -138,9 +138,9 @@
     "SABR": {
       "name": "Sabre",
       "sector": "hotel",
-      "close": 1.19,
+      "close": 1.18,
       "prev_close": 1.1,
-      "daily_pct": 8.18
+      "daily_pct": 7.73
     },
     "SDR.AX": {
       "name": "SiteMinder",
@@ -218,7 +218,7 @@
     },
     "hotel": {
       "name": "Hotel PMS",
-      "avg_daily_pct": 0.85,
+      "avg_daily_pct": 0.7,
       "tickers_tracked": 3,
       "tickers_total": 3
     },

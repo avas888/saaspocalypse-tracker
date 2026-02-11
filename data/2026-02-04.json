@@ -1,6 +1,6 @@
 {
   "date": "2026-02-04",
-  "fetched_at": "2026-02-11T12:07:59.014183",
+  "fetched_at": "2026-02-11T17:09:10.228675",
   "tickers": {
     "HUBS": {
       "name": "HubSpot",
@@ -140,7 +140,7 @@
       "sector": "hotel",
       "close": 1.2,
       "prev_close": 1.24,
-      "daily_pct": -3.23
+      "daily_pct": -3.63
     },
     "SDR.AX": {
       "name": "SiteMinder",
@@ -218,7 +218,7 @@
     },
     "hotel": {
       "name": "Hotel PMS",
-      "avg_daily_pct": -2.53,
+      "avg_daily_pct": -2.66,
       "tickers_tracked": 3,
       "tickers_total": 3
     },

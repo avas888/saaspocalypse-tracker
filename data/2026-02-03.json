@@ -1,6 +1,6 @@
 {
   "date": "2026-02-03",
-  "fetched_at": "2026-02-11T12:07:59.012691",
+  "fetched_at": "2026-02-11T17:09:10.228178",
   "tickers": {
     "HUBS": {
       "name": "HubSpot",
@@ -212,7 +212,7 @@
     },
     "pos": {
       "name": "Restaurant POS",
-      "avg_daily_pct": -6.6,
+      "avg_daily_pct": -6.61,
       "tickers_tracked": 4,
       "tickers_total": 5
     },
