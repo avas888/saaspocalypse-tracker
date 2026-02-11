@@ -23,7 +23,10 @@ COPY --from=build /app/backend ./backend
 COPY --from=build /app/data ./data
 COPY requirements.txt ./
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Use venv to avoid PEP 668 externally-managed-environment
+RUN python3 -m venv /app/venv && \
+    /app/venv/bin/pip install --no-cache-dir -r requirements.txt
+ENV PATH="/app/venv/bin:$PATH"
 
 ENV NODE_ENV=production
 ENV PORT=3000
