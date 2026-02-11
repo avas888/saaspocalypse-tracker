@@ -41,7 +41,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
         {company.name} <span style={{ color: theme.textTertiary }}>{company.ticker}</span>
       </td>
       {vals.map((val, ci) => {
-        const c = getCellColor(val);
+        const c = getCellColor(val, "member");
         return (
           <td
             key={ci}
@@ -61,7 +61,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
         );
       })}
       {(() => {
-        const c = cumVal != null ? getCellColor(cumVal) : { bg: theme.surface, text: theme.textTertiary };
+        const c = cumVal != null ? getCellColor(cumVal, "member") : { bg: theme.surface, text: theme.textTertiary };
         return (
           <td
             key="cum"
@@ -88,7 +88,7 @@ export default function CompanyRow({ company, columns, baseline, ltmHighData }) 
           const ltmHighIndex = 100 * (1 + ltmPct / 100);
           deltaLtm = Math.round(((currentIndex - ltmHighIndex) / ltmHighIndex) * 1000) / 10;
         }
-        const c = deltaLtm != null ? getCellColor(deltaLtm) : { bg: theme.surface, text: theme.textTertiary };
+        const c = deltaLtm != null ? getCellColor(deltaLtm, "member") : { bg: theme.surface, text: theme.textTertiary };
         return (
           <td
             key="ltm"

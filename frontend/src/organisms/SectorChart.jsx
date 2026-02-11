@@ -163,7 +163,7 @@ export default function SectorChart({ columns, rows, baselineDate, ltmHighData, 
             const meta = SECTOR_META[sectorId];
             const val = ltmHigh[sectorId];
             const peakDate = ltmHighDates[sectorId];
-            const c = getCellColor(val);
+            const c = getCellColor(val, "category");
             return (
               <span
                 key={sectorId}

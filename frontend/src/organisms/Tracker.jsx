@@ -475,7 +475,7 @@ export default function Tracker() {
                       <span style={{ color: theme.borderStrong, marginLeft: 4, fontSize: 10 }}>{isExpanded ? "▼" : "▶"}</span>
                     </td>
                     {sectorData.map((val, ci) => {
-                      const c = getCellColor(val);
+                      const c = getCellColor(val, "category");
                       return (
                         <td
                           key={ci}
@@ -495,7 +495,7 @@ export default function Tracker() {
                     })}
                     {(() => {
                       const cumVal = cumulativeRows[sectorId]?.length ? cumulativeRows[sectorId][cumulativeRows[sectorId].length - 1] : null;
-                      const c = cumVal != null ? getCellColor(cumVal) : { bg: theme.surface, text: theme.textMuted };
+                      const c = cumVal != null ? getCellColor(cumVal, "category") : { bg: theme.surface, text: theme.textMuted };
                       return (
                         <td
                           key="cum"
@@ -522,7 +522,7 @@ export default function Tracker() {
                         const ltmHighIndex = 100 * (1 + ltmPct / 100);
                         deltaLtm = Math.round(((currentIndex - ltmHighIndex) / ltmHighIndex) * 1000) / 10;
                       }
-                      const c = deltaLtm != null ? getCellColor(deltaLtm) : { bg: theme.surface, text: theme.textMuted };
+                      const c = deltaLtm != null ? getCellColor(deltaLtm, "category") : { bg: theme.surface, text: theme.textMuted };
                       return (
                         <td
                           key="ltm"
@@ -568,11 +568,11 @@ export default function Tracker() {
       <div style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
         <span style={{ fontSize: 9, color: theme.textTertiary, fontWeight: 700 }}>SCALE:</span>
         {[
-          { label: "≤-3%", ...getCellColor(-4) },
-          { label: "-1 to -3%", ...getCellColor(-2) },
-          { label: "-1 to +1%", ...getCellColor(0) },
-          { label: "+1 to +3%", ...getCellColor(2) },
-          { label: "≥+3%", ...getCellColor(4) },
+          { label: "≤-3%", ...getCellColor(-4, "category") },
+          { label: "-1 to -3%", ...getCellColor(-2, "category") },
+          { label: "-1 to +1%", ...getCellColor(0, "category") },
+          { label: "+1 to +3%", ...getCellColor(2, "category") },
+          { label: "≥+3%", ...getCellColor(4, "category") },
         ].map((s) => (
           <span key={s.label} style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: s.bg, color: s.text, fontWeight: 600 }}>
             {s.label}
