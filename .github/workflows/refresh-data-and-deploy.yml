@@ -38,30 +38,11 @@ jobs:
           npm ci
           pip install -r requirements.txt
 
-      - name: Refresh price data
+      - name: Refresh price data (FMP + Yahoo fallback, all tickers)
         env:
           # Add FMP_API_KEY as repo secret for best results; yfinance fallback works without it
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: npm run fetch:refresh
 
-      - name: Verify data has Hotel PMS tickers
-        run: |
-          node -e "
-            const fs = require('fs');
-            const bl = JSON.parse(fs.readFileSync('data/baseline.json'));
-            const hotel = ['AGYS','SABR','SDR.AX'].filter(t => bl.tickers?.[t]).length;
-            if (hotel < 2) throw new Error('Baseline should have at least 2 Hotel PMS tickers, got ' + hotel);
-            console.log('OK: Baseline has', hotel, 'Hotel PMS tickers (AGYS,SABR,SDR.AX)');
-          "
-
-      - name: Commit and push if data changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --staged --quiet; then
-            echo "No data changes"
-          else
-            git commit -m "chore: refresh price data [skip ci]"
-            git push
-          fi
+      - name: Publish (commit + push) — blocked unless ALL data valid
+        run: bash scripts/publish-if-valid.sh

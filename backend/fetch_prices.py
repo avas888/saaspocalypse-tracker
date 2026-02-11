@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """
 SaaSpocalypse Price Fetcher
-Fetches daily closing prices for all tracked public companies via FMP API.
+Fetches daily closing prices for all tracked public companies via FMP API
+with Yahoo Finance as backup (and primary for international tickers).
 Run daily after market close: python fetch_prices.py
 Or set up a cron: 0 18 * * 1-5 cd /path/to/backend && python fetch_prices.py
 """
 
 import json
+import sys
+import time
 import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from fmp_fetcher import FMPFetcher
 from yf_fallback import get_quote as yf_get_quote, get_historical_eod as yf_get_historical_eod
+
+# Tickers on international exchanges: Yahoo often has better coverage than FMP
+YAHOO_FIRST_TICKERS = frozenset({"XRO.AX", "SGE.L", "TOTS3.SA", "4478.T", "SDR.AX"})
+MAX_RETRIES = 2
+RETRY_DELAY_SEC = 2
 
 
 def _get_fetcher():
@@ -29,6 +37,70 @@ def _is_valid_quote(q) -> bool:
         return False
     price = q.get("price") or q.get("close")
     return price is not None and float(price) > 0
+
+
+def _fetch_quote_with_fallback(ticker: str, fetcher) -> tuple[dict | None, bool]:
+    """Fetch quote: Yahoo-first for international tickers, else FMP then Yahoo. Returns (quote, used_yahoo)."""
+    use_yahoo_first = ticker in YAHOO_FIRST_TICKERS
+    for attempt in range(MAX_RETRIES + 1):
+        q = None
+        if use_yahoo_first:
+            q = yf_get_quote(ticker)
+            if _is_valid_quote(q):
+                return (q, True)
+            if fetcher:
+                try:
+                    q = fetcher.get_quote(ticker)
+                except (requests.exceptions.HTTPError, Exception):
+                    pass
+            if _is_valid_quote(q):
+                return (q, False)
+        else:
+            if fetcher:
+                try:
+                    q = fetcher.get_quote(ticker)
+                except (requests.exceptions.HTTPError, Exception):
+                    pass
+            if _is_valid_quote(q):
+                return (q, False)
+            q = yf_get_quote(ticker)
+            if _is_valid_quote(q):
+                return (q, True)
+        if attempt < MAX_RETRIES:
+            time.sleep(RETRY_DELAY_SEC)
+    return (None, False)
+
+
+def _fetch_historical_with_fallback(ticker: str, from_date: str, to_date: str, fetcher) -> tuple[list | None, bool]:
+    """Fetch historical EOD: Yahoo-first for international tickers, else FMP then Yahoo. Returns (rows, used_yahoo)."""
+    use_yahoo_first = ticker in YAHOO_FIRST_TICKERS
+    for attempt in range(MAX_RETRIES + 1):
+        rows = None
+        if use_yahoo_first:
+            rows = yf_get_historical_eod(ticker, from_date, to_date)
+            if _is_valid_historical(rows):
+                return (rows, True)
+            if fetcher:
+                try:
+                    rows = fetcher.get_historical_eod(ticker, from_date, to_date)
+                except (requests.exceptions.HTTPError, Exception):
+                    pass
+            if _is_valid_historical(rows):
+                return (rows, False)
+        else:
+            if fetcher:
+                try:
+                    rows = fetcher.get_historical_eod(ticker, from_date, to_date)
+                except (requests.exceptions.HTTPError, Exception):
+                    pass
+            if _is_valid_historical(rows):
+                return (rows, False)
+            rows = yf_get_historical_eod(ticker, from_date, to_date)
+            if _is_valid_historical(rows):
+                return (rows, True)
+        if attempt < MAX_RETRIES:
+            time.sleep(RETRY_DELAY_SEC)
+    return (None, False)
 
 
 def _is_valid_historical(rows) -> bool:
@@ -95,6 +167,112 @@ SECTORS = {
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
+def _patch_baseline_from_daily():
+    """Fill missing baseline tickers from earliest daily snapshot (fallback when historical fails)."""
+    baseline_file = DATA_DIR / "baseline.json"
+    if not baseline_file.exists():
+        return
+    daily_files = sorted(DATA_DIR.glob("2026-*.json"))
+    if not daily_files:
+        return
+    with open(baseline_file) as f:
+        baseline = json.load(f)
+    tickers_data = baseline.get("tickers", {})
+    all_tickers = set(TICKERS.keys())
+    missing = all_tickers - set(tickers_data.keys())
+    if not missing:
+        return
+    # Use earliest snapshot that has each ticker (e.g. fetch:force may have it in latest)
+    patched = 0
+    for daily_path in daily_files:
+        daily = json.loads(daily_path.read_text())
+        tickers = daily.get("tickers", {})
+        for t in list(missing):
+            if t in tickers and tickers[t].get("close"):
+                close = float(tickers[t]["close"])
+                baseline["tickers"][t] = {
+                    "name": TICKERS[t]["name"],
+                    "sector": TICKERS[t]["sector"],
+                    "price": round(close, 2),
+                }
+                patched += 1
+                print(f"  📋 Patched baseline for {t} from {daily_path.name} (${close:.2f})")
+                missing.discard(t)
+        if not missing:
+            break
+    if patched:
+        with open(baseline_file, "w") as f:
+            json.dump(baseline, f, indent=2)
+        print(f"  ✅ Patched {patched} missing baseline tickers from daily snapshots")
+
+
+def _patch_ltm_from_daily():
+    """Fill missing LTM tickers using max close from daily snapshots (fallback when historical fails)."""
+    ltm_file = DATA_DIR / "ltm_high.json"
+    baseline_file = DATA_DIR / "baseline.json"
+    if not ltm_file.exists() or not baseline_file.exists():
+        return
+    with open(ltm_file) as f:
+        ltm = json.load(f)
+    with open(baseline_file) as f:
+        baseline = json.load(f)
+    base_prices = baseline.get("tickers", {})
+    ltm_tickers = ltm.get("tickers", {})
+    all_tickers = set(TICKERS.keys())
+    missing = all_tickers - set(ltm_tickers.keys())
+    if not missing:
+        return
+    daily_files = sorted(DATA_DIR.glob("2026-*.json"))
+    if not daily_files:
+        return
+    # For each missing ticker, find max close across all dailies and use baseline as zero
+    patched = 0
+    for t in missing:
+        base_price = base_prices.get(t, {}).get("price")
+        if base_price is None or base_price <= 0:
+            continue
+        closes = []
+        for daily_path in daily_files:
+            daily = json.loads(daily_path.read_text())
+            tick_data = daily.get("tickers", {}).get(t)
+            if tick_data and tick_data.get("close"):
+                closes.append((daily_path.name, float(tick_data["close"])))
+        if not closes:
+            continue
+        high_close = max(c for _, c in closes)
+        high_date_str = next(d for d, c in closes if c == high_close)
+        high_date = high_date_str.replace(".json", "")[:10] if isinstance(high_date_str, str) else str(high_date_str)[:10]
+        ltm_pct = ((high_close - base_price) / base_price) * 100
+        ltm["tickers"][t] = {
+            "name": TICKERS[t]["name"],
+            "sector": TICKERS[t]["sector"],
+            "high_price": round(high_close, 2),
+            "high_date": high_date,
+            "zero_price": round(base_price, 2),
+            "ltm_high_pct": round(ltm_pct, 2),
+        }
+        patched += 1
+        print(f"  📋 Patched LTM for {t} from daily snapshots (high ${high_close:.2f}, +{ltm_pct:.1f}%)")
+    if patched:
+        # Recompute sector LTM averages
+        for sector_id, sector_info in SECTORS.items():
+            ticker_data = [(t, ltm["tickers"][t]) for t in sector_info["tickers"] if t in ltm["tickers"]]
+            if ticker_data:
+                pcts = [d["ltm_high_pct"] for _, d in ticker_data]
+                peak_ticker = max(ticker_data, key=lambda x: x[1]["ltm_high_pct"])
+                high_date = peak_ticker[1]["high_date"]
+                ltm["sectors"][sector_id] = {
+                    "name": sector_info["name"],
+                    "ltm_high_pct": round(sum(pcts) / len(pcts), 2),
+                    "high_date": high_date,
+                    "tickers_tracked": len(pcts),
+                    "tickers_total": len(sector_info["tickers"]),
+                }
+        with open(ltm_file, "w") as f:
+            json.dump(ltm, f, indent=2)
+        print(f"  ✅ Patched {patched} missing LTM tickers from daily snapshots")
+
+
 def fetch_daily_snapshot(date_str=None):
     """Fetch closing prices for all tickers via FMP batch-quote. Saves to data/{date}.json"""
     DATA_DIR.mkdir(exist_ok=True)
@@ -116,17 +294,7 @@ def fetch_daily_snapshot(date_str=None):
 
     quotes = []
     for ticker in all_tickers:
-        q = None
-        used_fallback = False
-        if fetcher:
-            try:
-                q = fetcher.get_quote(ticker)
-            except (requests.exceptions.HTTPError, Exception):
-                pass
-        # Always try yfinance when FMP has no data or invalid data (e.g. ticker not in FMP)
-        if not _is_valid_quote(q):
-            q = yf_get_quote(ticker)
-            used_fallback = q is not None
+        q, used_fallback = _fetch_quote_with_fallback(ticker, fetcher)
 
         if q:
             quotes.append(q)
@@ -222,17 +390,7 @@ def fetch_baseline(start_date="2026-02-03"):
     }
 
     for ticker in all_tickers:
-        rows = None
-        used_fallback = False
-        if fetcher:
-            try:
-                rows = fetcher.get_historical_eod(ticker, start_date, end_date)
-            except (requests.exceptions.HTTPError, Exception):
-                pass
-        # Always try yfinance when FMP has no data or invalid data
-        if not _is_valid_historical(rows):
-            rows = yf_get_historical_eod(ticker, start_date, end_date)
-            used_fallback = bool(rows)
+        rows, used_fallback = _fetch_historical_with_fallback(ticker, start_date, end_date, fetcher)
         if not rows:
             print(f"  ⚠ {ticker}: no historical data (FMP + yfinance)")
             continue
@@ -284,15 +442,7 @@ def backfill(start_date="2026-02-03"):
     by_ticker = {}
 
     for ticker in all_tickers:
-        rows = None
-        if fetcher:
-            try:
-                rows = fetcher.get_historical_eod(ticker, fetch_start, end_date)
-            except (requests.exceptions.HTTPError, Exception):
-                pass
-        # Always try yfinance when FMP has no data or invalid data
-        if not _is_valid_historical(rows):
-            rows = yf_get_historical_eod(ticker, fetch_start, end_date)
+        rows, _ = _fetch_historical_with_fallback(ticker, fetch_start, end_date, fetcher)
         if not rows:
             continue
 
@@ -401,17 +551,7 @@ def fetch_ltm_high(zero_date="2026-02-03"):
     }
 
     for ticker in all_tickers:
-        rows = None
-        used_fallback = False
-        if fetcher:
-            try:
-                rows = fetcher.get_historical_eod(ticker, start_date, end_date)
-            except (requests.exceptions.HTTPError, Exception):
-                pass
-        # Always try yfinance when FMP has no data or invalid data
-        if not _is_valid_historical(rows):
-            rows = yf_get_historical_eod(ticker, start_date, end_date)
-            used_fallback = bool(rows)
+        rows, used_fallback = _fetch_historical_with_fallback(ticker, start_date, end_date, fetcher)
         if not rows:
             print(f"  ⚠ {ticker}: no historical data (FMP + yfinance)")
             continue
@@ -462,9 +602,56 @@ def fetch_ltm_high(zero_date="2026-02-03"):
     return result
 
 
-if __name__ == "__main__":
-    import sys
+def validate_data() -> bool:
+    """
+    Validate that baseline, ltm_high, and at least one daily snapshot have ALL tickers.
+    Returns True if valid, False otherwise. Prints missing tickers and exits with 1 on failure.
+    """
+    all_tickers = set(TICKERS.keys())
+    errors = []
 
+    baseline_file = DATA_DIR / "baseline.json"
+    if not baseline_file.exists():
+        errors.append("baseline.json missing")
+    else:
+        with open(baseline_file) as f:
+            bl = json.load(f)
+        missing = all_tickers - set(bl.get("tickers", {}).keys())
+        if missing:
+            errors.append(f"baseline.json missing tickers: {sorted(missing)}")
+
+    ltm_file = DATA_DIR / "ltm_high.json"
+    if not ltm_file.exists():
+        errors.append("ltm_high.json missing")
+    else:
+        with open(ltm_file) as f:
+            ltm = json.load(f)
+        missing = all_tickers - set(ltm.get("tickers", {}).keys())
+        if missing:
+            errors.append(f"ltm_high.json missing tickers: {sorted(missing)}")
+
+    daily_files = sorted(DATA_DIR.glob("2026-*.json"))
+    if not daily_files:
+        errors.append("no daily snapshots (2026-*.json)")
+    else:
+        latest = json.loads(daily_files[-1].read_text())
+        missing = all_tickers - set(latest.get("tickers", {}).keys())
+        if missing:
+            errors.append(f"latest daily ({daily_files[-1].name}) missing tickers: {sorted(missing)}")
+
+    if errors:
+        print("❌ DATA VALIDATION FAILED:")
+        for e in errors:
+            print(f"  - {e}")
+        return False
+    print(f"✅ All {len(all_tickers)} tickers present in baseline, ltm_high, and daily snapshots")
+    return True
+
+
+if __name__ == "__main__":
+    if "--validate" in sys.argv:
+        ok = validate_data()
+        sys.exit(0 if ok else 1)
     if "--ltm" in sys.argv or "--ltm-high" in sys.argv:
         fetch_ltm_high()
     elif "--baseline" in sys.argv or "--force-baseline" in sys.argv:
@@ -482,5 +669,7 @@ if __name__ == "__main__":
         if f.exists():
             f.unlink()
         fetch_daily_snapshot()
+        _patch_baseline_from_daily()
+        _patch_ltm_from_daily()
     else:
         fetch_daily_snapshot()
