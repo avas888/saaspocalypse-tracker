@@ -156,32 +156,32 @@
     "CSU.TO": {
       "name": "Constellation Software",
       "sector": "consolidators",
-      "price": 2327.36
+      "price": 2288.91
     },
     "OTEX": {
       "name": "OpenText",
       "sector": "consolidators",
-      "price": 24.24
+      "price": 23.19
     },
     "ASUR": {
       "name": "Asure Software",
       "sector": "consolidators",
-      "price": 8.0
+      "price": 9.49
     },
     "TYL": {
       "name": "Tyler Technologies",
       "sector": "consolidators",
-      "price": 341.63
+      "price": 332.05
     },
     "DSG.TO": {
       "name": "Descartes Systems",
       "sector": "consolidators",
-      "price": 88.57
+      "price": 90.43
     },
     "UPLD": {
       "name": "Upland Software",
       "sector": "consolidators",
-      "price": 1.08
+      "price": 1.31
     }
   }
 }

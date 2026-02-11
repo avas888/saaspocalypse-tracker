@@ -183,6 +183,48 @@
       "close": 3.14,
       "prev_close": 3.05,
       "daily_pct": 2.95
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "close": 1.22,
+      "prev_close": 1.18,
+      "daily_pct": 3.39
+    },
+    "TYL": {
+      "name": "Tyler Technologies",
+      "sector": "consolidators",
+      "close": 348.35,
+      "prev_close": 340.86,
+      "daily_pct": 2.2
+    },
+    "OTEX": {
+      "name": "OpenText",
+      "sector": "consolidators",
+      "close": 25.07,
+      "prev_close": 22.79,
+      "daily_pct": 10.0
+    },
+    "DSG.TO": {
+      "name": "Descartes Systems",
+      "sector": "consolidators",
+      "close": 91.25,
+      "prev_close": 92.98,
+      "daily_pct": -1.86
+    },
+    "CSU.TO": {
+      "name": "Constellation Software",
+      "sector": "consolidators",
+      "close": 2434.02,
+      "prev_close": 2477.22,
+      "daily_pct": -1.74
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "close": 8.91,
+      "prev_close": 9.22,
+      "daily_pct": -3.36
     }
   },
   "sectors": {
@@ -233,6 +275,12 @@
       "avg_daily_pct": 1.21,
       "tickers_tracked": 3,
       "tickers_total": 5
+    },
+    "consolidators": {
+      "name": "SaaS Software Consolidators",
+      "avg_daily_pct": 1.44,
+      "tickers_tracked": 6,
+      "tickers_total": 6
     }
   }
 }
