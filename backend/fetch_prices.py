@@ -378,6 +378,101 @@ def fetch_daily_snapshot(date_str=None):
     return snapshot
 
 
+def fetch_noon_snapshot(date_str=None):
+    """Fetch current (intraday) prices and save as {date}-noon.json. Creates a separate column for noon data."""
+    DATA_DIR.mkdir(exist_ok=True)
+
+    if date_str is None:
+        date_str = datetime.now().strftime("%Y-%m-%d")
+
+    output_file = DATA_DIR / f"{date_str}-noon.json"
+
+    if output_file.exists():
+        print(f"Noon data already exists for {date_str}. Use --force to overwrite.")
+        return
+
+    print(f"Fetching noon prices for {date_str}...")
+    print(f"Tracking {len(TICKERS)} tickers across {len(SECTORS)} sectors\n")
+
+    all_tickers = list(TICKERS.keys())
+    fetcher = _get_fetcher()
+
+    quotes = []
+    for ticker in all_tickers:
+        q, used_fallback = _fetch_quote_with_fallback(ticker, fetcher)
+
+        if q:
+            quotes.append(q)
+            if used_fallback:
+                print(f"  📡 {ticker}: yf fallback (FMP unavailable)")
+        else:
+            print(f"  ⚠ {ticker}: no data (FMP + yfinance)")
+
+    quote_by_symbol = {q.get("symbol"): q for q in quotes if q.get("symbol")}
+
+    snapshot = {
+        "date": date_str,
+        "time_label": "noon",
+        "fetched_at": datetime.now().isoformat(),
+        "tickers": {},
+        "sectors": {},
+    }
+
+    for ticker in all_tickers:
+        q = quote_by_symbol.get(ticker)
+        if not q:
+            continue
+
+        try:
+            price = q.get("price") or q.get("close")
+            change = q.get("change", 0) or 0
+            changes_pct = q.get("changePercentage") or q.get("changesPercentage") or q.get("changePercent") or 0
+
+            if price is None:
+                print(f"  ⚠ {ticker}: missing price")
+                continue
+
+            current = float(price)
+            prev_close = q.get("previousClose")
+            if prev_close is not None:
+                prev_close = float(prev_close)
+            else:
+                prev_close = current - float(change) if change else current
+
+            daily_change = ((current - prev_close) / prev_close) * 100 if prev_close else float(changes_pct or 0)
+
+            snapshot["tickers"][ticker] = {
+                "name": TICKERS[ticker]["name"],
+                "sector": TICKERS[ticker]["sector"],
+                "close": round(current, 2),
+                "prev_close": round(prev_close, 2),
+                "daily_pct": round(daily_change, 2),
+            }
+            direction = "🟢" if daily_change >= 0 else "🔴"
+            print(f"  {direction} {ticker:10s} {TICKERS[ticker]['name']:25s} ${current:>10.2f}  {daily_change:>+.2f}%")
+
+        except (TypeError, ValueError) as e:
+            print(f"  ❌ {ticker}: {e}")
+
+    for sector_id, sector_info in SECTORS.items():
+        sector_changes = [snapshot["tickers"][t]["daily_pct"] for t in sector_info["tickers"] if t in snapshot["tickers"]]
+        if sector_changes:
+            avg = sum(sector_changes) / len(sector_changes)
+            snapshot["sectors"][sector_id] = {
+                "name": sector_info["name"],
+                "avg_daily_pct": round(avg, 2),
+                "tickers_tracked": len(sector_changes),
+                "tickers_total": len(sector_info["tickers"]),
+            }
+
+    with open(output_file, "w") as f:
+        json.dump(snapshot, f, indent=2)
+
+    print(f"\n✅ Saved to {output_file}")
+    print(f"   {len(snapshot['tickers'])} tickers, {len(snapshot['sectors'])} sectors")
+    return snapshot
+
+
 def fetch_baseline(start_date="2026-02-03"):
     """Fetch baseline prices as of the SaaSpocalypse start date via FMP historical EOD."""
     baseline_file = DATA_DIR / "baseline.json"
@@ -738,5 +833,11 @@ if __name__ == "__main__":
         fetch_daily_snapshot()
         _patch_baseline_from_daily()
         _patch_ltm_from_daily()
+    elif "--noon" in sys.argv:
+        today = datetime.now().strftime("%Y-%m-%d")
+        noon_file = DATA_DIR / f"{today}-noon.json"
+        if noon_file.exists() and "--force" in sys.argv:
+            noon_file.unlink()
+        fetch_noon_snapshot()
     else:
         fetch_daily_snapshot()

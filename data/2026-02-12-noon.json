@@ -1,0 +1,252 @@
+{
+  "date": "2026-02-12",
+  "time_label": "noon",
+  "fetched_at": "2026-02-12T12:57:05.576826",
+  "tickers": {
+    "HUBS": {
+      "name": "HubSpot",
+      "sector": "crm",
+      "close": 220.39,
+      "prev_close": 209.33,
+      "daily_pct": 5.28
+    },
+    "MNDY": {
+      "name": "monday.com",
+      "sector": "crm",
+      "close": 71.97,
+      "prev_close": 73.09,
+      "daily_pct": -1.53
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "sector": "crm",
+      "close": 181.4,
+      "prev_close": 185.0,
+      "daily_pct": -1.95
+    },
+    "FRSH": {
+      "name": "Freshworks",
+      "sector": "crm",
+      "close": 6.86,
+      "prev_close": 7.3,
+      "daily_pct": -5.99
+    },
+    "ASAN": {
+      "name": "Asana",
+      "sector": "project",
+      "close": 7.18,
+      "prev_close": 7.49,
+      "daily_pct": -4.07
+    },
+    "SMAR": {
+      "name": "Smartsheet",
+      "sector": "project",
+      "close": 56.47,
+      "prev_close": 56.46,
+      "daily_pct": 0.02
+    },
+    "INTU": {
+      "name": "Intuit",
+      "sector": "accounting",
+      "close": 394.25,
+      "prev_close": 399.69,
+      "daily_pct": -1.36
+    },
+    "ADP": {
+      "name": "ADP",
+      "sector": "payroll",
+      "close": 209.7,
+      "prev_close": 217.57,
+      "daily_pct": -3.62
+    },
+    "PAYX": {
+      "name": "Paychex",
+      "sector": "payroll",
+      "close": 92.05,
+      "prev_close": 94.84,
+      "daily_pct": -2.94
+    },
+    "PAYC": {
+      "name": "Paycom",
+      "sector": "payroll",
+      "close": 113.96,
+      "prev_close": 118.71,
+      "daily_pct": -4.0
+    },
+    "PCTY": {
+      "name": "Paylocity",
+      "sector": "payroll",
+      "close": 101.73,
+      "prev_close": 107.68,
+      "daily_pct": -5.52
+    },
+    "XYZ": {
+      "name": "Block (Square)",
+      "sector": "payroll",
+      "close": 48.59,
+      "prev_close": 53.81,
+      "daily_pct": -9.7
+    },
+    "TOST": {
+      "name": "Toast",
+      "sector": "pos",
+      "close": 26.2,
+      "prev_close": 28.02,
+      "daily_pct": -6.51
+    },
+    "LSPD": {
+      "name": "Lightspeed",
+      "sector": "pos",
+      "close": 8.49,
+      "prev_close": 8.91,
+      "daily_pct": -4.66
+    },
+    "FI": {
+      "name": "Fiserv (Clover)",
+      "sector": "pos",
+      "close": 63.8,
+      "prev_close": 63.7,
+      "daily_pct": 0.16
+    },
+    "DASH": {
+      "name": "DoorDash (Otter)",
+      "sector": "pos",
+      "close": 164.97,
+      "prev_close": 175.47,
+      "daily_pct": -5.98
+    },
+    "AGYS": {
+      "name": "Agilysys",
+      "sector": "hotel",
+      "close": 79.98,
+      "prev_close": 85.59,
+      "daily_pct": -6.55
+    },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "close": 0.98,
+      "prev_close": 1.06,
+      "daily_pct": -7.5
+    },
+    "DOCU": {
+      "name": "DocuSign",
+      "sector": "document",
+      "close": 41.85,
+      "prev_close": 44.34,
+      "daily_pct": -5.6
+    },
+    "DBX": {
+      "name": "Dropbox",
+      "sector": "document",
+      "close": 23.68,
+      "prev_close": 24.41,
+      "daily_pct": -3.01
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "sector": "ecommerce",
+      "close": 107.54,
+      "prev_close": 118.7,
+      "daily_pct": -9.41
+    },
+    "BIGC": {
+      "name": "BigCommerce",
+      "sector": "ecommerce",
+      "close": 4.78,
+      "prev_close": 4.78,
+      "daily_pct": 0.0
+    },
+    "WIX": {
+      "name": "Wix",
+      "sector": "ecommerce",
+      "close": 68.15,
+      "prev_close": 72.1,
+      "daily_pct": -5.48
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "close": 46.57,
+      "prev_close": 46.67,
+      "daily_pct": -0.21
+    },
+    "VTEX": {
+      "name": "VTEX",
+      "sector": "ecommerce",
+      "close": 3.06,
+      "prev_close": 3.23,
+      "daily_pct": -5.26
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "close": 7.08,
+      "prev_close": 7.81,
+      "daily_pct": -9.35
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "close": 1.03,
+      "prev_close": 1.06,
+      "daily_pct": -2.84
+    }
+  },
+  "sectors": {
+    "crm": {
+      "name": "CRM & Sales",
+      "avg_daily_pct": -1.05,
+      "tickers_tracked": 4,
+      "tickers_total": 4
+    },
+    "project": {
+      "name": "Project Management",
+      "avg_daily_pct": -1.86,
+      "tickers_tracked": 3,
+      "tickers_total": 3
+    },
+    "accounting": {
+      "name": "SMB Accounting",
+      "avg_daily_pct": -1.36,
+      "tickers_tracked": 1,
+      "tickers_total": 5
+    },
+    "payroll": {
+      "name": "SMB Payroll & HR",
+      "avg_daily_pct": -5.16,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "pos": {
+      "name": "Restaurant POS",
+      "avg_daily_pct": -5.34,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "hotel": {
+      "name": "Hotel PMS",
+      "avg_daily_pct": -7.03,
+      "tickers_tracked": 2,
+      "tickers_total": 3
+    },
+    "document": {
+      "name": "Document & E-Sign",
+      "avg_daily_pct": -4.3,
+      "tickers_tracked": 2,
+      "tickers_total": 2
+    },
+    "ecommerce": {
+      "name": "E-Commerce & Retail SaaS",
+      "avg_daily_pct": -4.07,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "consolidators": {
+      "name": "SaaS Software Consolidators",
+      "avg_daily_pct": -6.09,
+      "tickers_tracked": 2,
+      "tickers_total": 3
+    }
+  }
+}

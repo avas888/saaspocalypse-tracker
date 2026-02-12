@@ -101,10 +101,11 @@ function consolidateTimeline(dailyData, baseline) {
 
   dayBuffer.forEach((d) => {
     const dayName = new Date(d.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
+    const timeSuffix = d.time_label ? `-${d.time_label}` : "";
     columns.push({
-      id: `day-${d.date}`,
+      id: `day-${d.date}${timeSuffix}`,
       label: dayName,
-      sublabel: fmtShort(d.date),
+      sublabel: fmtShort(d.date) + (d.time_label ? ` ${d.time_label}` : ""),
       type: "day",
       dates: [d.date],
       data: [d],
