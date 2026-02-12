@@ -33,7 +33,7 @@ export default function Header() {
             fontStyle: "italic",
           }}
         >
-          Not All SMB SaaS Is <span style={{ color: ACCENT, fontWeight: 800, fontStyle: "normal" }}>Hit</span> Equally
+          <span style={{ color: ACCENT, fontWeight: 800, fontStyle: "normal" }}>SaaSPocalypse?</span> Not All SMB SaaS Is <span style={{ color: ACCENT, fontWeight: 800, fontStyle: "normal" }}>Hit</span> Equally
         </h1>
         <p
           style={{

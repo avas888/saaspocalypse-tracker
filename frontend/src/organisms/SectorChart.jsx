@@ -143,7 +143,13 @@ export default function SectorChart({ columns, rows, baselineDate, ltmHighData, 
               <XAxis dataKey="date" tick={{ fontSize: 10, fill: theme.textMuted }} />
               <YAxis tickFormatter={(v) => `${Number(v).toFixed(2)}%`} tick={{ fontSize: 10, fill: theme.textMuted }} domain={zoomDomain} />
               <ReferenceLine y={0} stroke={theme.textMuted} strokeWidth={1.5} strokeDasharray="4 4" />
-              <Tooltip content={<ChartTooltip formatter={(v) => (v != null ? `${v > 0 ? "+" : ""}${Number(v).toFixed(2)}%` : "—")} />} />
+              <Tooltip
+                content={
+                  <ChartTooltip
+                    formatter={(v) => (v != null ? `${v > 0 ? "+" : ""}${Number(v).toFixed(2)}%` : "—")}
+                  />
+                }
+              />
               {sectors.map((sectorId) => {
                 const meta = SECTOR_META[sectorId];
                 return <Line key={sectorId} type="monotone" dataKey={sectorId} name={meta.name} stroke={meta.color} strokeWidth={2} dot={{ r: 4 }} connectNulls />;

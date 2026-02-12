@@ -621,20 +621,6 @@ export default function Tracker() {
         />
       )}
 
-      <div style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
-        <span style={{ fontSize: 9, color: theme.textTertiary, fontWeight: 700 }}>SCALE:</span>
-        {[
-          { label: "≤-3%", ...getCellColor(-4, "category") },
-          { label: "-1 to -3%", ...getCellColor(-2, "category") },
-          { label: "-1 to +1%", ...getCellColor(0, "category") },
-          { label: "+1 to +3%", ...getCellColor(2, "category") },
-          { label: "≥+3%", ...getCellColor(4, "category") },
-        ].map((s) => (
-          <span key={s.label} style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: s.bg, color: s.text, fontWeight: 600 }}>
-            {s.label}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }
