@@ -23,19 +23,19 @@ export default function PrivateCompaniesList({ privateCos, regionOrder = {} }) {
     const dir = sortDir === "asc" ? 1 : -1;
     if (sortBy === "sector") {
       arr.sort((a, b) => {
-        const sectorCmp = a.sectorName.localeCompare(b.sectorName);
+        const sectorCmp = (a.sectorName ?? "").localeCompare(b.sectorName ?? "");
         if (sectorCmp !== 0) return dir * sectorCmp;
         const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
         if (regionCmp !== 0) return dir * regionCmp;
-        return a.name.localeCompare(b.name);
+        return (a.name ?? "").localeCompare(b.name ?? "");
       });
     } else if (sortBy === "region") {
       arr.sort((a, b) => {
         const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
         if (regionCmp !== 0) return dir * regionCmp;
-        const sectorCmp = a.sectorName.localeCompare(b.sectorName);
+        const sectorCmp = (a.sectorName ?? "").localeCompare(b.sectorName ?? "");
         if (sectorCmp !== 0) return dir * sectorCmp;
-        return a.name.localeCompare(b.name);
+        return (a.name ?? "").localeCompare(b.name ?? "");
       });
     }
     return arr;
@@ -86,51 +86,73 @@ export default function PrivateCompaniesList({ privateCos, regionOrder = {} }) {
         </button>
       </div>
       <div style={{ background: theme.white, border: `1px solid ${theme.border}`, borderRadius: 8, overflow: "hidden" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            padding: "8px 12px",
+            background: theme.surfaceAlt,
+            borderBottom: `1px solid ${theme.border}`,
+            fontSize: 11,
+            fontWeight: 600,
+            color: theme.textSecondary,
+          }}
+        >
+          <div style={{ width: 20, flexShrink: 0 }} />
+          <span style={{ width: 120, flexShrink: 0 }}>Company</span>
+          <span style={{ width: 90, flexShrink: 0 }}>Sector</span>
+          <span style={{ width: 56, flexShrink: 0 }}>Region</span>
+          <span style={{ flex: 1, minWidth: 0 }}>Recent relevant news</span>
+        </div>
         {sorted.map((c, i) => {
           const items = getHealthFor(c.name);
           return (
             <div
               key={i}
               style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 12,
                 padding: "10px 12px",
                 borderBottom: i < sorted.length - 1 ? `1px solid ${theme.borderLight}` : "none",
                 fontSize: 12,
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: items.length ? 6 : 0 }}>
-                <div style={{ width: 20, textAlign: "center", flexShrink: 0 }}>{c.sectorIcon}</div>
-                <span style={{ fontWeight: 700, flex: 1 }}>{c.name}</span>
-                <span style={{ fontSize: 10, color: theme.textMuted, width: 100, flexShrink: 0 }}>{c.sectorShortName ?? c.sectorName?.split(" ")[0] ?? "—"}</span>
-                <span style={{ fontSize: 10, color: theme.textMuted, width: 56, flexShrink: 0 }}>{c.region || "—"}</span>
+              <div style={{ width: 20, textAlign: "center", flexShrink: 0 }}>{c.sectorIcon}</div>
+              <span style={{ fontWeight: 700, width: 120, flexShrink: 0 }}>{c.name}</span>
+              <span style={{ fontSize: 10, color: theme.textMuted, width: 90, flexShrink: 0 }}>{c.sectorShortName ?? c.sectorName?.split(" ")[0] ?? "—"}</span>
+              <span style={{ fontSize: 10, color: theme.textMuted, width: 56, flexShrink: 0 }}>{c.region || "—"}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                {items.length > 0 ? (
+                  <ul style={{ margin: 0, paddingLeft: 14, listStyle: "disc" }}>
+                    {items.map((item, j) => (
+                      <li key={j} style={{ marginBottom: 4, color: theme.textSecondary }}>
+                        <span style={{ color: theme.text }}>{item.summary}</span>
+                        {" — "}
+                        <span style={{ fontSize: 11, color: theme.textTertiary }}>
+                          {item.date}
+                          {item.url ? (
+                            <>
+                              {" · "}
+                              <a
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: theme.textSecondary, textDecoration: "underline" }}
+                              >
+                                {item.source}
+                              </a>
+                            </>
+                          ) : (
+                            ` · ${item.source}`
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
-              {items.length > 0 && (
-                <ul style={{ margin: 0, paddingLeft: 28, listStyle: "disc" }}>
-                  {items.map((item, j) => (
-                    <li key={j} style={{ marginBottom: 4, color: theme.textSecondary }}>
-                      <span style={{ color: theme.text }}>{item.summary}</span>
-                      {" — "}
-                      <span style={{ fontSize: 11, color: theme.textTertiary }}>
-                        {item.date}
-                        {item.url ? (
-                          <>
-                            {" · "}
-                            <a
-                              href={item.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{ color: theme.textSecondary, textDecoration: "underline" }}
-                            >
-                              {item.source}
-                            </a>
-                          </>
-                        ) : (
-                          ` · ${item.source}`
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
           );
         })}

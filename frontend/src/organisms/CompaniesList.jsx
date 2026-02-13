@@ -20,10 +20,14 @@ export default function CompaniesList({ publicCos, regionOrder = {} }) {
     const arr = [...publicCos];
     const dir = sortDir === "asc" ? 1 : -1;
     if (sortBy === "pct") {
-      arr.sort((a, b) => (sortDir === "asc" ? a.drop - b.drop : b.drop - a.drop));
+      arr.sort((a, b) => {
+        const aDrop = a.drop ?? 0;
+        const bDrop = b.drop ?? 0;
+        return sortDir === "asc" ? aDrop - bDrop : bDrop - aDrop;
+      });
     } else if (sortBy === "sector") {
       arr.sort((a, b) => {
-        const sectorCmp = a.sectorName.localeCompare(b.sectorName);
+        const sectorCmp = (a.sectorName ?? "").localeCompare(b.sectorName ?? "");
         if (sectorCmp !== 0) return dir * sectorCmp;
         const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
         if (regionCmp !== 0) return dir * regionCmp;
@@ -33,7 +37,7 @@ export default function CompaniesList({ publicCos, regionOrder = {} }) {
       arr.sort((a, b) => {
         const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
         if (regionCmp !== 0) return dir * regionCmp;
-        const sectorCmp = a.sectorName.localeCompare(b.sectorName);
+        const sectorCmp = (a.sectorName ?? "").localeCompare(b.sectorName ?? "");
         if (sectorCmp !== 0) return dir * sectorCmp;
         return a.drop - b.drop;
       });
@@ -104,26 +108,48 @@ export default function CompaniesList({ publicCos, regionOrder = {} }) {
         </button>
       </div>
       <div style={{ background: theme.white, border: `1px solid ${theme.border}`, borderRadius: 8, overflow: "hidden" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "56px 1fr 64px 100px",
+            alignItems: "center",
+            gap: 12,
+            padding: "8px 12px",
+            borderBottom: `1px solid ${theme.border}`,
+            fontSize: 10,
+            fontWeight: 600,
+            color: theme.textMuted,
+            textTransform: "uppercase",
+            letterSpacing: "0.06em",
+            background: theme.surface,
+          }}
+        >
+          <div>% change</div>
+          <div>Company</div>
+          <div>Region</div>
+          <div>Sector</div>
+        </div>
         {sorted.map((c, i) => (
           <div
             key={`${c.ticker}-${c.sectorName}`}
             style={{
-              display: "flex",
+              display: "grid",
+              gridTemplateColumns: "56px 1fr 64px 100px",
               alignItems: "center",
-              gap: 8,
+              gap: 12,
               padding: "8px 12px",
               borderBottom: i < sorted.length - 1 ? `1px solid ${theme.borderLight}` : "none",
               fontSize: 12,
             }}
           >
-            <div style={{ width: 42, fontWeight: 800, fontFamily: "monospace", flexShrink: 0, color: dropColor(c.drop) }}>{c.drop}%</div>
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontWeight: 800, fontFamily: "monospace", color: dropColor(c.drop) }}>{c.drop}%</div>
+            <div style={{ minWidth: 0 }}>
               <span style={{ fontWeight: 700 }}>{c.name}</span>
               <span style={{ fontSize: 9, color: theme.textTertiary, fontFamily: "monospace", marginLeft: 4 }}>{c.ticker}</span>
             </div>
-            <span style={{ fontSize: 10, color: theme.textMuted, width: 56, flexShrink: 0 }}>{c.region || "—"}</span>
+            <span style={{ fontSize: 10, color: theme.textMuted }}>{c.region || "—"}</span>
             <Badge color={c.sectorColor} bg={c.sectorColor + "12"}>
-              {c.sectorIcon} {c.sectorShortName ?? c.sectorName.split(" ")[0]}
+              {c.sectorIcon} {c.sectorShortName ?? (c.sectorName ?? "").split(" ")[0] || "—"}
             </Badge>
           </div>
         ))}

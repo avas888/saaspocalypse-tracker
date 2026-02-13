@@ -16,6 +16,7 @@
     "fetch:force": "cd backend && python3 fetch_prices.py --force",
     "fetch:refresh": "mkdir -p data && rm -f data/baseline.json data/ltm_high.json data/2026-*.json && npm run fetch:backfill && npm run fetch:ltm && npm run fetch:force","fetch:validate":"cd backend && python3 fetch_prices.py --validate",
     "fetch:private":"cd backend && python3 fetch_private_health.py",
+    "fetch:sector-news":"(test -d venv && . venv/bin/activate; true) && cd backend && python3 fetch_sector_news.py",
     "publish":"bash scripts/publish-if-valid.sh"
   },
   "dependencies": {

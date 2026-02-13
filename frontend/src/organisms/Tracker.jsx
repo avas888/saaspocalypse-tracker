@@ -48,7 +48,7 @@ function buildBaseline(baselineData, firstDaySnapshot) {
 function consolidateTimeline(dailyData, baseline) {
   if (!dailyData.length) return { columns: [], rows: {} };
 
-  const sorted = [...dailyData].sort((a, b) => a.date.localeCompare(b.date));
+  const sorted = [...dailyData].sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
   const baseMs = new Date(BASE_DATE + "T12:00:00").getTime();
   const dayMs = 24 * 60 * 60 * 1000;
   const sampled = sorted.filter((s) => {
@@ -208,11 +208,12 @@ export default function Tracker() {
         ...dailyFiles.map((f) => fetch(`/api/data/${f}`).then((r) => r.json())),
       ]);
 
-      const sorted = [...snapshots].sort((a, b) => a.date.localeCompare(b.date));
+      const validSnapshots = snapshots.filter((s) => s && typeof s.date === "string");
+      const sorted = [...validSnapshots].sort((a, b) => a.date.localeCompare(b.date));
       const firstDay = sorted[0] || null;
       const base = buildBaseline(baselineData, firstDay);
       setBaseline(base);
-      setDailyData(snapshots);
+      setDailyData(validSnapshots);
       setLtmHighData(ltmHighData);
       if (baselineData?.date) setBaselineDate(baselineData.date);
       else if (firstDay?.date) {

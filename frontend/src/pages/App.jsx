@@ -7,6 +7,7 @@ import {
   Tracker,
   CompaniesList,
   PrivateCompaniesList,
+  SectorNewsSection,
   FrameworkSection,
 } from "../organisms/index.js";
 
@@ -55,6 +56,8 @@ export default function App() {
     content = <SectorList onSelectSector={(id) => setSelected(id)} sorted={sorted} />;
   } else if (tab === "sectors" && sector) {
     content = <SectorDetail sector={sector} onBack={() => setSelected(null)} />;
+  } else if (tab === "sector-news") {
+    content = <SectorNewsSection />;
   } else if (tab === "companies") {
     content = <CompaniesList publicCos={publicCos} regionOrder={REGION_ORDER} />;
   } else if (tab === "private") {

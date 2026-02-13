@@ -3,6 +3,7 @@ import { theme } from "../atoms/tokens/theme.js";
 const TABS = [
   { id: "tracker", label: "📈 Tracker" },
   { id: "sectors", label: "Sectors" },
+  { id: "sector-news", label: "Relevant Sector News" },
   { id: "companies", label: "Public Cos" },
   { id: "private", label: "Private Cos" },
   { id: "framework", label: "Framework" },
