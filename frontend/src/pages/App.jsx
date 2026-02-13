@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SECTORS } from "../sectors.js";
+import { SECTORS, REGION_ORDER } from "../sectors.js";
 import MainLayout from "../templates/MainLayout.jsx";
 import {
   SectorList,
@@ -34,7 +34,13 @@ export default function App() {
 
   const publicCos = allCos.filter((c) => c.status === "public");
   const privateCos = SECTORS.flatMap((s) =>
-    s.companies.filter((c) => c.status === "private").map((c) => ({ ...c, sectorName: s.name, sectorIcon: s.icon }))
+    s.companies.filter((c) => c.status === "private").map((c) => ({
+      ...c,
+      sectorName: s.name,
+      sectorIcon: s.icon,
+      sectorShortName: sectorShortName(s.id) ?? s.name.split(" ")[0],
+      sectorColor: s.color,
+    }))
   );
 
   function handleTabChange(tabId) {
@@ -50,9 +56,9 @@ export default function App() {
   } else if (tab === "sectors" && sector) {
     content = <SectorDetail sector={sector} onBack={() => setSelected(null)} />;
   } else if (tab === "companies") {
-    content = <CompaniesList publicCos={publicCos} />;
+    content = <CompaniesList publicCos={publicCos} regionOrder={REGION_ORDER} />;
   } else if (tab === "private") {
-    content = <PrivateCompaniesList privateCos={privateCos} />;
+    content = <PrivateCompaniesList privateCos={privateCos} regionOrder={REGION_ORDER} />;
   } else if (tab === "framework") {
     content = <FrameworkSection />;
   }

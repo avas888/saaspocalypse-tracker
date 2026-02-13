@@ -378,20 +378,20 @@ def fetch_daily_snapshot(date_str=None):
     return snapshot
 
 
-def fetch_noon_snapshot(date_str=None):
-    """Fetch current (intraday) prices and save as {date}-noon.json. Creates a separate column for noon data."""
+def fetch_intraday_snapshot(date_str=None, time_label="noon", suffix="noon"):
+    """Fetch current (intraday) prices and save as {date}-{suffix}.json. Creates a separate column for intraday data."""
     DATA_DIR.mkdir(exist_ok=True)
 
     if date_str is None:
         date_str = datetime.now().strftime("%Y-%m-%d")
 
-    output_file = DATA_DIR / f"{date_str}-noon.json"
+    output_file = DATA_DIR / f"{date_str}-{suffix}.json"
 
     if output_file.exists():
-        print(f"Noon data already exists for {date_str}. Use --force to overwrite.")
+        print(f"{time_label} data already exists for {date_str}. Use --force to overwrite.")
         return
 
-    print(f"Fetching noon prices for {date_str}...")
+    print(f"Fetching {time_label} prices for {date_str}...")
     print(f"Tracking {len(TICKERS)} tickers across {len(SECTORS)} sectors\n")
 
     all_tickers = list(TICKERS.keys())
@@ -412,7 +412,7 @@ def fetch_noon_snapshot(date_str=None):
 
     snapshot = {
         "date": date_str,
-        "time_label": "noon",
+        "time_label": time_label,
         "fetched_at": datetime.now().isoformat(),
         "tickers": {},
         "sectors": {},
@@ -471,6 +471,16 @@ def fetch_noon_snapshot(date_str=None):
     print(f"\n✅ Saved to {output_file}")
     print(f"   {len(snapshot['tickers'])} tickers, {len(snapshot['sectors'])} sectors")
     return snapshot
+
+
+def fetch_noon_snapshot(date_str=None):
+    """Fetch current (intraday) prices and save as {date}-noon.json."""
+    return fetch_intraday_snapshot(date_str, time_label="noon", suffix="noon")
+
+
+def fetch_11am_snapshot(date_str=None):
+    """Fetch current (intraday) prices and save as {date}-11am.json."""
+    return fetch_intraday_snapshot(date_str, time_label="11am", suffix="11am")
 
 
 def fetch_baseline(start_date="2026-02-03"):
@@ -833,6 +843,12 @@ if __name__ == "__main__":
         fetch_daily_snapshot()
         _patch_baseline_from_daily()
         _patch_ltm_from_daily()
+    elif "--11am" in sys.argv:
+        today = datetime.now().strftime("%Y-%m-%d")
+        am_file = DATA_DIR / f"{today}-11am.json"
+        if am_file.exists() and "--force" in sys.argv:
+            am_file.unlink()
+        fetch_11am_snapshot()
     elif "--noon" in sys.argv:
         today = datetime.now().strftime("%Y-%m-%d")
         noon_file = DATA_DIR / f"{today}-noon.json"

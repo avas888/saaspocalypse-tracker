@@ -30,6 +30,11 @@ npm run fetch
 
 # Force re-fetch today's data
 npm run fetch:force
+
+# Fetch private company health indicators (financing, acquisitions, etc.)
+# Requires NEWS_API_KEY — get a free key at newsapi.org/register
+export NEWS_API_KEY=your_key
+npm run fetch:private
 ```
 
 ## Auto-fetch (optional cron)

@@ -10,24 +10,36 @@ function dropColor(drop) {
   return SENTIMENT_COLORS.success;
 }
 
-export default function CompaniesList({ publicCos }) {
+const regionOrd = (r, order) => (order[r] ?? 999);
+
+export default function CompaniesList({ publicCos, regionOrder = {} }) {
   const [sortBy, setSortBy] = useState("pct");
   const [sortDir, setSortDir] = useState("asc");
 
   const sorted = useMemo(() => {
     const arr = [...publicCos];
+    const dir = sortDir === "asc" ? 1 : -1;
     if (sortBy === "pct") {
       arr.sort((a, b) => (sortDir === "asc" ? a.drop - b.drop : b.drop - a.drop));
-    } else {
-      const dir = sortDir === "asc" ? 1 : -1;
+    } else if (sortBy === "sector") {
       arr.sort((a, b) => {
+        const sectorCmp = a.sectorName.localeCompare(b.sectorName);
+        if (sectorCmp !== 0) return dir * sectorCmp;
+        const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
+        if (regionCmp !== 0) return dir * regionCmp;
+        return a.drop - b.drop;
+      });
+    } else if (sortBy === "region") {
+      arr.sort((a, b) => {
+        const regionCmp = regionOrd(a.region, regionOrder) - regionOrd(b.region, regionOrder);
+        if (regionCmp !== 0) return dir * regionCmp;
         const sectorCmp = a.sectorName.localeCompare(b.sectorName);
         if (sectorCmp !== 0) return dir * sectorCmp;
         return a.drop - b.drop;
       });
     }
     return arr;
-  }, [publicCos, sortBy, sortDir]);
+  }, [publicCos, sortBy, sortDir, regionOrder]);
 
   const worst = publicCos.length ? Math.min(...publicCos.map((c) => c.drop)) : 0;
   const least = publicCos.length ? Math.max(...publicCos.map((c) => c.drop)) : 0;
@@ -75,6 +87,21 @@ export default function CompaniesList({ publicCos }) {
         >
           Sector {sortBy === "sector" && (sortDir === "asc" ? "↑" : "↓")}
         </button>
+        <button
+          onClick={() => { setSortBy("region"); setSortDir(sortBy === "region" ? (sortDir === "asc" ? "desc" : "asc") : "asc"); }}
+          style={{
+            fontSize: 11,
+            padding: "4px 10px",
+            borderRadius: 6,
+            border: `1px solid ${sortBy === "region" ? theme.border : theme.borderLight}`,
+            background: sortBy === "region" ? theme.surface : theme.white,
+            color: theme.textSecondary,
+            fontWeight: sortBy === "region" ? 600 : 400,
+            cursor: "pointer",
+          }}
+        >
+          Region {sortBy === "region" && (sortDir === "asc" ? "↑" : "↓")}
+        </button>
       </div>
       <div style={{ background: theme.white, border: `1px solid ${theme.border}`, borderRadius: 8, overflow: "hidden" }}>
         {sorted.map((c, i) => (
@@ -94,6 +121,7 @@ export default function CompaniesList({ publicCos }) {
               <span style={{ fontWeight: 700 }}>{c.name}</span>
               <span style={{ fontSize: 9, color: theme.textTertiary, fontFamily: "monospace", marginLeft: 4 }}>{c.ticker}</span>
             </div>
+            <span style={{ fontSize: 10, color: theme.textMuted, width: 56, flexShrink: 0 }}>{c.region || "—"}</span>
             <Badge color={c.sectorColor} bg={c.sectorColor + "12"}>
               {c.sectorIcon} {c.sectorShortName ?? c.sectorName.split(" ")[0]}
             </Badge>
