@@ -100,6 +100,7 @@ export default function PrivateCompaniesList({ privateCos, regionOrder = {} }) {
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: items.length ? 6 : 0 }}>
                 <div style={{ width: 20, textAlign: "center", flexShrink: 0 }}>{c.sectorIcon}</div>
                 <span style={{ fontWeight: 700, flex: 1 }}>{c.name}</span>
+                <span style={{ fontSize: 10, color: theme.textMuted, width: 100, flexShrink: 0 }}>{c.sectorShortName ?? c.sectorName?.split(" ")[0] ?? "—"}</span>
                 <span style={{ fontSize: 10, color: theme.textMuted, width: 56, flexShrink: 0 }}>{c.region || "—"}</span>
               </div>
               {items.length > 0 && (

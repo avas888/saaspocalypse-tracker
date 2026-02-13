@@ -62,26 +62,43 @@ def _search_news(company: str, api_key: str, from_date: str) -> list[dict]:
         return []
 
     query = f'"{search_name}" (funding OR raised OR acquisition OR acquired OR valuation OR "down round" OR "up round")'
-    url = "https://newsapi.org/v2/everything"
-    params = {
-        "q": query,
-        "from": from_date,
-        "sortBy": "publishedAt",
-        "pageSize": 5,
-        "language": "en",
-        "apiKey": api_key,
-    }
 
-    try:
-        r = requests.get(url, params=params, timeout=15)
-        r.raise_for_status()
-        data = r.json()
-        return data.get("articles") or []
-    except requests.exceptions.RequestException as e:
-        print(f"  ⚠ {company}: API error — {e}")
-        return []
-    except json.JSONDecodeError:
-        return []
+    # Try top-headlines first (free tier); fallback to everything
+    for url, params in [
+        (
+            "https://newsapi.org/v2/top-headlines",
+            {"q": search_name, "pageSize": 5, "apiKey": api_key},
+        ),
+        (
+            "https://newsapi.org/v2/everything",
+            {
+                "q": query,
+                "from": from_date,
+                "sortBy": "publishedAt",
+                "pageSize": 5,
+                "language": "en",
+                "apiKey": api_key,
+            },
+        ),
+    ]:
+        try:
+            r = requests.get(url, params=params, timeout=15)
+            if r.status_code == 426:
+                continue  # Upgrade required, try next endpoint
+            r.raise_for_status()
+            data = r.json()
+            articles = data.get("articles") or []
+            if articles:
+                return articles
+        except requests.exceptions.RequestException as e:
+            if "426" in str(e):
+                continue
+            print(f"  ⚠ {company}: API error — {e}")
+            return []
+        except json.JSONDecodeError:
+            continue
+
+    return []
 
 
 def _is_relevant(article: dict, company: str) -> bool:
@@ -120,7 +137,8 @@ def fetch_private_health():
         print("   Then: export NEWS_API_KEY=your_key && python fetch_private_health.py")
         sys.exit(1)
 
-    from_date = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
+    # Free tier: search up to 1 month old only
+    from_date = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
     DATA_DIR.mkdir(exist_ok=True)
 
     print("Fetching private company health indicators...")

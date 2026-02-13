@@ -1,5 +1,114 @@
 {
-  "fetched_at": null,
-  "description": "Health indicators for private SMB SaaS companies. Run: npm run fetch:private",
-  "companies": {}
+  "fetched_at": "2026-02-13T11:57:40.973352",
+  "description": "Health indicators for private SMB SaaS companies. Run periodically: npm run fetch:private",
+  "companies": {
+    "Pipedrive": [
+      {
+        "date": "2026-02-05",
+        "summary": "20VC x SaaStr: SpaceX at $1.25 Trillion, SaaS Stocks Down 40%, and the Week We Connected a Million AI Agents \u2026 Sort Of",
+        "source": "Saastr.com",
+        "url": "https://www.saastr.com/20vc-x-saastr-spacex-at-1-25-trillion-saas-stocks-down-40-and-the-week-we-connected-a-million-ai-agents-sort-of/"
+      }
+    ],
+    "Zoho CRM": [
+      {
+        "date": "2026-02-11",
+        "summary": "Former Founders Fund VC Sam Blond launches AI sales startup to upend Salesforce\u00a0 | TechCrunch",
+        "source": "TechCrunch",
+        "url": "https://techcrunch.com/2026/02/11/former-founders-fund-vc-sam-blond-launches-ai-sales-startup-to-upend-salesforce/"
+      },
+      {
+        "date": "2026-02-11",
+        "summary": "Low-cost video conferencing entrant targets India with bootstrapped model",
+        "source": "The Times of India",
+        "url": "https://economictimes.indiatimes.com/tech/technology/low-cost-video-conferencing-entrant-targets-india-with-bootstrapped-model/articleshow/128202118.cms"
+      }
+    ],
+    "ClickUp": [
+      {
+        "date": "2026-01-26",
+        "summary": "Upwind secures $250 million to expand runtime-first cloud security for AI workloads",
+        "source": "Help Net Security",
+        "url": "https://www.helpnetsecurity.com/2026/01/26/upwind-250-million-funding/"
+      }
+    ],
+    "FreshBooks": [
+      {
+        "date": "2026-01-28",
+        "summary": "FreshBooks 2025 State of U.S. Small Business: Confidence Holds Steady Despite Rising Costs, Tariffs, and Customer Challenge",
+        "source": "Financial Post",
+        "url": "https://financialpost.com/globe-newswire/freshbooks-2025-state-of-u-s-small-business-confidence-holds-steady-despite-rising-costs-tariffs-and-customer-challenge"
+      }
+    ],
+    "Zoho Books": [
+      {
+        "date": "2026-02-11",
+        "summary": "Former Founders Fund VC Sam Blond launches AI sales startup to upend Salesforce\u00a0 | TechCrunch",
+        "source": "TechCrunch",
+        "url": "https://techcrunch.com/2026/02/11/former-founders-fund-vc-sam-blond-launches-ai-sales-startup-to-upend-salesforce/"
+      },
+      {
+        "date": "2026-02-11",
+        "summary": "Low-cost video conferencing entrant targets India with bootstrapped model",
+        "source": "The Times of India",
+        "url": "https://economictimes.indiatimes.com/tech/technology/low-cost-video-conferencing-entrant-targets-india-with-bootstrapped-model/articleshow/128202118.cms"
+      }
+    ],
+    "Gusto": [
+      {
+        "date": "2026-02-05",
+        "summary": "iPhone 17 leads Apple earnings record, new MacBooks near, and a mysterious $2B acquisition",
+        "source": "9to5Mac",
+        "url": "https://9to5mac.com/2026/02/05/happy-hour-576/"
+      }
+    ],
+    "Rippling": [
+      {
+        "date": "2026-02-12",
+        "summary": "Exclusive: Seligman Ventures debuts with $500 million and a new model for the blurring line between public and private markets",
+        "source": "Fortune",
+        "url": "https://fortune.com/2026/02/12/exclusive-seligman-ventures-500-million-new-model-blurring-line-public-private-markets/"
+      }
+    ],
+    "SpotOn": [
+      {
+        "date": "2026-02-10",
+        "summary": "Samara Capital closes second fund with SMS Facility's sale to Norwest-backed SILA Solutions",
+        "source": "Livemint",
+        "url": "https://www.livemint.com/companies/news/samara-capital-private-equity-sila-solutions-acquisition-11770614410952.html"
+      }
+    ],
+    "Cloudbeds": [
+      {
+        "date": "2026-01-20",
+        "summary": "What Hotel Investors Need to Know About Agentic Hotel Distribution in 2026",
+        "source": "Hospitality Net",
+        "url": "https://www.hospitalitynet.org/opinion/4130493.html"
+      }
+    ],
+    "Mews": [
+      {
+        "date": "2026-01-24",
+        "summary": "Mews raises \u20ac255M to accelerate AI and automation in hospitality",
+        "source": "The Next Web",
+        "url": "https://thenextweb.com/news/mews-raises-e255m-to-accelerate-ai-and-automation-in-hospitality"
+      }
+    ],
+    "Guesty": [
+      {
+        "date": "2026-01-28",
+        "summary": "Mesh Security raises $12M to scale cybersecurity mesh execution platform",
+        "source": "SiliconANGLE News",
+        "url": "https://siliconangle.com/2026/01/28/mesh-security-raises-12m-scale-cybersecurity-mesh-execution-platform/"
+      }
+    ],
+    "PandaDoc": [
+      {
+        "date": "2026-02-04",
+        "summary": "Contract Lifecycle Management Market to Reach US$ 11.95 Billion by 2033 as Enterprises Accelerate Legal and Procurement Automation | Astute Analytica",
+        "source": "GlobeNewswire",
+        "url": "https://www.globenewswire.com/news-release/2026/02/04/3231842/0/en/Contract-Lifecycle-Management-Market-to-Reach-US-11-95-Billion-by-2033-as-Enterprises-Accelerate-Legal-and-Procurement-Automation-Astute-Analytica.html"
+      }
+    ]
+  }
 }
