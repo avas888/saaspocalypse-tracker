@@ -95,7 +95,7 @@ export default function CompaniesList({ publicCos }) {
               <span style={{ fontSize: 9, color: theme.textTertiary, fontFamily: "monospace", marginLeft: 4 }}>{c.ticker}</span>
             </div>
             <Badge color={c.sectorColor} bg={c.sectorColor + "12"}>
-              {c.sectorIcon} {c.sectorName.split(" ")[0]}
+              {c.sectorIcon} {c.sectorShortName ?? c.sectorName.split(" ")[0]}
             </Badge>
           </div>
         ))}

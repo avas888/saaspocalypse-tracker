@@ -19,10 +19,17 @@ export default function App() {
   const sorted = [...SECTORS].sort((a, b) => severity_order[a.severity] - severity_order[b.severity] || a.avgDrop - b.avgDrop);
   const sector = selected ? SECTORS.find((s) => s.id === selected) : null;
 
+  const sectorShortName = (id) => (id === "accounting" ? "Accounting" : id === "payroll" ? "Payroll" : null);
   const allCos = SECTORS.flatMap((s) =>
     s.companies
       .filter((c) => c.drop !== null)
-      .map((c) => ({ ...c, sectorName: s.name, sectorColor: s.color, sectorIcon: s.icon }))
+      .map((c) => ({
+        ...c,
+        sectorName: s.name,
+        sectorColor: s.color,
+        sectorIcon: s.icon,
+        sectorShortName: sectorShortName(s.id) ?? s.name.split(" ")[0],
+      }))
   ).sort((a, b) => a.drop - b.drop);
 
   const publicCos = allCos.filter((c) => c.status === "public");
