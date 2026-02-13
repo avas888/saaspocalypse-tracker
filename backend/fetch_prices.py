@@ -283,6 +283,35 @@ def _patch_ltm_from_daily():
         print(f"  ✅ Patched {patched} missing LTM tickers from daily snapshots")
 
 
+def _fetch_historical_ticker_for_date(ticker: str, date_str: str, fetcher) -> dict | None:
+    """
+    Get ticker data from historical EOD for a specific date.
+    Used when live quote fails (e.g. international markets closed during US trading hours).
+    Returns ticker dict with name, sector, close, prev_close, daily_pct or None.
+    """
+    fetch_start = (datetime.strptime(date_str, "%Y-%m-%d") - timedelta(days=5)).strftime("%Y-%m-%d")
+    fetch_end = (datetime.strptime(date_str, "%Y-%m-%d") + timedelta(days=2)).strftime("%Y-%m-%d")
+    rows, _ = _fetch_historical_with_fallback(ticker, fetch_start, fetch_end, fetcher)
+    if not rows:
+        return None
+    sorted_rows = sorted(rows, key=lambda r: r.get("date", ""))
+    by_date = {r.get("date", "")[:10]: r for r in sorted_rows if r.get("close") is not None}
+    if date_str not in by_date:
+        return None
+    curr = by_date[date_str]
+    idx = next((i for i, r in enumerate(sorted_rows) if r.get("date", "")[:10] == date_str), -1)
+    prev_close = float(sorted_rows[idx - 1].get("close", curr["close"])) if idx > 0 else float(curr.get("close", 0))
+    current = float(curr["close"])
+    daily_change = ((current - prev_close) / prev_close) * 100 if prev_close else 0
+    return {
+        "name": TICKERS[ticker]["name"],
+        "sector": TICKERS[ticker]["sector"],
+        "close": round(current, 2),
+        "prev_close": round(prev_close, 2),
+        "daily_pct": round(daily_change, 2),
+    }
+
+
 def fetch_daily_snapshot(date_str=None):
     """Fetch closing prices for all tickers via FMP batch-quote. Saves to data/{date}.json"""
     DATA_DIR.mkdir(exist_ok=True)
@@ -311,7 +340,20 @@ def fetch_daily_snapshot(date_str=None):
             if used_fallback:
                 print(f"  📡 {ticker}: yf fallback (FMP unavailable)")
         else:
-            print(f"  ⚠ {ticker}: no data (FMP + yfinance)")
+            # Fallback to historical EOD when live quote fails (international markets closed, etc.)
+            ticker_data = _fetch_historical_ticker_for_date(ticker, date_str, fetcher)
+            if ticker_data:
+                # Build a quote-like dict for downstream processing
+                quotes.append({
+                    "symbol": ticker,
+                    "price": ticker_data["close"],
+                    "previousClose": ticker_data["prev_close"],
+                    "change": ticker_data["close"] - ticker_data["prev_close"],
+                    "changePercentage": ticker_data["daily_pct"],
+                })
+                print(f"  📋 {ticker}: historical EOD (live quote unavailable)")
+            else:
+                print(f"  ⚠ {ticker}: no data (FMP + yfinance + historical)")
 
     quote_by_symbol = {q.get("symbol"): q for q in quotes if q.get("symbol")}
 
@@ -373,9 +415,42 @@ def fetch_daily_snapshot(date_str=None):
     with open(output_file, "w") as f:
         json.dump(snapshot, f, indent=2)
 
+    # Patch any remaining missing tickers from historical EOD (belt-and-suspenders)
+    _patch_missing_tickers_in_daily(output_file, date_str, snapshot)
+
     print(f"\n✅ Saved to {output_file}")
     print(f"   {len(snapshot['tickers'])} tickers, {len(snapshot['sectors'])} sectors")
     return snapshot
+
+
+def _patch_missing_tickers_in_daily(file_path: Path, date_str: str, snapshot: dict) -> None:
+    """Fill missing tickers in a daily snapshot from historical EOD. Updates file if any patched."""
+    all_tickers = set(TICKERS.keys())
+    present = set(snapshot.get("tickers", {}).keys())
+    missing = all_tickers - present
+    if not missing:
+        return
+    fetcher = _get_fetcher()
+    patched = 0
+    for ticker in missing:
+        data = _fetch_historical_ticker_for_date(ticker, date_str, fetcher)
+        if data:
+            snapshot["tickers"][ticker] = data
+            patched += 1
+            print(f"  📋 Patched {ticker} from historical into {file_path.name}")
+    if patched:
+        for sector_id, sector_info in SECTORS.items():
+            sector_changes = [snapshot["tickers"][t]["daily_pct"] for t in sector_info["tickers"] if t in snapshot["tickers"]]
+            if sector_changes:
+                avg = sum(sector_changes) / len(sector_changes)
+                snapshot["sectors"][sector_id] = {
+                    "name": sector_info["name"],
+                    "avg_daily_pct": round(avg, 2),
+                    "tickers_tracked": len(sector_changes),
+                    "tickers_total": len(sector_info["tickers"]),
+                }
+        with open(file_path, "w") as f:
+            json.dump(snapshot, f, indent=2)
 
 
 def fetch_intraday_snapshot(date_str=None, time_label="noon", suffix="noon"):
@@ -639,6 +714,23 @@ def backfill(start_date="2026-02-03"):
     print(f"\nBackfill complete.")
 
 
+def repair_daily_files():
+    """Patch missing tickers in existing daily files (e.g. after fetch during US hours missed international)."""
+    daily_files = sorted(p for p in DATA_DIR.glob("2026-*.json") if p.stem.count("-") <= 2)
+    if not daily_files:
+        print("No daily files to repair.")
+        return
+    print(f"Repairing {len(daily_files)} daily file(s)...\n")
+    for daily_path in daily_files:
+        date_str = daily_path.stem
+        if date_str.count("-") > 2:
+            continue
+        daily = json.loads(daily_path.read_text())
+        snapshot = daily
+        _patch_missing_tickers_in_daily(daily_path, date_str, snapshot)
+    print("\n✅ Repair complete.")
+
+
 def _patch_daily_missing_tickers():
     """Merge missing tickers into existing daily files (e.g. SMAR added after initial backfill)."""
     daily_files = sorted(DATA_DIR.glob("2026-*.json"))
@@ -824,6 +916,9 @@ if __name__ == "__main__":
     if "--validate" in sys.argv:
         ok = validate_data()
         sys.exit(0 if ok else 1)
+    if "--repair" in sys.argv:
+        repair_daily_files()
+        sys.exit(0)
     if "--ltm" in sys.argv or "--ltm-high" in sys.argv:
         fetch_ltm_high()
     elif "--baseline" in sys.argv or "--force-baseline" in sys.argv:

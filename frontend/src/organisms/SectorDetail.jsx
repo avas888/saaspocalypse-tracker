@@ -68,9 +68,17 @@ export default function SectorDetail({ sector, onBack }) {
             <Badge>{sector.companies.length} companies</Badge>
           </div>
         </div>
-        <div style={{ textAlign: "right" }}>
-          <div style={{ fontSize: 28, fontWeight: 800, fontFamily: "monospace", color: sector.color }}>{sector.avgDrop}%</div>
-          <div style={{ fontSize: 9, color: theme.textMuted, marginTop: 2, letterSpacing: "0.05em" }}>avg drop from LTM high</div>
+        <div style={{ display: "flex", gap: 24, alignItems: "flex-end" }}>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 24, fontWeight: 800, fontFamily: "monospace", color: dropColor(sector.avgDrop) }}>{sector.avgDrop}%</div>
+            <div style={{ fontSize: 9, color: theme.textMuted, marginTop: 2, letterSpacing: "0.05em" }}>from LTM high</div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 24, fontWeight: 800, fontFamily: "monospace", color: dropColor(sector.avgBaselineDrop ?? sector.avgDrop) }}>
+              {sector.avgBaselineDrop != null ? `${sector.avgBaselineDrop}%` : "—"}
+            </div>
+            <div style={{ fontSize: 9, color: theme.textMuted, marginTop: 2, letterSpacing: "0.05em" }}>from Feb 3</div>
+          </div>
         </div>
       </div>
 
@@ -85,6 +93,26 @@ export default function SectorDetail({ sector, onBack }) {
       </div>
 
       <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: theme.textMuted, marginBottom: 8 }}>Companies ({sector.companies.length})</div>
+      <div
+        style={{
+          display: "flex",
+          gap: 10,
+          padding: "8px 12px",
+          marginBottom: 6,
+          fontSize: 9,
+          fontWeight: 800,
+          textTransform: "uppercase",
+          letterSpacing: "0.08em",
+          color: theme.textMuted,
+          background: theme.surfaceAlt,
+          borderRadius: 6,
+        }}
+      >
+        <div style={{ width: 90, flexShrink: 0 }} />
+        <div style={{ flex: 1 }}>Company</div>
+        <div style={{ width: 52, textAlign: "right" }}>LTM high</div>
+        <div style={{ width: 52, textAlign: "right" }}>Feb 3</div>
+      </div>
       {sector.companies.map((c, i) => {
         const hasDetail = !!c.analystDetail;
         const hasConsolidatorDetail = !!c.consolidatorDetail;
@@ -110,12 +138,23 @@ export default function SectorDetail({ sector, onBack }) {
                 transition: "border-color 0.15s",
               }}
             >
-              <div style={{ width: 52, flexShrink: 0, textAlign: "right" }}>
-                {c.drop !== null ? (
-                  <div style={{ fontSize: 16, fontWeight: 800, fontFamily: "monospace", color: dropColor(c.drop) }}>{c.drop}%</div>
-                ) : (
-                  <Badge>private</Badge>
-                )}
+              <div style={{ display: "flex", gap: 12, flexShrink: 0, minWidth: 90 }}>
+                <div style={{ textAlign: "right", width: 40 }}>
+                  {c.drop !== null ? (
+                    <div style={{ fontSize: 14, fontWeight: 800, fontFamily: "monospace", color: dropColor(c.drop) }}>{c.drop}%</div>
+                  ) : (
+                    <Badge>private</Badge>
+                  )}
+                  {c.status === "public" && <div style={{ fontSize: 7, color: theme.textTertiary }}>LTM</div>}
+                </div>
+                <div style={{ textAlign: "right", width: 40 }}>
+                  {c.baselineDrop != null ? (
+                    <div style={{ fontSize: 14, fontWeight: 800, fontFamily: "monospace", color: dropColor(c.baselineDrop) }}>{c.baselineDrop}%</div>
+                  ) : c.status === "public" ? (
+                    <span style={{ fontSize: 11, color: theme.textMuted }}>—</span>
+                  ) : null}
+                  {c.status === "public" && <div style={{ fontSize: 7, color: theme.textTertiary }}>Feb 3</div>}
+                </div>
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontWeight: 700, fontSize: 13 }}>

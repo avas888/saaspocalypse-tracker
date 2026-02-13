@@ -9,3 +9,4 @@ export { default as FrameworkSection } from "./FrameworkSection.jsx";
 export { default as CompaniesList } from "./CompaniesList.jsx";
 export { default as PrivateCompaniesList } from "./PrivateCompaniesList.jsx";
 export { default as SectorNewsSection } from "./SectorNewsSection.jsx";
+export { default as AnalysisSection } from "./AnalysisSection.jsx";

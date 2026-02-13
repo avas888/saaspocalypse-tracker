@@ -6,6 +6,7 @@ const TABS = [
   { id: "sector-news", label: "Relevant Sector News" },
   { id: "companies", label: "Public Cos" },
   { id: "private", label: "Private Cos" },
+  { id: "analysis", label: "Analysis" },
   { id: "framework", label: "Framework" },
 ];
 

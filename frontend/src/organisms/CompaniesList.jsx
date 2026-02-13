@@ -149,7 +149,7 @@ export default function CompaniesList({ publicCos, regionOrder = {} }) {
             </div>
             <span style={{ fontSize: 10, color: theme.textMuted }}>{c.region || "—"}</span>
             <Badge color={c.sectorColor} bg={c.sectorColor + "12"}>
-              {c.sectorIcon} {c.sectorShortName ?? (c.sectorName ?? "").split(" ")[0] || "—"}
+              {c.sectorIcon} {c.sectorShortName ?? ((c.sectorName ?? "").split(" ")[0] || "—")}
             </Badge>
           </div>
         ))}

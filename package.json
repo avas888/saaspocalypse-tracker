@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "start": "node server.js",
     "fetch": "cd backend && python3 fetch_prices.py",
     "fetch:backfill": "cd backend && python3 fetch_prices.py --backfill",
@@ -14,10 +16,13 @@
     "fetch:noon": "cd backend && python3 fetch_prices.py --noon",
     "fetch:11am": "cd backend && python3 fetch_prices.py --11am",
     "fetch:force": "cd backend && python3 fetch_prices.py --force",
-    "fetch:refresh": "mkdir -p data && rm -f data/baseline.json data/ltm_high.json data/2026-*.json && npm run fetch:backfill && npm run fetch:ltm && npm run fetch:force","fetch:validate":"cd backend && python3 fetch_prices.py --validate",
-    "fetch:private":"cd backend && python3 fetch_private_health.py",
-    "fetch:sector-news":"(test -d venv && . venv/bin/activate; true) && cd backend && python3 fetch_sector_news.py",
-    "publish":"bash scripts/publish-if-valid.sh"
+    "fetch:repair": "cd backend && python3 fetch_prices.py --repair",
+    "fetch:refresh": "mkdir -p data && rm -f data/baseline.json data/ltm_high.json data/2026-*.json && npm run fetch:backfill && npm run fetch:ltm && npm run fetch:force",
+    "fetch:validate": "cd backend && python3 fetch_prices.py --validate",
+    "update": "bash scripts/update-all.sh",
+    "fetch:private": "cd backend && python3 fetch_private_health.py",
+    "fetch:sector-news": "(test -d venv && . venv/bin/activate; true) && cd backend && python3 fetch_sector_news.py",
+    "publish": "bash scripts/publish-if-valid.sh"
   },
   "dependencies": {
     "express": "^4.21.0",
@@ -26,7 +31,12 @@
     "recharts": "^3.7.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.4.0"
+    "jsdom": "^28.0.0",
+    "vite": "^5.4.0",
+    "vitest": "^4.0.18"
   }
 }

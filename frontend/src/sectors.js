@@ -118,9 +118,11 @@ const SECTORS_RAW = [
         sentiment: "green"
       }},
       { name: "CONTPAQi", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Mexico leader. CFDI electronic invoicing compliance. SAT certification. Deep regulatory moat." },
+      { name: "SIIGO", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Colombia SMB accounting. DIAN tax compliance, electronic invoicing. Market leader in Colombian SMB." },
       { name: "Nubox", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Chile SMB accounting. Chilean tax compliance requirements. Private, locally entrenched." },
       { name: "Colppy", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Argentina SMB accounting. AFIP compliance, inflation-adjusted bookkeeping. Hyper-local." },
       { name: "Bind ERP", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Mexico (part of SUMA group). Cloud ERP for Mexican SMBs. SAT/CFDI integrated." },
+      { name: "Alegra", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Colombia/LATAM SMB accounting + invoicing. DIAN compliance, multi-country. Backed by Kaszek." },
       { name: "Zoho Books", ticker: "private", drop: null, status: "private", region: "Asia", note: "Part of Zoho's 45+ app ecosystem. Aiming at SMBs globally. No public market exposure." },
       { name: "freee", ticker: "4478.T", drop: -12, status: "public", region: "Asia", note: "Japan SMB accounting + payroll. Complex Japanese tax system = significant barrier for AI." },
     ],
@@ -169,6 +171,7 @@ const SECTORS_RAW = [
       { name: "OnPay", ticker: "private", drop: null, status: "private", region: "US", note: "Affordable US SMB payroll. Niche focus on farms, restaurants, nonprofits." },
       { name: "Square Payroll", ticker: "XYZ", drop: -15, status: "public", region: "US", note: "Part of Block (formerly Square). Integrated with POS. Restaurant/retail focused." },
       { name: "CONTPAQi Nómina", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Mexico. CFDI payroll timbrado (mandatory SAT certification). Impossible for generic AI." },
+      { name: "Buk", ticker: "private", drop: null, status: "private", region: "LATAM", note: "Chile/Colombia HR + payroll. Labor law compliance across LATAM. Raised $100M+." },
     ],
     keyInsight: "THIS IS THE MOST MISUNDERSTOOD SECTOR IN THE SAASPOCALYPSE. Every other vertical is falling because AI threatens to replace the SOFTWARE. Payroll is falling because AI threatens to replace the WORKERS who get paid through the software. That is a completely different thesis. Paycom at -41% and Paylocity at -40% look like CRM-level carnage — but the mechanism is opposite. The market is pricing in: 'If AI agents do the work of 5 humans, companies fire 4 humans, and there are 4 fewer paychecks to process.' It's a TAM-shrinkage fear, not a disruption fear. The payroll software itself becomes MORE critical, not less — you still need bulletproof tax compliance, labor law adherence, and multi-jurisdiction calculation for every remaining employee. ADP at -8% proves this: the incumbents with regulatory moats are barely scratched. Paycom already sells OUTCOMES (Beti automates the entire payroll run). Gusto, Rippling, and Deel are all private and growing aggressively. The bet against payroll software isn't that the software dies — it's that the addressable market (number of employed humans) shrinks. That's a real risk, but it's a 5-10 year macro question, not a 'software is dead next quarter' panic."
   },

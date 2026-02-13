@@ -1,7 +1,17 @@
 import { theme } from "../atoms/tokens/theme.js";
 import { Header, TabNav } from "../organisms/index.js";
 
-export default function MainLayout({ tab, onTabChange, children }) {
+function formatDataAsOf(iso) {
+  if (!iso) return "Feb 3, 2026";
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  } catch {
+    return "Feb 3, 2026";
+  }
+}
+
+export default function MainLayout({ tab, onTabChange, children, dataAsOf, loading }) {
   return (
     <div
       style={{
@@ -25,7 +35,7 @@ export default function MainLayout({ tab, onTabChange, children }) {
           fontFamily: "monospace",
         }}
       >
-        Market data as of Feb 3, 2026. Sources: Bloomberg, CNBC, Seeking Alpha, SaaStr, Fintech Brainfood, company filings, Mordor Intelligence. Not financial advice.
+        Market data as of {formatDataAsOf(dataAsOf)}. Sources: Bloomberg, CNBC, Seeking Alpha, SaaStr, Fintech Brainfood, company filings, Mordor Intelligence. Not financial advice.
       </div>
     </div>
   );

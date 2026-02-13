@@ -46,18 +46,19 @@ export default function SectorCard({ sector, onClick }) {
           {sector.companies.length} companies tracked · {sector.companies.filter((c) => c.status === "private").length} private
         </div>
       </div>
-      <div style={{ textAlign: "right", flexShrink: 0, minWidth: 60 }}>
-        <div
-          style={{
-            fontSize: 20,
-            fontWeight: 800,
-            fontFamily: "monospace",
-            color: dropColor(sector.avgDrop),
-          }}
-        >
-          {sector.avgDrop}%
+      <div style={{ display: "flex", gap: 16, flexShrink: 0, alignItems: "flex-end" }}>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 18, fontWeight: 800, fontFamily: "monospace", color: dropColor(sector.avgDrop) }}>
+            {sector.avgDrop}%
+          </div>
+          <div style={{ fontSize: 7, color: theme.textTertiary, textTransform: "uppercase", letterSpacing: "0.06em" }}>LTM high</div>
         </div>
-        <div style={{ fontSize: 8, color: theme.textTertiary, textTransform: "uppercase", letterSpacing: "0.08em" }} title="Mean of public companies' stock decline from LTM high to Feb 3 baseline">avg drop</div>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 18, fontWeight: 800, fontFamily: "monospace", color: dropColor(sector.avgBaselineDrop ?? sector.avgDrop) }}>
+            {sector.avgBaselineDrop != null ? `${sector.avgBaselineDrop}%` : "—"}
+          </div>
+          <div style={{ fontSize: 7, color: theme.textTertiary, textTransform: "uppercase", letterSpacing: "0.06em" }}>Feb 3</div>
+        </div>
       </div>
       <span style={{ color: theme.borderStrong, flexShrink: 0 }}>→</span>
     </button>
