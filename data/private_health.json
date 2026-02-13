@@ -1,0 +1,5 @@
+{
+  "fetched_at": null,
+  "description": "Health indicators for private SMB SaaS companies. Run: npm run fetch:private",
+  "companies": {}
+}
