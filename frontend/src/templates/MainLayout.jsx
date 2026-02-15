@@ -23,7 +23,7 @@ export default function MainLayout({ tab, onTabChange, children, dataAsOf, loadi
     >
       <Header />
       <TabNav tab={tab} onTabChange={onTabChange} />
-      <div style={{ maxWidth: tab === "tracker" ? 1000 : 700, margin: "0 auto", padding: "20px 16px", transition: "max-width 0.3s" }}>{children}</div>
+      <div style={{ maxWidth: (tab === "tracker" || tab === "indexes") ? 1000 : 700, margin: "0 auto", padding: "20px 16px", transition: "max-width 0.3s" }}>{children}</div>
       <div
         style={{
           padding: "16px 20px",

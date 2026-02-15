@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-13T11:57:40.973352",
+  "fetched_at": "2026-02-15T15:20:43.830161",
   "description": "Health indicators for private SMB SaaS companies. Run periodically: npm run fetch:private",
   "companies": {
     "Pipedrive": [
@@ -40,6 +40,26 @@
         "url": "https://financialpost.com/globe-newswire/freshbooks-2025-state-of-u-s-small-business-confidence-holds-steady-despite-rising-costs-tariffs-and-customer-challenge"
       }
     ],
+    "Alegra": [
+      {
+        "date": "2026-02-14",
+        "summary": "\"Ahorrar 200\u20ac al mes te puede cambiar la vida. Pueden convertirse en medio mill\u00f3n de euros\"",
+        "source": "Mundodeportivo.com",
+        "url": "https://www.mundodeportivo.com/actualidad/20260214/1002620600/andres-gonzalez-economista-ahorrar-200-euros-mes-te-cambiar-vida-convertirse-medio-millon-euros-sera-suficiente-te-jubiles-tengas-depender-pension-dnr-dct.html"
+      },
+      {
+        "date": "2026-02-13",
+        "summary": "Con amplia mayor\u00eda, el Gobierno aprob\u00f3 en Diputados la baja de la imputabilidad a 14 a\u00f1os - Clone",
+        "source": "La Nacion",
+        "url": "https://www.lanacion.com.ar/politica/con-amplia-mayoria-el-gobierno-aprobo-en-diputados-la-baja-de-la-imputabilidad-a-14-anos-clone-nid13022026/"
+      },
+      {
+        "date": "2026-02-09",
+        "summary": "Queralt Castellet: \"Es incre\u00edble que sea medallista ol\u00edmpica en una especialidad para la que mi pa\u00eds no tiene instalaciones\"",
+        "source": "El Mundo",
+        "url": "https://www.elmundo.es/deportes/mas-deporte/2026/02/09/6989d68ee85ece670c8b45a9.html"
+      }
+    ],
     "Zoho Books": [
       {
         "date": "2026-02-11",
@@ -56,10 +76,10 @@
     ],
     "Gusto": [
       {
-        "date": "2026-02-05",
-        "summary": "iPhone 17 leads Apple earnings record, new MacBooks near, and a mysterious $2B acquisition",
-        "source": "9to5Mac",
-        "url": "https://9to5mac.com/2026/02/05/happy-hour-576/"
+        "date": "2026-02-13",
+        "summary": "Astros trade Jesus Sanchez to Blue Jays to reunite with Joey Loperfido",
+        "source": "New York Post",
+        "url": "https://nypost.com/2026/02/13/sports/astros-trade-jesus-sanchez-to-blue-jays-to-reunite-with-joey-loperfido/"
       }
     ],
     "Rippling": [

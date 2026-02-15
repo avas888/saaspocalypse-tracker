@@ -1,0 +1,293 @@
+{
+  "date": "2026-02-15",
+  "fetched_at": "2026-02-15T15:18:00.112351",
+  "tickers": {
+    "HUBS": {
+      "name": "HubSpot",
+      "sector": "crm",
+      "close": 243.85,
+      "prev_close": 228.95,
+      "daily_pct": 6.51
+    },
+    "MNDY": {
+      "name": "monday.com",
+      "sector": "crm",
+      "close": 72.38,
+      "prev_close": 73.63,
+      "daily_pct": -1.7
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "sector": "crm",
+      "close": 189.72,
+      "prev_close": 185.43,
+      "daily_pct": 2.31
+    },
+    "FRSH": {
+      "name": "Freshworks",
+      "sector": "crm",
+      "close": 7.24,
+      "prev_close": 7.04,
+      "daily_pct": 2.84
+    },
+    "ASAN": {
+      "name": "Asana",
+      "sector": "project",
+      "close": 7.56,
+      "prev_close": 7.53,
+      "daily_pct": 0.4
+    },
+    "SMAR": {
+      "name": "Smartsheet",
+      "sector": "project",
+      "close": 56.47,
+      "prev_close": 56.46,
+      "daily_pct": 0.02
+    },
+    "INTU": {
+      "name": "Intuit",
+      "sector": "accounting",
+      "close": 399.4,
+      "prev_close": 397.96,
+      "daily_pct": 0.36
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "close": 73.49,
+      "prev_close": 76.92,
+      "daily_pct": -4.46
+    },
+    "SGE.L": {
+      "name": "Sage Group",
+      "sector": "accounting",
+      "close": 807.4,
+      "prev_close": 793.6,
+      "daily_pct": 1.74
+    },
+    "TOTS3.SA": {
+      "name": "TOTVS",
+      "sector": "accounting",
+      "close": 38.03,
+      "prev_close": 37.47,
+      "daily_pct": 1.49
+    },
+    "4478.T": {
+      "name": "freee",
+      "sector": "accounting",
+      "close": 2136.0,
+      "prev_close": 2352.0,
+      "daily_pct": -9.18
+    },
+    "ADP": {
+      "name": "ADP",
+      "sector": "payroll",
+      "close": 212.11,
+      "prev_close": 209.96,
+      "daily_pct": 1.02
+    },
+    "PAYX": {
+      "name": "Paychex",
+      "sector": "payroll",
+      "close": 94.38,
+      "prev_close": 92.47,
+      "daily_pct": 2.07
+    },
+    "PAYC": {
+      "name": "Paycom",
+      "sector": "payroll",
+      "close": 125.31,
+      "prev_close": 119.76,
+      "daily_pct": 4.63
+    },
+    "PCTY": {
+      "name": "Paylocity",
+      "sector": "payroll",
+      "close": 107.13,
+      "prev_close": 104.2,
+      "daily_pct": 2.81
+    },
+    "XYZ": {
+      "name": "Block (Square)",
+      "sector": "payroll",
+      "close": 49.8,
+      "prev_close": 49.09,
+      "daily_pct": 1.45
+    },
+    "TOST": {
+      "name": "Toast",
+      "sector": "pos",
+      "close": 27.33,
+      "prev_close": 26.14,
+      "daily_pct": 4.55
+    },
+    "LSPD": {
+      "name": "Lightspeed",
+      "sector": "pos",
+      "close": 8.99,
+      "prev_close": 8.79,
+      "daily_pct": 2.28
+    },
+    "FI": {
+      "name": "Fiserv (Clover)",
+      "sector": "pos",
+      "close": 63.8,
+      "prev_close": 63.7,
+      "daily_pct": 0.16
+    },
+    "DASH": {
+      "name": "DoorDash (Otter)",
+      "sector": "pos",
+      "close": 160.34,
+      "prev_close": 161.14,
+      "daily_pct": -0.5
+    },
+    "AGYS": {
+      "name": "Agilysys",
+      "sector": "hotel",
+      "close": 81.5,
+      "prev_close": 80.87,
+      "daily_pct": 0.78
+    },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "close": 0.95,
+      "prev_close": 0.99,
+      "daily_pct": -3.86
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "close": 3.46,
+      "prev_close": 3.84,
+      "daily_pct": -9.9
+    },
+    "DOCU": {
+      "name": "DocuSign",
+      "sector": "document",
+      "close": 44.82,
+      "prev_close": 43.74,
+      "daily_pct": 2.47
+    },
+    "DBX": {
+      "name": "Dropbox",
+      "sector": "document",
+      "close": 24.54,
+      "prev_close": 24.3,
+      "daily_pct": 0.99
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "sector": "ecommerce",
+      "close": 112.7,
+      "prev_close": 110.66,
+      "daily_pct": 1.84
+    },
+    "BIGC": {
+      "name": "BigCommerce",
+      "sector": "ecommerce",
+      "close": 4.78,
+      "prev_close": 4.78,
+      "daily_pct": 0.0
+    },
+    "WIX": {
+      "name": "Wix",
+      "sector": "ecommerce",
+      "close": 69.23,
+      "prev_close": 70.95,
+      "daily_pct": -2.42
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "close": 46.57,
+      "prev_close": 46.67,
+      "daily_pct": -0.21
+    },
+    "VTEX": {
+      "name": "VTEX",
+      "sector": "ecommerce",
+      "close": 3.16,
+      "prev_close": 3.1,
+      "daily_pct": 1.94
+    },
+    "CSU.TO": {
+      "name": "Constellation Software",
+      "sector": "consolidators",
+      "close": 2356.67,
+      "prev_close": 2300.49,
+      "daily_pct": 2.44
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "close": 7.43,
+      "prev_close": 7.41,
+      "daily_pct": 0.27
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "close": 0.98,
+      "prev_close": 0.99,
+      "daily_pct": -1.09
+    }
+  },
+  "sectors": {
+    "crm": {
+      "name": "CRM & Sales",
+      "avg_daily_pct": 2.49,
+      "tickers_tracked": 4,
+      "tickers_total": 4
+    },
+    "project": {
+      "name": "Project Management",
+      "avg_daily_pct": -0.43,
+      "tickers_tracked": 3,
+      "tickers_total": 3
+    },
+    "accounting": {
+      "name": "SMB Accounting",
+      "avg_daily_pct": -2.01,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "payroll": {
+      "name": "SMB Payroll & HR",
+      "avg_daily_pct": 2.4,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "pos": {
+      "name": "Restaurant POS",
+      "avg_daily_pct": 1.59,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "hotel": {
+      "name": "Hotel PMS",
+      "avg_daily_pct": -4.33,
+      "tickers_tracked": 3,
+      "tickers_total": 3
+    },
+    "document": {
+      "name": "Document & E-Sign",
+      "avg_daily_pct": 1.73,
+      "tickers_tracked": 2,
+      "tickers_total": 2
+    },
+    "ecommerce": {
+      "name": "E-Commerce & Retail SaaS",
+      "avg_daily_pct": 0.23,
+      "tickers_tracked": 5,
+      "tickers_total": 5
+    },
+    "consolidators": {
+      "name": "SaaS Software Consolidators",
+      "avg_daily_pct": 0.54,
+      "tickers_tracked": 3,
+      "tickers_total": 3
+    }
+  }
+}

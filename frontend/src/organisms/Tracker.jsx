@@ -200,7 +200,7 @@ export default function Tracker() {
     try {
       const listRes = await fetch("/api/data/");
       const list = await listRes.json();
-      const dailyFiles = list.files.filter((f) => f !== "baseline.json" && f !== "ltm_high.json");
+      const dailyFiles = list.files.filter((f) => f !== "baseline.json" && f !== "ltm_high.json" && f !== "fundamentals.json");
 
       const [baselineData, ltmHighData, ...snapshots] = await Promise.all([
         fetch("/api/data/baseline.json").then((r) => (r.ok ? r.json() : null)).catch(() => null),

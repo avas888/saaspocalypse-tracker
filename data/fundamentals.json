@@ -1,0 +1,637 @@
+{
+  "fetched_at": "2026-02-15T15:56:00.432901",
+  "source": "Yahoo Finance (yfinance)",
+  "methodology": {
+    "arr_multiple": "Enterprise Value / Trailing Twelve Month Revenue. EV = Market Cap + Total Debt - Cash. Source: yfinance Ticker.info['enterpriseValue'] and Ticker.info['totalRevenue'].",
+    "rule_of_40": "YoY Revenue Growth (%) + EBITDA Margin (%). A score >= 40 indicates a healthy SaaS company. Source: yfinance Ticker.info['revenueGrowth'] and Ticker.info['ebitdaMargins']."
+  },
+  "tickers": {
+    "HUBS": {
+      "name": "HubSpot",
+      "sector": "crm",
+      "enterprise_value": 11350150144.0,
+      "market_cap": 12860779520.0,
+      "current_price": 243.85,
+      "ttm_revenue": 3131266048.0,
+      "arr_multiple": 3.6,
+      "revenue_growth_pct": 20.4,
+      "ebitda_margin_pct": 5.7,
+      "rule_of_40": 26.1,
+      "inputs": {
+        "ev": "$11.4B",
+        "market_cap": "$12.9B",
+        "ttm_revenue": "$3.1B",
+        "revenue_growth": "20.4%",
+        "ebitda_margin": "5.7%"
+      }
+    },
+    "MNDY": {
+      "name": "monday.com",
+      "sector": "crm",
+      "enterprise_value": 2244375040.0,
+      "market_cap": 3731294720.0,
+      "current_price": 72.38,
+      "ttm_revenue": 1231997056.0,
+      "arr_multiple": 1.8,
+      "revenue_growth_pct": 24.6,
+      "ebitda_margin_pct": 1.0,
+      "rule_of_40": 25.6,
+      "inputs": {
+        "ev": "$2.2B",
+        "market_cap": "$3.7B",
+        "ttm_revenue": "$1.2B",
+        "revenue_growth": "24.6%",
+        "ebitda_margin": "1.0%"
+      }
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "sector": "crm",
+      "enterprise_value": 178079645696.0,
+      "market_cap": 180613447680.0,
+      "current_price": 189.72,
+      "ttm_revenue": 40317001728.0,
+      "arr_multiple": 4.4,
+      "revenue_growth_pct": 8.6,
+      "ebitda_margin_pct": 29.3,
+      "rule_of_40": 37.9,
+      "inputs": {
+        "ev": "$178.1B",
+        "market_cap": "$180.6B",
+        "ttm_revenue": "$40.3B",
+        "revenue_growth": "8.6%",
+        "ebitda_margin": "29.3%"
+      }
+    },
+    "FRSH": {
+      "name": "Freshworks",
+      "sector": "crm",
+      "enterprise_value": 1299093376.0,
+      "market_cap": 2109943552.0,
+      "current_price": 7.24,
+      "ttm_revenue": 838809024.0,
+      "arr_multiple": 1.5,
+      "revenue_growth_pct": 14.5,
+      "ebitda_margin_pct": 4.8,
+      "rule_of_40": 19.3,
+      "inputs": {
+        "ev": "$1.3B",
+        "market_cap": "$2.1B",
+        "ttm_revenue": "$839M",
+        "revenue_growth": "14.5%",
+        "ebitda_margin": "4.8%"
+      }
+    },
+    "ASAN": {
+      "name": "Asana",
+      "sector": "project",
+      "enterprise_value": 1578824064.0,
+      "market_cap": 1792476032.0,
+      "current_price": 7.56,
+      "ttm_revenue": 773569984.0,
+      "arr_multiple": 2.0,
+      "revenue_growth_pct": 9.3,
+      "ebitda_margin_pct": -25.6,
+      "rule_of_40": -16.3,
+      "inputs": {
+        "ev": "$1.6B",
+        "market_cap": "$1.8B",
+        "ttm_revenue": "$774M",
+        "revenue_growth": "9.3%",
+        "ebitda_margin": "-25.6%"
+      }
+    },
+    "SMAR": {
+      "name": "Smartsheet",
+      "sector": "project",
+      "enterprise_value": null,
+      "market_cap": null,
+      "current_price": null,
+      "ttm_revenue": null,
+      "arr_multiple": null,
+      "revenue_growth_pct": null,
+      "ebitda_margin_pct": null,
+      "rule_of_40": null,
+      "inputs": {
+        "ev": null,
+        "market_cap": null,
+        "ttm_revenue": null,
+        "revenue_growth": null,
+        "ebitda_margin": null
+      }
+    },
+    "INTU": {
+      "name": "Intuit",
+      "sector": "accounting",
+      "enterprise_value": null,
+      "market_cap": 111192956928.0,
+      "current_price": 399.4,
+      "ttm_revenue": 19433000960.0,
+      "arr_multiple": null,
+      "revenue_growth_pct": 41.0,
+      "ebitda_margin_pct": 30.1,
+      "rule_of_40": 71.1,
+      "inputs": {
+        "ev": null,
+        "market_cap": "$111.2B",
+        "ttm_revenue": "$19.4B",
+        "revenue_growth": "41.0%",
+        "ebitda_margin": "30.1%"
+      }
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "enterprise_value": 8273040896.0,
+      "market_cap": 12756357120.0,
+      "current_price": 73.49,
+      "ttm_revenue": 2300979968.0,
+      "arr_multiple": 3.6,
+      "revenue_growth_pct": 19.9,
+      "ebitda_margin_pct": 16.9,
+      "rule_of_40": 36.8,
+      "inputs": {
+        "ev": "$8.3B",
+        "market_cap": "$12.8B",
+        "ttm_revenue": "$2.3B",
+        "revenue_growth": "19.9%",
+        "ebitda_margin": "16.9%"
+      }
+    },
+    "SGE.L": {
+      "name": "Sage Group",
+      "sector": "accounting",
+      "enterprise_value": 8902542336.0,
+      "market_cap": 7558275584.0,
+      "current_price": 807.4,
+      "ttm_revenue": 2512999936.0,
+      "arr_multiple": 3.5,
+      "revenue_growth_pct": 7.7,
+      "ebitda_margin_pct": 23.4,
+      "rule_of_40": 31.1,
+      "inputs": {
+        "ev": "$8.9B",
+        "market_cap": "$7.6B",
+        "ttm_revenue": "$2.5B",
+        "revenue_growth": "7.7%",
+        "ebitda_margin": "23.4%"
+      }
+    },
+    "TOTS3.SA": {
+      "name": "TOTVS",
+      "sector": "accounting",
+      "enterprise_value": 22736822272.0,
+      "market_cap": 20307920896.0,
+      "current_price": 38.03,
+      "ttm_revenue": 5771867136.0,
+      "arr_multiple": 3.9,
+      "revenue_growth_pct": 15.1,
+      "ebitda_margin_pct": 22.1,
+      "rule_of_40": 37.2,
+      "inputs": {
+        "ev": "$22.7B",
+        "market_cap": "$20.3B",
+        "ttm_revenue": "$5.8B",
+        "revenue_growth": "15.1%",
+        "ebitda_margin": "22.1%"
+      }
+    },
+    "4478.T": {
+      "name": "freee",
+      "sector": "accounting",
+      "enterprise_value": 107752325120.0,
+      "market_cap": 126527332352.0,
+      "current_price": 2136.0,
+      "ttm_revenue": 37960908800.0,
+      "arr_multiple": 2.8,
+      "revenue_growth_pct": 29.5,
+      "ebitda_margin_pct": 2.6,
+      "rule_of_40": 32.1,
+      "inputs": {
+        "ev": "$107.8B",
+        "market_cap": "$126.5B",
+        "ttm_revenue": "$38.0B",
+        "revenue_growth": "29.5%",
+        "ebitda_margin": "2.6%"
+      }
+    },
+    "ADP": {
+      "name": "ADP",
+      "sector": "payroll",
+      "enterprise_value": 87458095104.0,
+      "market_cap": 85787623424.0,
+      "current_price": 212.11,
+      "ttm_revenue": 21214300160.0,
+      "arr_multiple": 4.1,
+      "revenue_growth_pct": 6.2,
+      "ebitda_margin_pct": 29.2,
+      "rule_of_40": 35.4,
+      "inputs": {
+        "ev": "$87.5B",
+        "market_cap": "$85.8B",
+        "ttm_revenue": "$21.2B",
+        "revenue_growth": "6.2%",
+        "ebitda_margin": "29.2%"
+      }
+    },
+    "PAYX": {
+      "name": "Paychex",
+      "sector": "payroll",
+      "enterprise_value": 37393047552.0,
+      "market_cap": 33879347200.0,
+      "current_price": 94.38,
+      "ttm_revenue": 6033900032.0,
+      "arr_multiple": 6.2,
+      "revenue_growth_pct": 18.3,
+      "ebitda_margin_pct": 47.5,
+      "rule_of_40": 65.8,
+      "inputs": {
+        "ev": "$37.4B",
+        "market_cap": "$33.9B",
+        "ttm_revenue": "$6.0B",
+        "revenue_growth": "18.3%",
+        "ebitda_margin": "47.5%"
+      }
+    },
+    "PAYC": {
+      "name": "Paycom",
+      "sector": "payroll",
+      "enterprise_value": 6587288064.0,
+      "market_cap": 6880285184.0,
+      "current_price": 125.31,
+      "ttm_revenue": 2051699968.0,
+      "arr_multiple": 3.2,
+      "revenue_growth_pct": 10.2,
+      "ebitda_margin_pct": 36.2,
+      "rule_of_40": 46.4,
+      "inputs": {
+        "ev": "$6.6B",
+        "market_cap": "$6.9B",
+        "ttm_revenue": "$2.1B",
+        "revenue_growth": "10.2%",
+        "ebitda_margin": "36.2%"
+      }
+    },
+    "PCTY": {
+      "name": "Paylocity",
+      "sector": "payroll",
+      "enterprise_value": 5632267776.0,
+      "market_cap": 5825901568.0,
+      "current_price": 107.13,
+      "ttm_revenue": 1679591040.0,
+      "arr_multiple": 3.4,
+      "revenue_growth_pct": 28.2,
+      "ebitda_margin_pct": 22.7,
+      "rule_of_40": 50.9,
+      "inputs": {
+        "ev": "$5.6B",
+        "market_cap": "$5.8B",
+        "ttm_revenue": "$1.7B",
+        "revenue_growth": "28.2%",
+        "ebitda_margin": "22.7%"
+      }
+    },
+    "XYZ": {
+      "name": "Block (Square)",
+      "sector": "payroll",
+      "enterprise_value": 29544062976.0,
+      "market_cap": 30357282816.0,
+      "current_price": 49.8,
+      "ttm_revenue": 23973765120.0,
+      "arr_multiple": 1.2,
+      "revenue_growth_pct": 2.3,
+      "ebitda_margin_pct": 7.0,
+      "rule_of_40": 9.3,
+      "inputs": {
+        "ev": "$29.5B",
+        "market_cap": "$30.4B",
+        "ttm_revenue": "$24.0B",
+        "revenue_growth": "2.3%",
+        "ebitda_margin": "7.0%"
+      }
+    },
+    "TOST": {
+      "name": "Toast",
+      "sector": "pos",
+      "enterprise_value": 14126369792.0,
+      "market_cap": 16097370112.0,
+      "current_price": 27.33,
+      "ttm_revenue": 6152999936.0,
+      "arr_multiple": 2.3,
+      "revenue_growth_pct": 22.0,
+      "ebitda_margin_pct": 6.0,
+      "rule_of_40": 28.0,
+      "inputs": {
+        "ev": "$14.1B",
+        "market_cap": "$16.1B",
+        "ttm_revenue": "$6.2B",
+        "revenue_growth": "22.0%",
+        "ebitda_margin": "6.0%"
+      }
+    },
+    "LSPD": {
+      "name": "Lightspeed",
+      "sector": "pos",
+      "enterprise_value": 775542464.0,
+      "market_cap": 1234335488.0,
+      "current_price": 8.99,
+      "ttm_revenue": 1189670016.0,
+      "arr_multiple": 0.7,
+      "revenue_growth_pct": 11.5,
+      "ebitda_margin_pct": -2.3,
+      "rule_of_40": 9.2,
+      "inputs": {
+        "ev": "$776M",
+        "market_cap": "$1.2B",
+        "ttm_revenue": "$1.2B",
+        "revenue_growth": "11.5%",
+        "ebitda_margin": "-2.3%"
+      }
+    },
+    "FI": {
+      "name": "Fiserv (Clover)",
+      "sector": "pos",
+      "enterprise_value": null,
+      "market_cap": null,
+      "current_price": null,
+      "ttm_revenue": null,
+      "arr_multiple": null,
+      "revenue_growth_pct": null,
+      "ebitda_margin_pct": null,
+      "rule_of_40": null,
+      "inputs": {
+        "ev": null,
+        "market_cap": null,
+        "ttm_revenue": null,
+        "revenue_growth": null,
+        "ebitda_margin": null
+      }
+    },
+    "DASH": {
+      "name": "DoorDash (Otter)",
+      "sector": "pos",
+      "enterprise_value": 68133302272.0,
+      "market_cap": 69106302976.0,
+      "current_price": 160.34,
+      "ttm_revenue": 12634999808.0,
+      "arr_multiple": 5.4,
+      "revenue_growth_pct": 27.3,
+      "ebitda_margin_pct": 8.1,
+      "rule_of_40": 35.4,
+      "inputs": {
+        "ev": "$68.1B",
+        "market_cap": "$69.1B",
+        "ttm_revenue": "$12.6B",
+        "revenue_growth": "27.3%",
+        "ebitda_margin": "8.1%"
+      }
+    },
+    "AGYS": {
+      "name": "Agilysys",
+      "sector": "hotel",
+      "enterprise_value": 2223451904.0,
+      "market_cap": 2290822144.0,
+      "current_price": 81.5,
+      "ttm_revenue": 310638016.0,
+      "arr_multiple": 7.2,
+      "revenue_growth_pct": 15.6,
+      "ebitda_margin_pct": 11.9,
+      "rule_of_40": 27.5,
+      "inputs": {
+        "ev": "$2.2B",
+        "market_cap": "$2.3B",
+        "ttm_revenue": "$311M",
+        "revenue_growth": "15.6%",
+        "ebitda_margin": "11.9%"
+      }
+    },
+    "SABR": {
+      "name": "Sabre",
+      "sector": "hotel",
+      "enterprise_value": 3958327040.0,
+      "market_cap": 375338112.0,
+      "current_price": 0.9505,
+      "ttm_revenue": 3034040064.0,
+      "arr_multiple": 1.3,
+      "revenue_growth_pct": 3.5,
+      "ebitda_margin_pct": 14.3,
+      "rule_of_40": 17.8,
+      "inputs": {
+        "ev": "$4.0B",
+        "market_cap": "$375M",
+        "ttm_revenue": "$3.0B",
+        "revenue_growth": "3.5%",
+        "ebitda_margin": "14.3%"
+      }
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "enterprise_value": 940241024.0,
+      "market_cap": 975215232.0,
+      "current_price": 3.46,
+      "ttm_revenue": 224452992.0,
+      "arr_multiple": 4.2,
+      "revenue_growth_pct": 21.0,
+      "ebitda_margin_pct": -9.5,
+      "rule_of_40": 11.5,
+      "inputs": {
+        "ev": "$940M",
+        "market_cap": "$975M",
+        "ttm_revenue": "$224M",
+        "revenue_growth": "21.0%",
+        "ebitda_margin": "-9.5%"
+      }
+    },
+    "DOCU": {
+      "name": "DocuSign",
+      "sector": "document",
+      "enterprise_value": 8286726144.0,
+      "market_cap": 8976224256.0,
+      "current_price": 44.82,
+      "ttm_revenue": 3158892032.0,
+      "arr_multiple": 2.6,
+      "revenue_growth_pct": 8.4,
+      "ebitda_margin_pct": 10.1,
+      "rule_of_40": 18.5,
+      "inputs": {
+        "ev": "$8.3B",
+        "market_cap": "$9.0B",
+        "ttm_revenue": "$3.2B",
+        "revenue_growth": "8.4%",
+        "ebitda_margin": "10.1%"
+      }
+    },
+    "DBX": {
+      "name": "Dropbox",
+      "sector": "document",
+      "enterprise_value": 8676275200.0,
+      "market_cap": 6417875968.0,
+      "current_price": 24.54,
+      "ttm_revenue": 2528399872.0,
+      "arr_multiple": 3.4,
+      "revenue_growth_pct": -0.7,
+      "ebitda_margin_pct": 32.6,
+      "rule_of_40": 31.9,
+      "inputs": {
+        "ev": "$8.7B",
+        "market_cap": "$6.4B",
+        "ttm_revenue": "$2.5B",
+        "revenue_growth": "-0.7%",
+        "ebitda_margin": "32.6%"
+      }
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "sector": "ecommerce",
+      "enterprise_value": 141314359296.0,
+      "market_cap": 147082919936.0,
+      "current_price": 112.7,
+      "ttm_revenue": 11555999744.0,
+      "arr_multiple": 12.2,
+      "revenue_growth_pct": 30.6,
+      "ebitda_margin_pct": 16.7,
+      "rule_of_40": 47.3,
+      "inputs": {
+        "ev": "$141.3B",
+        "market_cap": "$147.1B",
+        "ttm_revenue": "$11.6B",
+        "revenue_growth": "30.6%",
+        "ebitda_margin": "16.7%"
+      }
+    },
+    "BIGC": {
+      "name": "BigCommerce",
+      "sector": "ecommerce",
+      "enterprise_value": null,
+      "market_cap": null,
+      "current_price": null,
+      "ttm_revenue": null,
+      "arr_multiple": null,
+      "revenue_growth_pct": null,
+      "ebitda_margin_pct": null,
+      "rule_of_40": null,
+      "inputs": {
+        "ev": null,
+        "market_cap": null,
+        "ttm_revenue": null,
+        "revenue_growth": null,
+        "ebitda_margin": null
+      }
+    },
+    "WIX": {
+      "name": "Wix",
+      "sector": "ecommerce",
+      "enterprise_value": 3839109376.0,
+      "market_cap": 3855157760.0,
+      "current_price": 69.23,
+      "ttm_revenue": 1929229952.0,
+      "arr_multiple": 2.0,
+      "revenue_growth_pct": 13.6,
+      "ebitda_margin_pct": 7.3,
+      "rule_of_40": 20.9,
+      "inputs": {
+        "ev": "$3.8B",
+        "market_cap": "$3.9B",
+        "ttm_revenue": "$1.9B",
+        "revenue_growth": "13.6%",
+        "ebitda_margin": "7.3%"
+      }
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "enterprise_value": null,
+      "market_cap": null,
+      "current_price": null,
+      "ttm_revenue": null,
+      "arr_multiple": null,
+      "revenue_growth_pct": null,
+      "ebitda_margin_pct": null,
+      "rule_of_40": null,
+      "inputs": {
+        "ev": null,
+        "market_cap": null,
+        "ttm_revenue": null,
+        "revenue_growth": null,
+        "ebitda_margin": null
+      }
+    },
+    "VTEX": {
+      "name": "VTEX",
+      "sector": "ecommerce",
+      "enterprise_value": 362431488.0,
+      "market_cap": 575003840.0,
+      "current_price": 3.16,
+      "ttm_revenue": 234115008.0,
+      "arr_multiple": 1.5,
+      "revenue_growth_pct": 6.5,
+      "ebitda_margin_pct": 8.3,
+      "rule_of_40": 14.8,
+      "inputs": {
+        "ev": "$362M",
+        "market_cap": "$575M",
+        "ttm_revenue": "$234M",
+        "revenue_growth": "6.5%",
+        "ebitda_margin": "8.3%"
+      }
+    },
+    "CSU.TO": {
+      "name": "Constellation Software",
+      "sector": "consolidators",
+      "enterprise_value": 53213442048.0,
+      "market_cap": 49941446656.0,
+      "current_price": 2356.67,
+      "ttm_revenue": 11148999680.0,
+      "arr_multiple": 4.8,
+      "revenue_growth_pct": 16.0,
+      "ebitda_margin_pct": 17.3,
+      "rule_of_40": 33.3,
+      "inputs": {
+        "ev": "$53.2B",
+        "market_cap": "$49.9B",
+        "ttm_revenue": "$11.1B",
+        "revenue_growth": "16.0%",
+        "ebitda_margin": "17.3%"
+      }
+    },
+    "ASUR": {
+      "name": "Asure Software",
+      "sector": "consolidators",
+      "enterprise_value": 261931600.0,
+      "market_cap": 206285600.0,
+      "current_price": 7.43,
+      "ttm_revenue": 132022000.0,
+      "arr_multiple": 2.0,
+      "revenue_growth_pct": 23.7,
+      "ebitda_margin_pct": 9.6,
+      "rule_of_40": 33.3,
+      "inputs": {
+        "ev": "$262M",
+        "market_cap": "$206M",
+        "ttm_revenue": "$132M",
+        "revenue_growth": "23.7%",
+        "ebitda_margin": "9.6%"
+      }
+    },
+    "UPLD": {
+      "name": "Upland Software",
+      "sector": "consolidators",
+      "enterprise_value": 370023744.0,
+      "market_cap": 28411752.0,
+      "current_price": 0.9834,
+      "ttm_revenue": 235591008.0,
+      "arr_multiple": 1.6,
+      "revenue_growth_pct": -24.2,
+      "ebitda_margin_pct": 19.6,
+      "rule_of_40": -4.6,
+      "inputs": {
+        "ev": "$370M",
+        "market_cap": "$28M",
+        "ttm_revenue": "$236M",
+        "revenue_growth": "-24.2%",
+        "ebitda_margin": "19.6%"
+      }
+    }
+  }
+}

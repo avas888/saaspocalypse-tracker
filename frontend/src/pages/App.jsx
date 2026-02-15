@@ -6,6 +6,7 @@ import {
   SectorList,
   SectorDetail,
   Tracker,
+  IndexesTab,
   CompaniesList,
   PrivateCompaniesList,
   SectorNewsSection,
@@ -55,6 +56,8 @@ export default function App() {
   let content = null;
   if (tab === "tracker") {
     content = <Tracker />;
+  } else if (tab === "indexes") {
+    content = <IndexesTab />;
   } else if (tab === "sectors" && !sector) {
     content = <SectorList onSelectSector={(id) => setSelected(id)} sorted={sorted} />;
   } else if (tab === "sectors" && sector) {

@@ -2,6 +2,7 @@ import { theme } from "../atoms/tokens/theme.js";
 
 const TABS = [
   { id: "tracker", label: "📈 Tracker" },
+  { id: "indexes", label: "📊 Indexes" },
   { id: "sectors", label: "Sectors" },
   { id: "sector-news", label: "Relevant Sector News" },
   { id: "companies", label: "Public Cos" },

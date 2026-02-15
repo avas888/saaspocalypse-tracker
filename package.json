@@ -21,6 +21,7 @@
     "fetch:validate": "cd backend && python3 fetch_prices.py --validate",
     "update": "bash scripts/update-all.sh",
     "fetch:private": "cd backend && python3 fetch_private_health.py",
+    "fetch:fundamentals": "cd backend && python3 fetch_fundamentals.py",
     "fetch:sector-news": "(test -d venv && . venv/bin/activate; true) && cd backend && python3 fetch_sector_news.py",
     "publish": "bash scripts/publish-if-valid.sh"
   },

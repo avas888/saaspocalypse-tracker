@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-11T15:05:28.300433",
+  "fetched_at": "2026-02-15T15:17:28.075883",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {
@@ -50,6 +50,14 @@
       "high_date": "2025-07-30",
       "zero_price": 434.09,
       "ltm_high_pct": 86.0
+    },
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "high_price": 194.21,
+      "high_date": "2025-06-25",
+      "zero_price": 96.1,
+      "ltm_high_pct": 102.09
     },
     "SGE.L": {
       "name": "Sage Group",
@@ -251,14 +259,6 @@
       "zero_price": 46.57,
       "ltm_high_pct": 0.0
     },
-    "XRO.AX": {
-      "name": "Xero",
-      "sector": "accounting",
-      "high_price": 96.1,
-      "high_date": "2026-02-03",
-      "zero_price": 96.1,
-      "ltm_high_pct": 0.0
-    },
     "SMAR": {
       "name": "Smartsheet",
       "sector": "project",
@@ -285,8 +285,8 @@
     },
     "accounting": {
       "name": "SMB Accounting",
-      "ltm_high_pct": 42.69,
-      "high_date": "2025-07-30",
+      "ltm_high_pct": 63.11,
+      "high_date": "2025-06-25",
       "tickers_tracked": 5,
       "tickers_total": 5
     },
