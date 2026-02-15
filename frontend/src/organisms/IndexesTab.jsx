@@ -278,7 +278,7 @@ export default function IndexesTab() {
       <div style={{ padding: 20, background: theme.warning.bg, borderRadius: 8, border: `1px solid ${theme.warning.border}` }}>
         <div style={{ fontSize: 12, fontWeight: 700, color: theme.warning.text, marginBottom: 4 }}>No fundamentals data</div>
         <div style={{ fontSize: 11, color: theme.textMuted, lineHeight: 1.6 }}>
-          Run <code style={{ background: theme.surfaceAlt, padding: "1px 4px", borderRadius: 3 }}>npm run fetch:fundamentals</code> to fetch ARR Multiple and Rule of 40 data from Yahoo Finance.
+          Run <code style={{ background: theme.surfaceAlt, padding: "1px 4px", borderRadius: 3 }}>npm run fetch:fundamentals</code> to fetch EV / Revenue and Rule of 40 data from Yahoo Finance.
         </div>
       </div>
     );
@@ -298,7 +298,7 @@ export default function IndexesTab() {
           </div>
           <div style={{ fontSize: 11, color: theme.textTertiary, marginTop: 2 }}>
             {isArr
-              ? "EV / TTM Revenue multiple estimated at each date using stock price changes. Same cadence as Tracker."
+              ? "EV / LTM Revenue multiple estimated at each date using stock price changes. Same cadence as Tracker."
               : "Revenue Growth % + EBITDA Margin %. Static between quarterly earnings; shown as current value."}
           </div>
         </div>
@@ -313,7 +313,7 @@ export default function IndexesTab() {
               fontWeight: isArr ? 800 : 400, cursor: "pointer", fontFamily: "monospace",
             }}
           >
-            ARR Multiple
+            EV / Revenue (LTM)
           </button>
           <button
             onClick={() => setMetric("ro40")}
@@ -336,7 +336,7 @@ export default function IndexesTab() {
         <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: theme.textMuted, marginBottom: 6 }}>Methodology</div>
         {isArr ? (
           <div style={{ fontSize: 11, color: theme.textSecondary, lineHeight: 1.6 }}>
-            <strong>ARR Multiple = Enterprise Value / TTM Revenue.</strong> EV at each date is estimated from the current EV by adjusting market cap proportionally to stock price changes (net debt held constant). TTM Revenue is held constant between quarterly earnings. Values shown as Nx (e.g. 8.5x = EV is 8.5 times annual revenue).
+            <strong>EV / Revenue (LTM) = Enterprise Value / Last Twelve Months Revenue.</strong> EV at each date is estimated from the current EV by adjusting market cap proportionally to stock price changes (net debt held constant). LTM Revenue is held constant between quarterly earnings. Values shown as Nx (e.g. 8.5x = EV is 8.5 times annual revenue).
           </div>
         ) : (
           <div style={{ fontSize: 11, color: theme.textSecondary, lineHeight: 1.6 }}>
