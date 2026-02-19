@@ -1,0 +1,48 @@
+{
+  "date": "2026-02-16",
+  "fetched_at": "2026-02-19T18:42:18.335626",
+  "tickers": {
+    "XRO.AX": {
+      "name": "Xero",
+      "sector": "accounting",
+      "close": 79.06,
+      "prev_close": 73.49,
+      "daily_pct": 7.58
+    },
+    "SGE.L": {
+      "name": "Sage Group",
+      "sector": "accounting",
+      "close": 788.2,
+      "prev_close": 807.4,
+      "daily_pct": -2.38
+    },
+    "4478.T": {
+      "name": "freee",
+      "sector": "accounting",
+      "close": 2247.0,
+      "prev_close": 2136.0,
+      "daily_pct": 5.2
+    },
+    "SDR.AX": {
+      "name": "SiteMinder",
+      "sector": "hotel",
+      "close": 3.66,
+      "prev_close": 3.46,
+      "daily_pct": 5.78
+    }
+  },
+  "sectors": {
+    "accounting": {
+      "name": "SMB Accounting",
+      "avg_daily_pct": 3.47,
+      "tickers_tracked": 3,
+      "tickers_total": 5
+    },
+    "hotel": {
+      "name": "Hotel PMS",
+      "avg_daily_pct": 5.78,
+      "tickers_tracked": 1,
+      "tickers_total": 3
+    }
+  }
+}
