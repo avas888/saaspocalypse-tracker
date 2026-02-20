@@ -40,6 +40,7 @@ describe("Header", () => {
 describe("TabNav", () => {
   const tabs = [
     "📈 Tracker",
+    "📊 Indexes",
     "Sectors",
     "Relevant Sector News",
     "Public Cos",
@@ -48,7 +49,7 @@ describe("TabNav", () => {
     "Framework",
   ];
 
-  it("renders all 7 tabs", () => {
+  it("renders all tabs", () => {
     render(<TabNav tab="tracker" onTabChange={() => {}} />);
     tabs.forEach((label) => {
       expect(screen.getByText(label)).toBeInTheDocument();
@@ -97,7 +98,7 @@ describe("TabNav", () => {
   it("all tabs are buttons", () => {
     render(<TabNav tab="tracker" onTabChange={() => {}} />);
     const buttons = screen.getAllByRole("button");
-    expect(buttons).toHaveLength(7);
+    expect(buttons).toHaveLength(tabs.length);
   });
 });
 

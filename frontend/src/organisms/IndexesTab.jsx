@@ -22,6 +22,35 @@ const SECTOR_TICKERS = {
 
 const BASE_DATE = "2026-02-03";
 
+function pickPreferredSnapshot(existing, incoming) {
+  const existingIsClose = !existing.time_label;
+  const incomingIsClose = !incoming.time_label;
+  if (incomingIsClose && !existingIsClose) return incoming;
+  if (existingIsClose && !incomingIsClose) return existing;
+
+  const existingFetchedAt = Date.parse(existing.fetched_at || "");
+  const incomingFetchedAt = Date.parse(incoming.fetched_at || "");
+  if (Number.isFinite(existingFetchedAt) && Number.isFinite(incomingFetchedAt)) {
+    return incomingFetchedAt > existingFetchedAt ? incoming : existing;
+  }
+
+  return incoming;
+}
+
+function normalizeSnapshotsByDate(snapshots) {
+  const byDate = new Map();
+  for (const snapshot of snapshots) {
+    if (!snapshot?.date) continue;
+    const existing = byDate.get(snapshot.date);
+    if (!existing) {
+      byDate.set(snapshot.date, snapshot);
+      continue;
+    }
+    byDate.set(snapshot.date, pickPreferredSnapshot(existing, snapshot));
+  }
+  return Array.from(byDate.values()).sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+}
+
 function fmtShort(dateStr) {
   const d = new Date(dateStr + "T12:00:00");
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
@@ -50,48 +79,44 @@ function consolidateTimeline(dailyData) {
   if (!dailyData.length) return [];
 
   const sorted = [...dailyData].sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
-  const baseMs = new Date(BASE_DATE + "T12:00:00").getTime();
-  const dayMs = 24 * 60 * 60 * 1000;
-  const sampled = sorted.filter((s) => {
-    const d = new Date(s.date + "T12:00:00").getTime();
-    const daysSinceBase = Math.round((d - baseMs) / dayMs);
-    return daysSinceBase > 0 && daysSinceBase % 2 === 0;
-  });
+  const timeline = sorted.filter((s) => (s.date ?? "") >= BASE_DATE);
 
   const columns = [];
-  let dayBuffer = [];
-  let weekBuffer = [];
+  const fullMonthCount = Math.floor(timeline.length / 28);
+  const consumedByMonths = fullMonthCount * 28;
   let weekCount = 0;
-  let monthCount = 0;
 
-  for (let i = 0; i < sampled.length; i++) {
-    dayBuffer.push(sampled[i]);
-    if (dayBuffer.length === 7) {
-      weekCount++;
-      const weekCol = {
-        id: `wk-${weekCount}`,
-        label: `Wk ${weekCount}`,
-        sublabel: `${fmtShort(dayBuffer[0].date)}–${fmtShort(dayBuffer[6].date)}`,
-        type: "week",
-        data: dayBuffer,
-      };
-      weekBuffer.push(weekCol);
-      dayBuffer = [];
-      if (weekBuffer.length === 4) {
-        monthCount++;
-        columns.push({
-          id: `mo-${monthCount}`,
-          label: `Mo ${monthCount}`,
-          sublabel: `${weekBuffer[0].sublabel.split("–")[0]}–${weekBuffer[3].sublabel.split("–")[1]}`,
-          type: "month",
-          data: weekBuffer.flatMap((w) => w.data),
-        });
-        weekBuffer = [];
-      }
-    }
+  for (let monthIdx = 0; monthIdx < fullMonthCount; monthIdx++) {
+    const monthStart = monthIdx * 28;
+    const monthData = timeline.slice(monthStart, monthStart + 28);
+    weekCount += 4;
+    columns.push({
+      id: `mo-${monthIdx + 1}`,
+      label: `Mo ${monthIdx + 1}`,
+      sublabel: `${fmtShort(monthData[0].date)}–${fmtShort(monthData[27].date)}`,
+      type: "month",
+      data: monthData,
+    });
   }
-  weekBuffer.forEach((w) => columns.push(w));
-  dayBuffer.forEach((d) => {
+
+  const afterMonths = timeline.slice(consumedByMonths);
+  const fullWeekCount = Math.floor(afterMonths.length / 7);
+  const consumedByWeeks = fullWeekCount * 7;
+
+  for (let weekIdx = 0; weekIdx < fullWeekCount; weekIdx++) {
+    const weekData = afterMonths.slice(weekIdx * 7, weekIdx * 7 + 7);
+    const weekNumber = weekCount + weekIdx + 1;
+    columns.push({
+      id: `wk-${weekNumber}`,
+      label: `Wk ${weekNumber}`,
+      sublabel: `${fmtShort(weekData[0].date)}–${fmtShort(weekData[6].date)}`,
+      type: "week",
+      data: weekData,
+    });
+  }
+
+  const remainingDays = afterMonths.slice(consumedByWeeks);
+  remainingDays.forEach((d) => {
     const dayName = new Date(d.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
     const timeSuffix = d.time_label ? `-${d.time_label}` : "";
     columns.push({
@@ -162,9 +187,9 @@ export default function IndexesTab() {
         ...dailyFiles.map((f) => fetch(`/api/data/${f}`).then((r) => r.json())),
       ]);
       const valid = snapshots.filter((s) => s && typeof s.date === "string");
-      const sorted = [...valid].sort((a, b) => a.date.localeCompare(b.date));
-      setBaseline(buildBaseline(baselineData, sorted[0]));
-      setDailyData(valid);
+      const normalizedSnapshots = normalizeSnapshotsByDate(valid);
+      setBaseline(buildBaseline(baselineData, normalizedSnapshots[0]));
+      setDailyData(normalizedSnapshots);
       setLtmHighData(ltmData);
       setFundamentals(fundData);
       setLoading(false);
