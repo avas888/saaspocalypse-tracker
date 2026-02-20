@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-15T15:21:24.418839",
+  "fetched_at": "2026-02-20T08:33:20.510901",
   "description": "Analyst and market news per sector. Run periodically: npm run fetch:sector-news",
   "sectors": {
     "crm": {
@@ -13,34 +13,22 @@
           "body": "Salesforce Inc. (NYSE:CRM) is among the best machine learning stocks to buy according to analysts. In a February 3 report, The Fly reported that Piper Sandler analyst Billy Fitzsimmons cut the price target on Salesforce from $315 to $280 while maintaining an Outperform rating."
         },
         {
-          "title": "HubSpot targets $3.7B revenue in 2026 as AI adoption accelerates and share repurchase signals confidence",
-          "url": "https://www.msn.com/en-us/money/companies/hubspot-targets-3-7b-revenue-in-2026-as-ai-adoption-accelerates-and-share-repurchase-signals-confidence/ar-AA1WaLWA",
-          "date": "2026-02-12",
-          "body": "Q4 2025 Management View CEO Yamini Rangan reported \"a solid finish to 2025\" with Q4 revenue growth of 18.2% year-over-year in constant currency and full year revenue reaching $3.1 billion. Rangan highlighted that \"operating margin of 22."
+          "title": "Why analysts still see big upside in Salesforce after the SaaS scare",
+          "url": "https://www.msn.com/en-us/technology/software/why-analysts-still-see-big-upside-in-salesforce-after-the-saas-scare/ar-AA1WtrL2",
+          "date": "2026-02-16",
+          "body": "Salesforce (NYSE: CRM) stock price dropped significantly, presenting a deep-value opportunity amid the widespread sell-off of software stocks this year. The software-as-a-service (SaaS) apocalypse, however,"
         },
         {
-          "title": "HubSpot, Inc. (HUBS) Stock Price, News, Quote & History - Yahoo Finance",
-          "url": "https://finance.yahoo.com/__companyInsights/HUBS/",
-          "date": "2026-02-04",
-          "body": "Find the latest HubSpot, Inc. (HUBS) stock quote, history, news and other vital information to help you with your stock trading and investing."
+          "title": "Snowflake, SalesForce: Finding Value In The AI Software Shake-Up",
+          "url": "https://www.forbes.com/sites/greatspeculations/2026/02/17/snowflake-salesforce-finding-value-in-the-ai-software-shake-up/",
+          "date": "2026-02-17",
+          "body": "When AI agents commenced performing intricate tasks such as legal research and document drafting, investors swiftly grew concerned that traditional software might become redundant. However, that response disregards an important distinction: executing a task is not synonymous with managing a business"
         },
         {
-          "title": "Software experiencing 'most exciting moment' as AI fears hammer the stocks",
-          "url": "https://www.cnbc.com/2026/02/04/software-experiencing-most-exciting-moment-as-ai-fears-hammer-stocks.html",
-          "date": "2026-02-04",
-          "body": "Shares of software companies have been getting beaten up, and the selloff accelerated this week after Anthropic's latest unveiling."
-        },
-        {
-          "title": "Salesforce, ServiceNow added to Wedbush's AI 30 list",
-          "url": "https://seekingalpha.com/news/4548890-salesforce-servicenow-added-to-wedbushs-ai-30-list",
-          "date": "2026-02-09",
-          "body": "Wedbush added Salesforce (CRM) and ServiceNow (NOW) back to IVES AI 30, and noted that software sell-off is overdone."
-        },
-        {
-          "title": "HubSpot: Out Of Favor, But Staying Bullish",
-          "url": "https://seekingalpha.com/article/4864354-hubspot-out-of-favor-but-staying-bullish",
-          "date": "2026-01-30",
-          "body": "HubSpot has suffered a 65% stock decline amid AI disruption fears, despite maintaining strong growth and margins. HUBS trades at all-time low multiples (~4.3x forward revenue), with the market heavily discounting its growth profile and pricing in ..."
+          "title": "Dan Ives Calls AI-Driven Software Selloff 'Most Disconnected Trade,' Says Salesforce And ServiceNow Are Historic Buys",
+          "url": "https://www.msn.com/en-us/money/news/dan-ives-calls-ai-driven-software-selloff-most-disconnected-trade-says-salesforce-and-servicenow-are-historic-buys/ar-AA1WkRI5",
+          "date": "2026-02-14",
+          "body": "On Friday, Wedbush analyst Dan Ives said Wall Street is misreading the impact of artificial intelligence on enterprise software. AI Disruption Fears Spark Software Rout Speaking on CNBC's \"Closing Bell,"
         },
         {
           "title": "AI fear grips Wall Street as a new stock market reality sets in",
@@ -49,22 +37,28 @@
           "body": "AI startup Anthropic last week released new tools designed to automate work tasks, sparking fears that the innovations would doom businesses. In response, investors dumped a broad range of stocks."
         },
         {
-          "title": "US software stocks slump as AI disruption fears take over",
-          "url": "https://www.msn.com/en-us/news/technology/us-software-stocks-slump-as-ai-disruption-fears-take-over/ar-AA1Vgb2O",
-          "date": "2026-01-29",
-          "body": "By Shashwat Chauhan Jan 29 (Reuters) - U.S. software stocks fell on Thursday after SAP's underwhelming cloud outlook and a post-earnings slide in ServiceNow deepened concerns that traditional providers are being outpaced by artificial-intelligence players."
-        },
-        {
-          "title": "Why HubSpot Stock Rallied Today",
-          "url": "https://www.msn.com/en-us/money/topstocks/why-hubspot-stock-rallied-today/ar-AA1WeBhn",
+          "title": "HubSpot targets $3.7B revenue in 2026 as AI adoption accelerates and share repurchase signals confidence",
+          "url": "https://seekingalpha.com/news/4550823-hubspot-targets-3_7b-revenue-in-2026-as-ai-adoption-accelerates-and-share-repurchase-signals",
           "date": "2026-02-12",
-          "body": "After a tough 2025, the CRM specialist ended the year on a high note."
+          "body": "HubSpot Q4 2025 earnings call recap: revenue/margin growth, AI agents traction, $1B buyback, and 2026 guidance outlook\u2014read key takeaways now."
         },
         {
-          "title": "Software sell-off sparked by AI sets stage for potential big year of M&A, investors say",
-          "url": "https://www.cnbc.com/2026/01/22/selloff-in-software-from-ai-sets-stage-for-potential-big-year-of-ma.html",
-          "date": "2026-01-22",
-          "body": "While much of the tech sector has rallied due to the AI boom, software vendors have been laggards on concern that they'll eventually be displaced."
+          "title": "HubSpot targets $3.7B revenue in 2026 as AI adoption accelerates and share repurchase signals confidence",
+          "url": "https://www.msn.com/en-us/money/companies/hubspot-targets-3-7b-revenue-in-2026-as-ai-adoption-accelerates-and-share-repurchase-signals-confidence/ar-AA1WaLWA",
+          "date": "2026-02-12",
+          "body": "Q4 2025 Management View CEO Yamini Rangan reported \"a solid finish to 2025\" with Q4 revenue growth of 18.2% year-over-year in constant currency and full year revenue reaching $3.1 billion. Rangan highlighted that \"operating margin of 22."
+        },
+        {
+          "title": "US software stocks slammed on mounting fears over AI disruption, lose $1 trillion in week",
+          "url": "https://www.msn.com/en-gb/money/other/us-software-stocks-slammed-on-mounting-fears-over-ai-disruption-lose-1-trillion-in-week/ar-AA1VLHRy",
+          "date": "2026-02-05",
+          "body": "By Medha Singh and Saqib Iqbal Ahmed Feb 5 (Reuters) - Shares of U.S. software and data services companies extended their tumble for a seventh straight session on Thursday as investors worried that fast-advancing artificial intelligence tools could upend the sector."
+        },
+        {
+          "title": "AI Is Eating Software. Just Look at the Stock Market",
+          "url": "https://www.inc.com/phil-rosen/stock-market-outlook-ai-software-salesforce-nvidia-intuit-apple/91297747",
+          "date": "2026-02-05",
+          "body": "Wall Street has become so bullish on AI that it's made investors bearish on software. Legacy software names like Salesforce, ServiceNow, Intuit, LegalZoom and others tumbled on Wednesday, fueled both by fears of AI disruption and optimism on just how effective new AI tools have become."
         }
       ]
     },
@@ -73,28 +67,10 @@
       "icon": "\ud83d\udccb",
       "articles": [
         {
-          "title": "Software bear market: 2 AI stocks to buy before they soar 102% and 170%, according to Wall Street analysts",
-          "url": "https://www.msn.com/en-us/money/topstocks/software-bear-market-2-ai-stocks-to-buy-before-they-soar-102-and-170-according-to-wall-street-analysts/ar-AA1Vyskp",
-          "date": "2026-02-03",
-          "body": "Select Wall Street analysts think shares of Datadog and Atlassian are headed much higher in the next year."
-        },
-        {
-          "title": "$11.48 Bn Task Management Software Global Market Trends, Strategies, and Opportunities | Astute Analytica",
-          "url": "https://finance.yahoo.com/news/11-48-bn-task-management-105200751.html",
-          "date": "2026-01-28",
-          "body": "Chicago, Jan. 28, 2026 (GLOBE NEWSWIRE) -- According to recent data from Astute Analytica, the global task management software market was valued at US$ 4.11 billion in 2024 and is projected to hit the market valuation of US$ 11.48 billion by 2033 at a CAGR ..."
-        },
-        {
           "title": "Monday.com (MNDY) stock trades down, here is why",
-          "url": "https://www.msn.com/en-us/money/topstocks/mondaycom-mndy-stock-trades-down-here-is-why/ar-AA1W0icR",
+          "url": "https://www.msn.com/en-us/money/topstocks/monday-com-mndy-stock-trades-down-here-is-why/ar-AA1W0icR",
           "date": "2026-02-09",
           "body": "What Happened? Shares of work management platform monday.com (NASDAQ:MNDY) fell 21.4% in the morning session after the company reported fourth-quarter 2025 results that beat expectations but issued a weaker-than-expected financial outlook for 2026."
-        },
-        {
-          "title": "$11.48 Bn Task Management Software Global Market Trends, Strategies, And Opportunities Astute Analytica",
-          "url": "https://menafn.com/1110661459/1148-Bn-Task-Management-Software-Global-Market-Trends-Strategies-And-Opportunities-Astute-Analytica",
-          "date": "2026-01-28",
-          "body": "(MENAFN- GlobeNewsWire - Nasdaq) The global task management software market is experiencing rapid growth, driven by the need for remote/hybrid work tools and AI integration. Consequently, vendors emphasize AI-driven visibility, open APIs, and niche ..."
         }
       ]
     },
@@ -132,6 +108,12 @@
           "body": "Paycom (PAYC) saw its shares surge in the last session with trading volume being higher than average. The latest trend in earnings estimate revisions may not translate into further price increase in the near term."
         },
         {
+          "title": "Paylocity (PCTY) beats Q2 earnings and revenue estimates",
+          "url": "https://www.msn.com/en-us/money/economy/paylocity-pcty-beats-q2-earnings-and-revenue-estimates/ar-AA1VLNT4",
+          "date": "2026-02-05",
+          "body": "Paylocity (PCTY) came out with quarterly earnings of $1.85 per share, beating the Zacks Consensus Estimate of $1.57 per share. This compares to earnings of $1.52 per share a year ago. These figures are adjusted for non-recurring items."
+        },
+        {
           "title": "Paycom: Q4 Earnings Snapshot",
           "url": "https://www.stamfordadvocate.com/business/article/paycom-q4-earnings-snapshot-21348036.php",
           "date": "2026-02-11",
@@ -150,16 +132,28 @@
           "body": "Restaurant technology platform Toast (NYSE:TOST) will be announcing earnings results this Thursday after market close. Here's what you need to know."
         },
         {
-          "title": "Why Toast (TOST) Stock Is Trading Up Today",
-          "url": "https://finance.yahoo.com/news/why-toast-tost-stock-trading-202557301.html",
-          "date": "2026-02-13",
-          "body": "Shares of restaurant technology platform Toast (NYSE:TOST) jumped 7.5% in the afternoon session after the company reported fourth-quarter 2025 earnings that featured a significant beat on profitability,"
+          "title": "Toast, Inc. (TOST) is attracting investor attention: Here is what you should know",
+          "url": "https://www.msn.com/en-us/money/top-stocks/toast-inc-tost-is-attracting-investor-attention-here-is-what-you-should-know/ar-AA1WFWnG",
+          "date": "2026-02-19",
+          "body": "Toast (TOST) has recently been on Zacks.com's list of the most searched stocks. Therefore, you might want to consider some of the key factors that could influence the stock's performance in the near future."
         },
         {
-          "title": "Toast's (NYSE:TOST) Q4 CY2025 sales beat estimates but stock drops",
-          "url": "https://www.msn.com/en-us/money/topstocks/toast-s-nysetost-q4-cy2025-sales-beat-estimates-but-stock-drops/ar-AA1WeKGZ",
+          "title": "Toast's (NYSE:TOST) Q4 CY2025 Sales Beat Estimates But Stock Drops",
+          "url": "https://finance.yahoo.com/news/toast-nyse-tost-q4-cy2025-213524957.html",
           "date": "2026-02-12",
-          "body": "Restaurant technology platform Toast (NYSE:TOST) reported Q4 CY2025 results , with sales up 22% year on year to $1.63 billion. Its GAAP profit of $0.16 per share was 33.1% above analysts' consensus estimates."
+          "body": "Restaurant technology platform Toast (NYSE:TOST) reported Q4 CY2025 results exceeding the market's revenue expectations, with sales up 22% year on year to $1.63 billion. Its GAAP profit of $0.16 per share was 33."
+        },
+        {
+          "title": "Toast: A Good House In A Bad Neighborhood",
+          "url": "https://seekingalpha.com/article/4870753-toast-a-good-house-in-a-bad-neighborhood",
+          "date": "2026-02-17",
+          "body": "Toast delivered strong FY25 results with 24% revenue growth and significant GAAP profitability. Read why I maintain a Buy rating for TOST stock."
+        },
+        {
+          "title": "Why Toast (TOST) stock is trading up today",
+          "url": "https://www.msn.com/en-us/money/technology/why-toast-tost-stock-is-trading-up-today/ar-AA1Wj82U",
+          "date": "2026-02-13",
+          "body": "What Happened? Shares of restaurant technology platform Toast (NYSE:TOST) jumped 7.5% in the afternoon session after the company reported fourth-quarter 2025 earnings that featured a significant beat on profitability,"
         },
         {
           "title": "Toast Is Not A Horse: Why This SaaS Stock Could Outrun The AI Panic",
@@ -174,50 +168,32 @@
           "body": "Analysts have set 12-month price targets for Toast, revealing an average target of $42.0, a high estimate of $50.00, and a low estimate of $35.00. Highlighting a 13.93% decrease, the current average has fallen from the previous average price target of $48.80."
         },
         {
-          "title": "Toast (TOST) Reports Q4 Earnings: What Key Metrics Have to Say",
-          "url": "https://www.msn.com/en-us/money/topstocks/toast-tost-reports-q4-earnings-what-key-metrics-have-to-say/ar-AA1WfulE",
-          "date": "2026-02-13",
-          "body": "Toast (TOST) reported $1.63 billion in revenue for the quarter ended December 2025, representing a year-over-year increase of 22.1%. EPS of $0.23 for the same period compares to $0.05 a year ago. The reported revenue compares to the Zacks Consensus Estimate of $1."
-        },
-        {
-          "title": "Toast shares drop as Q4 earnings miss overshadows revenue beat",
-          "url": "https://za.investing.com/news/earnings/toast-shares-drop-as-q4-earnings-miss-overshadows-revenue-beat-93CH-4112987",
-          "date": "2026-02-12",
-          "body": "Investing.com -- Toast Inc. (NYSE:TOST) shares fell 6% in after-hours trading Thursday after the restaurant technology provider reported fourth-quarter earnings that fell short of analyst expectations, despite posting better-than-expected revenue and strong location growth."
-        },
-        {
           "title": "A Look At Toast (TOST) Valuation After AI-Linked Tech Sell Off And Analyst Reassessments",
           "url": "https://uk.finance.yahoo.com/news/look-toast-tost-valuation-ai-180630971.html",
           "date": "2026-02-07",
           "body": "Why Toast's recent volatility is drawing fresh investor attention Toast (TOST) has been back in focus after a sharp sector wide tech sell off linked to artificial intelligence fears, with the stock dropping 9."
         },
         {
-          "title": "Toast faces earnings test as growth push meets margin concerns",
-          "url": "https://www.investing.com/news/earnings/toast-faces-earnings-test-as-growth-push-meets-margin-concerns-93CH-4503360",
-          "date": "2026-02-12",
-          "body": "Second, recurring gross profit trends matter. Analysts expect Toast to beat the top end of its prior guidance range of $490 million, but some warn the metric could decline sequentially for the first time due to summer spending comparisons. Any softness would raise questions about pricing power versu"
-        },
-        {
-          "title": "Why Toast Stock Is Falling After PayPal Earnings",
-          "url": "https://www.benzinga.com/trading-ideas/movers/26/02/50345797/why-toast-stock-is-falling-after-paypal-earnings",
-          "date": "2026-02-03",
-          "body": "Toast shares are sliding Tuesday after PayPal posted weaker-than-expected fourth-quarter results and withdrew its long-term financial targets."
-        },
-        {
-          "title": "Toast, Inc. (TOST) Price Target Cut at DA Davidson as Growth Expected to Normalize",
-          "url": "https://www.msn.com/en-us/money/companies/toast-inc-tost-price-target-cut-at-da-davidson-as-growth-expected-to-normalize/ar-AA1VTld3",
-          "date": "2026-02-07",
-          "body": "We recently published an article titled 13 High Growth Cloud Stocks to Buy. On February 2, DA Davidson analyst Peter Heckmann lowered the firm's price target on Toast, Inc. (NYSE:TOST) to $36 from $42 while maintaining a Neutral rating ahead of the company's fourth-quarter results."
-        },
-        {
-          "title": "Toast boosts buybacks after strong 2025 results",
-          "url": "https://www.theglobeandmail.com/investing/markets/stocks/TOST/pressreleases/216297/toast-boosts-buybacks-after-strong-2025-results/",
+          "title": "Toast (TOST) Reports Q4 Earnings: What Key Metrics Have to Say",
+          "url": "https://www.msn.com/en-us/money/topstocks/toast-tost-reports-q4-earnings-what-key-metrics-have-to-say/ar-AA1WfulE",
           "date": "2026-02-13",
-          "body": "Toast on Feb. 12, 2026 reported strong fourth-quarter and full-year 2025 results, highlighted by a record 30,000 net new locations in 2025 and annualized recurring run-rate surpassing $2.0 billion. Revenue drivers included a 22% year-over-year increase in total locations to about 164,"
+          "body": "Toast (TOST) reported $1.63 billion in revenue for the quarter ended December 2025, representing a year-over-year increase of 22.1%. EPS of $0.23 for the same period compares to $0.05 a year ago. The reported revenue compares to the Zacks Consensus Estimate of $1."
+        },
+        {
+          "title": "Analysts Offer Insights on Technology Companies: Toast Inc (TOST) and Box (BOX)",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/TOST/pressreleases/270221/analysts-offer-insights-on-technology-companies-toast-inc-tost-and-box-box/",
+          "date": "2026-02-17",
+          "body": "Companies in the Technology sector have received a lot of coverage today as analysts weigh in on Toast Inc ( TOST - Research Report) and Box ( BOX - Research Report ). RBC Capital analyst Daniel Perlin maintained a Hold rating on Toast Inc on February 13 and set a price target of $31.00. The company"
+        },
+        {
+          "title": "Block: The Bitcoin Facade Hiding A Double-Digit Core Growth Story",
+          "url": "https://seekingalpha.com/article/4872492-block-the-bitcoin-facade-hiding-a-double-digit-core-growth-story",
+          "date": "2026-02-19",
+          "body": "Block, Inc. is rated a Buy, as its core Square and Cash App businesses deliver double-digit growth and improving profitability. Read more on XYZ stock here."
         },
         {
           "title": "Block Job Cuts And Business Overhaul Contrast With Undervalued Share Price",
-          "url": "https://finance.yahoo.com/news/block-job-cuts-business-overhaul-200530640.html",
+          "url": "https://uk.finance.yahoo.com/news/block-job-cuts-business-overhaul-200530640.html",
           "date": "2026-02-08",
           "body": "Block, Inc. (NYSE:XYZ) is reportedly preparing workforce reductions of up to 10%. The cuts are expected to affect hundreds of employees across Cash App and Square. The reported reductions are part of a broader overhaul of Block's business operations."
         },
@@ -228,46 +204,45 @@
           "body": "Lightspeed Commerce Inc. (LSPD) came out with quarterly earnings of $0.15 per share, beating the Zacks Consensus Estimate of $0.12 per share. This compares to earnings of $0.12 per share a year ago. These figures are adjusted for non-recurring items."
         },
         {
-          "title": "Lightspeed Commerce Inc (LSPD) Q3 2026 Earnings Call Highlights: Strong Revenue Growth and ...",
-          "url": "https://finance.yahoo.com/news/lightspeed-commerce-inc-lspd-q3-190302949.html",
+          "title": "Lightspeed (LSPD) Q3 2026 Earnings Call Transcript",
+          "url": "https://finance.yahoo.com/news/lightspeed-lspd-q3-2026-earnings-143950765.html?fr=sycsrp_catchall",
           "date": "2026-02-05",
-          "body": "Lightspeed Commerce Inc (LSPD) reports an 11% revenue increase and maintains positive free cash flow, driven by growth in North American retail and European hospitality sectors."
+          "body": "After prepared remarks from Dax and Asha, we will open it up for your questions. At our Capital Markets Day, we set three clear priorities to drive long-term value at Lightspeed Commerce Inc.: one, growing customer locations in our growth engines;"
+        },
+        {
+          "title": "Lightspeed POS (LSPD) Reports Q3 Earnings: What Key Metrics Have to Say",
+          "url": "https://www.nasdaq.com/articles/lightspeed-pos-lspd-reports-q3-earnings-what-key-metrics-have-say",
+          "date": "2026-02-05",
+          "body": "For the quarter ended December 2025, Lightspeed Commerce Inc. (LSPD) reported revenue of $312.35 million, up 11.5% over the same period last year. EPS came in at $0.15, compared to $0.12 in the year-ago quarter. The reported revenue compares to the Zacks ..."
         }
       ]
     },
     "hotel": {
       "name": "Hotel PMS",
       "icon": "\ud83c\udfe8",
-      "articles": [
-        {
-          "title": "Mews raises \u20ac255M to accelerate AI and automation in hospitality",
-          "url": "https://thenextweb.com/news/mews-raises-e255m-to-accelerate-ai-and-automation-in-hospitality",
-          "date": "2026-01-24",
-          "body": "Amsterdam-based hospitality tech platform Mews has raised \u20ac255 million (about $300 million) in a Series D funding round as it pushes deeper into automation and AI-powered workflows for hotels around the world. The round was led by EQT Growth with new ..."
-        },
-        {
-          "title": "Mews Secures $300 million Investment to Cement Position as World's Leading Hospitality Operating Sys",
-          "url": "https://www.breakingtravelnews.com/news/article/mews-secures-300-million-investment-to-cement-position-as-worlds-leading-ho/",
-          "date": "2026-01-23",
-          "body": "Mews, the operating system for hospitality, today announced it has raised $300 million in a Series D funding round led by EQT Growth, with new investors Atomico and HarbourVest Partners, and participation from existing investors Kinnevik, Battery Ventures ..."
-        },
-        {
-          "title": "Mews Secures $300 million Investment to Cement Position as World's Leading Hospitality Operating System",
-          "url": "https://www.morningstar.com/news/pr-newswire/20260122ph68875/mews-secures-300-million-investment-to-cement-position-as-worlds-leading-hospitality-operating-system",
-          "date": "2026-01-22",
-          "body": "EQT Growth leads Series D funding round to accelerate the AI-native future of hotels globally, with participation from new investors Atomico and HarbourVest Investment values Mews at $2.5 billion Mews' Platform Transaction Volume reached $19.7 billion in ..."
-        }
-      ]
+      "articles": []
     },
     "document": {
       "name": "Document & E-Sign",
       "icon": "\ud83d\udcc4",
       "articles": [
         {
-          "title": "DocuSign (DOCU) dips more than broader market: What you should know",
-          "url": "https://www.msn.com/en-us/money/technology/docusign-docu-dips-more-than-broader-market-what-you-should-know/ar-AA1WakVK",
+          "title": "DocuSign (DOCU) suffers a larger drop than the general market: Key insights",
+          "url": "https://www.msn.com/en-us/money/technology/docusign-docu-suffers-a-larger-drop-than-the-general-market-key-insights/ar-AA1WHwfo",
+          "date": "2026-02-19",
+          "body": "DocuSign (DOCU) ended the recent trading session at $44.13, demonstrating a -1.54% change from the preceding day's closing price. This move lagged the S&P 500's daily loss of 0.28%. Elsewhere, the Dow lost 0."
+        },
+        {
+          "title": "DocuSign (DOCU) Dips More Than Broader Market: What You Should Know",
+          "url": "https://www.msn.com/en-us/money/savingandinvesting/docusign-docu-dips-more-than-broader-market-what-you-should-know/ar-AA1WakVK",
           "date": "2026-02-11",
           "body": "DocuSign (DOCU) closed the most recent trading day at $44.34, moving -6.89% from the previous trading session. This change lagged the S&P 500's 0.01% loss on the day. Elsewhere, the Dow lost 0.13%, while the tech-heavy Nasdaq lost 0."
+        },
+        {
+          "title": "2DOCU : Deep Dive Into Docusign Stock: Analyst Perspectives (12 Ratings)",
+          "url": "https://www.benzinga.com/insights/analyst-ratings/26/02/50700767/deep-dive-into-docusign-stock-analyst-perspectives-12-ratings",
+          "date": "2026-02-18",
+          "body": "The 12-month price targets, analyzed by analysts, offer insights with an average target of $78.17, a high estimate of $95.00, and a low estimate of $70.00. A negative shift in sentiment is evident as analysts have decreased the average price target by 12.88%."
         }
       ]
     },
@@ -276,16 +251,16 @@
       "icon": "\ud83d\uded2",
       "articles": [
         {
-          "title": "Shopify (SHOP) Shares Dip After Q4 Results, Analysts Cite Enterprise Growth and AI-Powered Commerce",
-          "url": "https://www.insidermonkey.com/blog/shopify-shop-shares-dip-after-q4-results-analysts-cite-enterprise-growth-and-ai-powered-commerce-1696214/",
-          "date": "2026-02-15",
-          "body": "Shopify Inc. (NASDAQ:SHOP) ranks among the best innovative stocks to buy according to Wall Street analysts. On February 11, Stifel lowered its price target for Shopify Inc."
+          "title": "This Shopify Analyst Turns Bullish On 'Best Profitable Growth'",
+          "url": "https://www.msn.com/en-us/money/news/this-shopify-analyst-turns-bullish-on-best-profitable-growth/ar-AA1WwY2Z",
+          "date": "2026-02-17",
+          "body": "Significant pressure on AI-related software stocks has made Shopify Inc SHOP an \"attractive\" buying opportunity, according to Truist Securities. The Analyst: Analyst Terry Tillman upgraded the rating from Hold to Buy and raised the price target from $110 to $150."
         },
         {
-          "title": "6SHOP : Deep Dive Into Shopify Stock: Analyst Perspectives (4 Ratings)",
-          "url": "https://www.benzinga.com/insights/analyst-ratings/26/02/50525736/deep-dive-into-shopify-stock-analyst-perspectives-4-ratings",
-          "date": "2026-02-10",
-          "body": "Shopify (NASDAQ:SHOP) during the recent three months, expressing a mix of bullish and bearish perspectives. In the table below, you'll find a summary of their recent ratings, revealing the shifting sentiments over the past 30 days and comparing them to the previous months."
+          "title": "This analyst just upgraded Shopify",
+          "url": "https://www.cantechletter.com/2026/02/this-analyst-just-upgraded-shopify/",
+          "date": "2026-02-11",
+          "body": "ATB Capital Markets analyst Martin Toner upgraded Shopify to \"Outperform\" from \"Sector Perform\" on Feb. 10, maintaining his C$250.00 price target"
         },
         {
           "title": "\u200bShopify Inc. (SHOP) Among Most Profitable SaaS Companies for 2026",
@@ -294,29 +269,30 @@
           "body": "\u200bShopify Inc. (NASDAQ:SHOP) is one of the Profitable SaaS Companies for 2026. The company recently reported robust fiscal Q4 2025 results. Shopify Inc. (NASDAQ:SHOP) grew its quarterly revenue by 31% year-over-year to $3."
         },
         {
+          "title": "6SHOP : Deep Dive Into Shopify Stock: Analyst Perspectives (4 Ratings)",
+          "url": "https://www.benzinga.com/insights/analyst-ratings/26/02/50525736/deep-dive-into-shopify-stock-analyst-perspectives-4-ratings",
+          "date": "2026-02-10",
+          "body": "Shopify (NASDAQ:SHOP) during the recent three months, expressing a mix of bullish and bearish perspectives. In the table below, you'll find a summary of their recent ratings, revealing the shifting sentiments over the past 30 days and comparing them to the previous months."
+        },
+        {
           "title": "Shopify (SHOP) shares skyrocket, what you need to know",
           "url": "https://www.msn.com/en-us/money/markets/shopify-shop-shares-skyrocket-what-you-need-to-know/ar-AA1W0z6g",
           "date": "2026-02-09",
           "body": "What Happened? Shares of e-commerce platform Shopify (NYSE:SHOP) jumped 7.1% in the afternoon session after sentiment improved following positive analyst commentary ahead of its fourth-quarter 2025 results."
-        },
-        {
-          "title": "Shopify Shares Sink Despite Strong AI-Powered Growth. Should Investors Buy the Stock on the Dip?",
-          "url": "https://www.msn.com/en-us/money/other/shopify-shares-sink-despite-strong-ai-powered-growth-should-investors-buy-the-stock-on-the-dip/ar-AA1Wnd3X",
-          "date": "2026-02-15",
-          "body": "Shopify is performing well but has been caught in the SaaS sell-off."
-        },
-        {
-          "title": "This analyst just upgraded Shopify",
-          "url": "https://www.cantechletter.com/2026/02/this-analyst-just-upgraded-shopify/",
-          "date": "2026-02-11",
-          "body": "ATB Capital Markets analyst Martin Toner upgraded Shopify to \"Outperform\" from \"Sector Perform\" on Feb. 10, maintaining his C$250.00 price target"
         }
       ]
     },
     "consolidators": {
       "name": "SaaS Software Consolidators",
       "icon": "\ud83c\udfe2",
-      "articles": []
+      "articles": [
+        {
+          "title": "Is Constellation Software (TSX:CSU) Now Attractive After Recent Share Price Volatility",
+          "url": "https://finance.yahoo.com/news/constellation-software-tsx-csu-now-071111836.html",
+          "date": "2026-02-11",
+          "body": "If you are wondering whether Constellation Software at about C$2,440 per share is still a quality business at a fair price, you are not alone. This article is built to help you frame that question clearly."
+        }
+      ]
     }
   }
 }

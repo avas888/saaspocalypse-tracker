@@ -6,7 +6,7 @@ Searches the web (DuckDuckGo) for analyst and market news on each SMB SaaS secto
 No API key required — uses duckduckgo-search (web scraping). Run proactively:
   npm run fetch:sector-news
 
-Filters: Only value/valuation/stock news; no articles older than 30 days.
+Filters: Only value/valuation/stock news; no articles older than 15 days.
 Output: data/sector_news.json — feeds the "Relevant Sector News" tab.
 """
 
@@ -108,14 +108,14 @@ def _parse_date(s: str) -> str:
     return s[:10] if s else ""
 
 
-def _is_within_month(date_str: str) -> bool:
-    """Return True if date is within the last 30 days. Drops articles with missing/unparseable dates."""
+def _is_within_window(date_str: str) -> bool:
+    """Return True if date is within the last 15 days. Drops articles with missing/unparseable dates."""
     parsed = _parse_date(date_str)
     if not parsed or len(parsed) < 10:
         return False
     try:
         article_date = datetime.strptime(parsed[:10], "%Y-%m-%d").date()
-        cutoff = (datetime.now() - timedelta(days=30)).date()
+        cutoff = (datetime.now() - timedelta(days=15)).date()
         return article_date >= cutoff
     except ValueError:
         return False
@@ -146,8 +146,8 @@ def fetch_sector_news():
             all_articles.extend(articles)
             time.sleep(1)  # Be nice to DuckDuckGo
 
-        # CRITICAL: Filter to only value/valuation/stock-performance news, max 30 days old
-        qualified = [a for a in all_articles if _qualifies(a) and _is_within_month(a.get("date", ""))]
+        # CRITICAL: Filter to only value/valuation/stock-performance news, max 15 days old
+        qualified = [a for a in all_articles if _qualifies(a) and _is_within_window(a.get("date", ""))]
         unique = _dedupe_by_url(qualified)[:MAX_PER_SECTOR]
 
         result["sectors"][sector_id] = {
