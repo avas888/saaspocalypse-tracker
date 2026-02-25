@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-23T13:48:13.897256",
+  "fetched_at": "2026-02-25T10:57:18.455515",
   "description": "Health indicators for private SMB SaaS companies. Run periodically: npm run fetch:private",
   "companies": {
     "Pipedrive": [
@@ -8,14 +8,6 @@
         "summary": "20VC x SaaStr: SpaceX at $1.25 Trillion, SaaS Stocks Down 40%, and the Week We Connected a Million AI Agents \u2026 Sort Of",
         "source": "Saastr.com",
         "url": "https://www.saastr.com/20vc-x-saastr-spacex-at-1-25-trillion-saas-stocks-down-40-and-the-week-we-connected-a-million-ai-agents-sort-of/"
-      }
-    ],
-    "Zoho CRM": [
-      {
-        "date": "2026-02-11",
-        "summary": "Former Founders Fund VC Sam Blond launches AI sales startup to upend Salesforce\u00a0 | TechCrunch",
-        "source": "TechCrunch",
-        "url": "https://techcrunch.com/2026/02/11/former-founders-fund-vc-sam-blond-launches-ai-sales-startup-to-upend-salesforce/"
       }
     ],
     "ClickUp": [
@@ -34,14 +26,6 @@
         "url": "https://financialpost.com/globe-newswire/freshbooks-2025-state-of-u-s-small-business-confidence-holds-steady-despite-rising-costs-tariffs-and-customer-challenge"
       }
     ],
-    "Zoho Books": [
-      {
-        "date": "2026-02-11",
-        "summary": "Former Founders Fund VC Sam Blond launches AI sales startup to upend Salesforce\u00a0 | TechCrunch",
-        "source": "TechCrunch",
-        "url": "https://techcrunch.com/2026/02/11/former-founders-fund-vc-sam-blond-launches-ai-sales-startup-to-upend-salesforce/"
-      }
-    ],
     "Gusto": [
       {
         "date": "2026-02-19",
@@ -54,6 +38,14 @@
         "summary": "Astros trade Jesus Sanchez to Blue Jays to reunite with Joey Loperfido",
         "source": "New York Post",
         "url": "https://nypost.com/2026/02/13/sports/astros-trade-jesus-sanchez-to-blue-jays-to-reunite-with-joey-loperfido/"
+      }
+    ],
+    "Deel": [
+      {
+        "date": "2026-02-23",
+        "summary": "Temporal, ZaiNar, Jump and Sphinx Power the Next Enterprise AI Stack",
+        "source": "pymnts.com",
+        "url": "https://www.pymnts.com/artificial-intelligence-2/2026/temporal-zainar-jump-and-sphinx-power-the-next-enterprise-ai-stack/"
       }
     ],
     "SpotOn": [

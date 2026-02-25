@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-02-23T13:47:06.132528",
+  "fetched_at": "2026-02-25T10:56:48.119210",
   "zero_date": "2026-02-03",
   "description": "LTM high % from 2026-02-03 baseline. Run `npm run fetch:ltm` to refresh.",
   "tickers": {
@@ -251,20 +251,20 @@
       "zero_price": 1.31,
       "ltm_high_pct": 259.54
     },
-    "SQSP": {
-      "name": "Squarespace",
-      "sector": "ecommerce",
-      "high_price": 46.57,
-      "high_date": "2026-02-11",
-      "zero_price": 46.57,
-      "ltm_high_pct": 0.0
-    },
     "SMAR": {
       "name": "Smartsheet",
       "sector": "project",
       "high_price": 56.47,
       "high_date": "2026-02-11",
       "zero_price": 56.47,
+      "ltm_high_pct": 0.0
+    },
+    "SQSP": {
+      "name": "Squarespace",
+      "sector": "ecommerce",
+      "high_price": 46.57,
+      "high_date": "2026-02-11",
+      "zero_price": 46.57,
       "ltm_high_pct": 0.0
     }
   },
